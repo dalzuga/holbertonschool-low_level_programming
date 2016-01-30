@@ -14,6 +14,6 @@ main:                           ; standard gcc entry point
         mov     eax, 4          ; system call number (sys_write)
         int     0x80            ; interrupt 80 hex, call kernel
 
-        mov     ebx, 98         ; exit code, 0=normal
+        mov     ebx, 0         ; exit code, 0=normal
         mov     eax, 1          ; system call number (sys_exit)
         int     0x80            ; interrupt 80 hex, call kernel
