@@ -1,22 +1,28 @@
-#include <stdio.h>
+#include <unistd.h>
 
 int print_char(char c);
 void print_z(void);
 void print_alphabet(void);
 
-void print_z(void)
+int print_char(char c)
 {
-  puts("z");
+  return (write(1, &c, 1));
 }
 
+void print_z(void)
+{
+  print_char('z');
+  print_char('\n');
+}
+
+/*
+void print_alphabet(void)
 int i;
 
-void print_alphabet(void)
 {
   for (i=0;i<26;i++)
     {
-      printf("%c", i+97);
+      print_char((char (i+97)));
     }
-
-  puts("");
-}
+  print_char("\n");
+} */
