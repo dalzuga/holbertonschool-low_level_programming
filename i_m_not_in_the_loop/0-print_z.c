@@ -1,9 +1,8 @@
 #include "my_functions.h"
+#include <stdio.h>
 
-void print_z(void);
-
-int main(void)
+void print_z(void)
 {
-  print_z();
-  return (0);
+  print_char('z');
+  print_char('\n');
 }

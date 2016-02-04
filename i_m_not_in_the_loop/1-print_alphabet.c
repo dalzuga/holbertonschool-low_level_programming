@@ -1,9 +1,12 @@
 #include "my_functions.h"
 
-void print_alphabet(void);
-
-int main(void)
+void print_alphabet(void)
 {
-  print_alphabet();
-  return (0);
+  int i;
+
+  for (i=0;i<26;i++)
+    {
+      print_char(((char) i)+97);
+    }
+  print_char('\n');
 }
