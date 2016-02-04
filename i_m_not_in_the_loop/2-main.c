@@ -1,6 +1,7 @@
-#include "my_functions.c"
+#include "my_functions.h"
 
 int main(void)
 {
-  /*  your function call here */
+  print_tebahpla();
+  return 0;
 }
