@@ -27,9 +27,11 @@ void print_number(int n)
       print_char(a);
       print_char(b);
     }
-}
 
-for (i=1;i<b;i++)
-  {
-    
-  }
+  print_char('\n');
+
+  for (i=1;i<((int)(b-39));i++)
+    {
+      print_char(b);
+    }
+}
