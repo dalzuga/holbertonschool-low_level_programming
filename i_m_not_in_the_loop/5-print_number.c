@@ -3,6 +3,7 @@
 void print_number(int n)
 {
   int i=1;
+  int j=1;
   int x=10;
 
   char a='0',b;
@@ -16,6 +17,7 @@ void print_number(int n)
   if (i<10)
     {
     b = (char) (i+48);
+    j = 0;
     print_char(b);
     }
   else
@@ -26,3 +28,8 @@ void print_number(int n)
       print_char(b);
     }
 }
+
+for (i=1;i<b;i++)
+  {
+    
+  }
