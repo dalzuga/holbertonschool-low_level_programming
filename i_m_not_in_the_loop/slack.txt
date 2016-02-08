@@ -15,9 +15,9 @@ p4-3:i_m_not_in_the_loop 49$ ./a.out
 -2147483647 4
 
 // first integer is asked from the user
-// the same integer is printed, using printf("%d %d\n", x, sizeof(int));
-// this indicates that the signed positive length is really 2^31, as the sign occupies the extra bit, and it seems to wrap around so that 2^32 starts descending all the way to -1
-// tested on Mac.
+// the same integer is printed, using printf("%d %d\n", x, (int) sizeof(int));
+// this indicates that the signed positive length is really 2^31-1, as the sign occupies the extra bit, and 0 takes up one number, and it seems to wrap around so that 2^32 starts descending all the way to -1
+// tested on ubuntu with gcc
 
 
 ---
