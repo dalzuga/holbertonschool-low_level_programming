@@ -7,7 +7,7 @@ int main(void)
   while (1)
     {
       scanf("%d", &x);
-      printf("%d %d\n", x, sizeof(int));
+      printf("%d %d\n", x, (int) sizeof(int));
     }
   
   return 0;
