@@ -19,6 +19,7 @@ void print_number(int n)
   if (x<n) /* handles special case where n is 10 digits long */
     {
       x=2147483647;
+      a=49;
       i++;
     }
 
@@ -30,7 +31,7 @@ void print_number(int n)
 
   else /* not applicable for this task, but allows for integers that are longer than 32-bit */
     {
-      a=49; /* aka '1' */
+      a=49; /* aka '1' - redundant line */
       print_char(a); /* prints '1' */
       print_char((char) (i+38)); /* prints second digit */
     }
@@ -39,7 +40,6 @@ void print_number(int n)
 
   for (;i>1;i--)
     {
-
       /*      print_char((char) b);*/
     }
 }
