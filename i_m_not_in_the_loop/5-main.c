@@ -13,6 +13,8 @@ int main(void)
   print_number(-98);
   print_char('\n'); */
 
+  print_number(0);
+  print_char('\n');
   print_number(1);
   print_char('\n');
   print_number(9);

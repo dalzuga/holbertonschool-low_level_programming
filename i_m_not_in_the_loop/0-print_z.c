@@ -2,6 +2,6 @@
 
 void print_z(void)
 {
-  print_char('z');
-  print_char('\n');
+  print_char('z'); // prints the character z
+  print_char('\n'); // makes a new line
 }
