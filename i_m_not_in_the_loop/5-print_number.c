@@ -3,8 +3,8 @@
 void print_number(int n)
 {
   int x=10;
-
-  char a=48,b=48; /* not applicable for this task */
+  int i=1;
+  char a=48,b=48; /* char a not applicable for this task */
   
   print_char(a);
   print_char(b);
