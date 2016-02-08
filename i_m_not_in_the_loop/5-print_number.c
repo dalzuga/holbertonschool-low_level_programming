@@ -3,34 +3,41 @@
 void print_number(int n)
 {
   int i=1;
-  int j=1;
+  int j=0;
   int x=10;
 
-  char a='0',b;
+  char a='0',b; // b not applicable for this task
   
-  while (x<n)
+  while (x<n && i<10)
     {
       x=x*10;
       i++;
     }
 
+  if (x<n) // handles special case where number is 10 digits long
+    {
+      x=2147483647;
+      i++;
+    }
+
   if (i<10)
     {
-    b = (char) (i+48);
-    j = 0;
-    print_char(b);
-    }
-  else
-    {
-      a=(char) 49;
-      b=(char) (i+38);
-      print_char(a);
+      b = (char) (i+48);
+      j = 0;
       print_char(b);
+    }
+  else // not applicable for this task, but allows for integers that are longer than 32-bit
+    {
+      a=49;
+      b=i;
+      print_char((char) 49);
+      print_char((char) (i+38));
+      j=1;
     }
 
   print_char('\n');
 
-  for (i=1;i<((int)(b-39));i++)
+  for (;i>1;i--)
     {
       print_char(b);
     }
