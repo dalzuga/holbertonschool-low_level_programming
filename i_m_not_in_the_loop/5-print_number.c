@@ -2,9 +2,9 @@
 
 void print_number(int n)
 {
-  int x=10;
   int i=1;
-  char a=48,b=48; /* char a not applicable for this task */
+  int x=10;
+  char a=48,b=48; /* char a not applicable for this task. 48 = '1' */
   
   print_char(a);
   print_char(b);
@@ -25,9 +25,9 @@ void print_number(int n)
       b=(char)(i+48);
   else /* not applicable for this task, but allows for integers that are longer than 32-bit */
     {
-      a=49; // aka '1'
-      print_char(a); // prints '1'
-      print_char((char) (i+38)); // prints second digit
+      a=49; /* aka '1' */
+      print_char(a); /* prints '1' */
+      print_char((char) (i+38)); /* prints second digit */
     }
 
   print_char('\n');
