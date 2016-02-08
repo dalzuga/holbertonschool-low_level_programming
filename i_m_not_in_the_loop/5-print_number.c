@@ -3,11 +3,12 @@
 void print_number(int n)
 {
   int i=1;
-  int x=10;
-  char a=48,b=48; /* char a not applicable for this task. 48 = '1' */
+  int x=1;
+  char a=48,b=48; /* char a not applicable for this task. 48 = '0' */
   
   print_char(a);
   print_char(b);
+  print_char('\n');  
 
   while (x<n && i<10)
     {
@@ -22,7 +23,11 @@ void print_number(int n)
     }
 
   if (i<10)
-      b=(char)(i+48);
+    {
+      b=b+i;
+      print_char(b);
+    }
+
   else /* not applicable for this task, but allows for integers that are longer than 32-bit */
     {
       a=49; /* aka '1' */
@@ -34,6 +39,7 @@ void print_number(int n)
 
   for (;i>1;i--)
     {
-      print_char((char) b);
+
+      /*      print_char((char) b);*/
     }
 }
