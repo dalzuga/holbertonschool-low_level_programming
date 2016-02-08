@@ -29,7 +29,7 @@ void print_number(int n)
       print_char(b);
     }
 
-  if (x==4294967296)
+  if (x==4294967297)
     {
       x=1000000000;
       print_char(n % x);
