@@ -1,0 +1,26 @@
+p4-3:i_m_not_in_the_loop 49$ ./a.out
+1410065407
+1410065407 4
+1410065408
+1410065408 4
+1410065409
+1410065409 4
+4000000000
+-294967296 4
+2147483648
+-2147483648 4
+2147483647
+2147483647 4
+2147483649
+-2147483647 4
+
+// first integer is asked from the user
+// the same integer is printed, using printf("%d %d\n", x, sizeof(int));
+// this indicates that the signed positive length is really 2^31, as the sign occupies the extra bit, and it seems to wrap around so that 2^32 starts descending all the way to -1
+// tested on Mac.
+
+
+---
+
+Thanks @gilles ! I was able to use sizeof int to help me out. Right now the specification we’re working with simply requires us to identify the bounds of a “regular” int. (by “regular", I speak loosely, but we are constrained to Ubuntu 12.04 x86_64 and the latest gcc).
+@ju: Well, if it doesn’t prove it, this will:
