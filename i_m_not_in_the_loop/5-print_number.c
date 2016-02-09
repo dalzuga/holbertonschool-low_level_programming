@@ -2,13 +2,11 @@
 
 void print_number(int n)
 {
-  int aux1;
-  if (n<0)
-    print_char('-');
+  int aux1, i, count, x;
+  if (n<0) print_char('-');
   if (n==-2147483648) { print_char(50); n=-147483648; }
-  if (n<0)
-    n=-n;
-  int i,count=count_digits(n),x=1;
+  if (n<0) n=-n;
+  count=count_digits(n); x=1;
   for (i=1;i<count;i++)
     x=x*10;
   print_char((n/x)+48);

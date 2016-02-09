@@ -8,5 +8,4 @@ void print_tebahpla(void)
     {
       print_char(((char) i)+96);
     }
-  print_char('\n');
 }

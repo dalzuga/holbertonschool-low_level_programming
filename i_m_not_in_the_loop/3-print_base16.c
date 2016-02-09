@@ -11,5 +11,4 @@ void print_base16(void)
       else
 	print_char(((char) i)+55);
     }
-  print_char('\n');
 }

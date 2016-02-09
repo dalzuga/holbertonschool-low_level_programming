@@ -6,7 +6,7 @@ int count_digits(int n)
 
   if (n==0)
     return 1;
-  else if (n>=1000000000) // modify this to suit other than 32-bit environments
+  else if (n>=1000000000) /* modify this to suit other than 32-bit */
     return 10;
   while (x<=n)
     {

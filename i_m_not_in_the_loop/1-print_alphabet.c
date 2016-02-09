@@ -8,5 +8,4 @@ void print_alphabet(void)
     {
       print_char(((char) i)+97);
     }
-  print_char('\n');
 }
