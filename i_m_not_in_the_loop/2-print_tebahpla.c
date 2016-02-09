@@ -8,5 +8,4 @@ void print_tebahpla(void)
     {
       print_char(((char) i)+96); // add 97 to match ASCII code for the integer
     }
-  print_char('\n');
 }

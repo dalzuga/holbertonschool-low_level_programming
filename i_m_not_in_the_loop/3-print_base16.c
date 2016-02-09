@@ -11,5 +11,8 @@ void print_base16(void)
       else // once the numbers are greater than 9
 	print_char(((char) i)+55); // start printing A through F by matching the ASCII code
     }
+<<<<<<< HEAD
   print_char('\n'); // new line
+=======
+>>>>>>> 433ca2c2d5a4b69afa11b50f95f7af66adc35531
 }

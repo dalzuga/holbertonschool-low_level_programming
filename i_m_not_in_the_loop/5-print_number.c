@@ -2,6 +2,7 @@
 
 void print_number(int n)
 {
+<<<<<<< HEAD
   int i=1; // initialize i at 1
   long int x=1; // initialize x at 1. had to make long or it wouldn't compile
 
@@ -22,11 +23,23 @@ void print_number(int n)
       print_char(b);
     }
   else // print the number of digits for n in base 10, if it exceeds 9 digits in length
+=======
+  int aux1, i, count, x;
+  if (n<0) print_char('-');
+  if (n==-2147483648) { print_char(50); n=-147483648; }
+  if (n<0) n=-n;
+  count=count_digits(n); x=1;
+  for (i=1;i<count;i++)
+    x=x*10;
+  print_char((n/x)+48);
+  
+  if (x>1)
+>>>>>>> 433ca2c2d5a4b69afa11b50f95f7af66adc35531
     {
-      a=(char) 49;
-      b=(char) (i+38);
-      print_char(a);
-      print_char(b);
+      aux1= n - ((int) n/x) * x;
+      for (i=1;i<count_digits(n)-count_digits(aux1);i++)
+	print_char(48);
+      print_number(n - ((int) n/x) * x);
     }
 
   if (x==4294967296) // checks for special case and does this one manually
