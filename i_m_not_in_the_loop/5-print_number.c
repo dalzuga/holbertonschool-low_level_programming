@@ -1,4 +1,4 @@
-#include "my_functions.h" /* let's try something crazy */
+#include "my_functions.h" /* crazy part coming now */
 
 void print_number(int n)
 {
