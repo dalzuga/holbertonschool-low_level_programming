@@ -1,7 +1,8 @@
-#include "my_functions.h" /* let's try something crazy */
+#include "my_functions.h"
 
 void print_number(int n)
 {
+  int aux1;
   if (n<0)
     print_char('-');
   if (n<0)
@@ -12,5 +13,10 @@ void print_number(int n)
   print_char((n/x)+48);
   
   if (x>1)
-    print_number(n - ((int) n/x) * x);
+    {
+      aux1= n - ((int) n/x) * x;
+      for (i=1;i<count_digits(n)-count_digits(aux1);i++)
+	print_char(48);
+      print_number(n - ((int) n/x) * x);
+    }
 }
