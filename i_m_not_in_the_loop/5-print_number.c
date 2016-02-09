@@ -2,13 +2,7 @@
 
 void print_number(int n)
 {
-  int i=1;
   int x=1;
-  char a=48,b=48; /* char a not applicable for this task. 48 = '0' */
-  
-  print_char(a);
-  print_char(b);
-  print_char('\n');  
 
   while (x<n && i<10)
     {
