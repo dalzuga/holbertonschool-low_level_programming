@@ -1,5 +1,7 @@
 #include "my_functions.h"
 
+int count_digits(int n);
+
 void print_number(int n)
 {
   int aux1, i, count, x;	/* declaring variables */
