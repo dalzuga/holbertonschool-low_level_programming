@@ -11,7 +11,7 @@ void print_combination_2(void)
 	  print_char(i+48); 	/* print corresponding number */
 	  print_char(j+48); 	/* print corresponding number */
 
-	  if (!(i==8 && j==9)) 	/* make sure it's not the last number */
+	  if (!(i==8 && j==9))
 	    {
 	      print_char(','); /* print comma */
 	      print_char(' '); /* print space */
