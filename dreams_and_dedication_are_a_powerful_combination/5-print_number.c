@@ -1,5 +1,4 @@
 #include "my_functions.h"
-
 void print_number(int n)
 {
   int aux1, i, count, x;	/* declaring variables */
@@ -18,4 +17,22 @@ void print_number(int n)
 	print_char(48);		/* if there's any zero's, don't miss them */
       print_number(n - ((int) n/x) * x); /* recursive protocol */
     }
+}
+
+#include "my_functions.h"
+
+int count_digits(int n)
+{
+  int i=0, x=1;
+
+  if (n==0)
+    return 1;
+  else if (n>=1000000000) /* modify this to suit other than 32-bit */
+    return 10;
+  while (x<=n)
+    {
+      i++;
+      x=x*10;
+    }
+  return i;
 }
