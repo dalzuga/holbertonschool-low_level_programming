@@ -1,4 +1,5 @@
 #include "my_functions.h"
+
 void print_number(int n)
 {
   int aux1, i, count, x;	/* declaring variables */
@@ -18,8 +19,6 @@ void print_number(int n)
       print_number(n - ((int) n/x) * x); /* recursive protocol */
     }
 }
-
-#include "my_functions.h"
 
 int count_digits(int n)
 {
