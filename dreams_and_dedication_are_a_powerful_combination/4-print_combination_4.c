@@ -8,9 +8,16 @@ void print_combination_4(void)
     {
       for (j=i+1;j<100;j++) 	/* runs all the way up to 99 */
 	{
-	  print_number(i+48); 	/* print corresponding number */
+	  if (i<10)
+	    print_char('0');
+
+	  print_number(i);
 	  print_char(' ');	/* print space */
-	  print_number(j+48); 	/* print corresponding number */
+
+	  if (j<10)
+	    print_char('0');
+
+	  print_number(j);
 
 	  if (!(i==98 && j==99)) 	/* make sure it's not the last number */
 	    {
