@@ -2,7 +2,7 @@
 
 int count_digits(int n);
 
-void print_number(int n)
+void print_numberf(int n)
 {
   int aux1, i, count, x;	/* declaring variables */
   if (n<0) print_char('-');	/* if negative, insert negative sign */
@@ -18,7 +18,7 @@ void print_number(int n)
       aux1= n - ((int) n/x) * x; /* store magic formula */
       for (i=1;i<count_digits(n)-count_digits(aux1);i++)
 	print_char(48);		/* if there's any zero's, don't miss them */
-      print_number(n - ((int) n/x) * x); /* recursive protocol */
+      print_fnumber(n - ((int) n/x) * x); /* recursive protocol */
     }
 }
 

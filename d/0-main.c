@@ -2,15 +2,15 @@
 
 int main(void)
 {
-  print_number(98);
+  printf_number(98);
   print_char('\n');
-  print_number(402);
+  printf_number(402);
   print_char('\n');
-  print_number(1024);
+  printf_number(1024);
   print_char('\n');
-  print_number(0);
+  printf_number(0);
   print_char('\n');
-  print_number(-98);
+  printf_number(-98);
   print_char('\n');
   return (0);
 }
