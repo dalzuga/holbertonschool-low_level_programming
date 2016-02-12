@@ -1,8 +1,10 @@
 #include "my_functions.h"
+#include <unistd.h>
 
+int print_char(char c);
 int count_digits(int n);
 
-void print_numberf(int n)
+void printf_number(int n)
 {
   int aux1, i, count, x;	/* declaring variables */
   if (n<0) print_char('-');	/* if negative, insert negative sign */
@@ -18,7 +20,7 @@ void print_numberf(int n)
       aux1= n - ((int) n/x) * x; /* store magic formula */
       for (i=1;i<count_digits(n)-count_digits(aux1);i++)
 	print_char(48);		/* if there's any zero's, don't miss them */
-      print_fnumber(n - ((int) n/x) * x); /* recursive protocol */
+      printf_number(n - ((int) n/x) * x); /* recursive protocol */
     }
 }
 
@@ -36,4 +38,9 @@ int count_digits(int n)
       x=x*10;
     }
   return i;
+}
+
+int print_char(char c)
+{
+  return (write(1, &c, 1));
 }
