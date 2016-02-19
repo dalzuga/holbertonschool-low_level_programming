@@ -15,7 +15,7 @@ int main()
       a=b; b=c;
     }
 
-  printf("%ld", sum);
+  printf("%ld\n", sum); 	/* print sum */
 
   return 0;
 }
