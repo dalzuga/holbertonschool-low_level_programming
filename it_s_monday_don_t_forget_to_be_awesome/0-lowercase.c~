@@ -1,4 +1,0 @@
-char lowercase(char c)
-{
-  return c+32;
-}
