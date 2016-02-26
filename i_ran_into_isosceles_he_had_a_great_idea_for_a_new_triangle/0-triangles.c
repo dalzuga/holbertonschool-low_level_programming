@@ -4,7 +4,7 @@ void triangles_in_the_term(int h, int n)
 {
   int i, j, k;
 
-  for (k = 0; k < n; k++)
+  for (k = 0; k < n; k++) 	/* draw n triangles */
     {
       for (j = 0; j < h; j++) 	/* j is the line number starting at line 0 */
 	{
