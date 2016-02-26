@@ -8,7 +8,7 @@ void triangles_in_the_term(int h, int n)
     {
       for (j = 0; j < h; j++) 	/* j is the line number starting at line 0 */
 	{
-	  for (i = h-1-j; i > 0; i--) 	/* start with the spaces */
+	  for (i = h-1-j; i >= 1; i--) 	/* start with the spaces */
 	    {
 	      printf(" ");
 	    }
