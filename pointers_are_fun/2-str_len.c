@@ -1,4 +1,3 @@
-#include <stdio.h>
 int str_len(char *str)
 {
   int i;			/* i used as a counter */
