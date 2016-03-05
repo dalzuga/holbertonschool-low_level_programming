@@ -9,9 +9,9 @@ void reverse_string(char *s)
 
   for (i = 0; i < length/2; i++) /* split the string in 2 */
     {
-      c = *(s + i);		    /* c holds char in left half */
-      *(s + i) = *(s + length - i - 1); /* left half becomes right half  */
-      *(s + length - i - 1) = c;	/* right half becomes old left half */
+      c = *(s + i);		       /* c holds char in left half */
+      *(s + i) = *(s + length -1 - i); /* left half becomes right half  */
+      *(s + length - 1 - i) = c;	/* right half becomes old left half */
     }
 }
 
