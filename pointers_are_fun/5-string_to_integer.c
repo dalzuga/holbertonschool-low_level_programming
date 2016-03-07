@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 int string_to_integer(char *s)
 {
   char sign;			/* keep track of negative signs */
