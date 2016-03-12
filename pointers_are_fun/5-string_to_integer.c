@@ -11,7 +11,11 @@ int string_to_integer(char *s)
   while (*s != '\0' && (flag != 2))
     {
       if (*s == '-')
-	sign = (sign + 1) % 2; 	/* 0 means positive, 1 means negative */
+	{
+	  sign = (sign + 1) % 2; 	/* 0 means positive, 1 means negative */
+	  /* if (flag == 1) */
+	  /*   flag = 2; */
+	}
 
       if (*s >= '0' && *s <= '9')	/* if character is in [0-9] */
 	{
