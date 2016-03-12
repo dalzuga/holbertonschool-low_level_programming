@@ -10,7 +10,7 @@ int string_to_integer(char *s)
 
   while (*s != '\0' && (flag != 2))
     {
-      if (*s == '-' && flag == 0)
+      if (*s == '-' && flag == 0) /* flag ensures we are before the number */
 	{
 	  sign = (sign + 1) % 2; 	/* 0 means positive, 1 means negative */
 	  /* if (flag == 1) */
