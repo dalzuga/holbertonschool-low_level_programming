@@ -15,7 +15,7 @@ int str_len(char *str)
 
 char *nconcat_strings(char *dest, const char *src, int n)
 {
-  int dest_len = str_len(dest); /* size_t holds any array size */
+  int dest_len = str_len(dest); /* dest_len holds array size */
   int i;
 
   for (i = 0 ; i < n && src[i] != '\0' ; i++) /* while < n and not '\0' */
