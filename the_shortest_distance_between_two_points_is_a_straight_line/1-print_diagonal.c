@@ -4,13 +4,16 @@ void print_diagonal(int n)
 {
   int i, j;
 
-  for (i = 0; i < n; i++)
+  for (j = 1; j <= n; j++) 	/* at line j */
     {
-      for (j = 0; j < n; j++)
-	print_char(' ');
+      for (i = 1; i < j; i++) 	/* print j-1 spaces */
+	{
+	  print_char(' ');
+	}
       print_char('\\');
       print_char('\n');
     }
 
-  print_char('\n');
+  if (n <= 0)			/* print \n is 0 or less */
+    print_char('\n');
 }
