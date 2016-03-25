@@ -2,8 +2,8 @@ int helper(int n, int a)
 {
   if (a * a == n)		/* if success */
     return a;			/* return value of a */
-  if (a == 1)			/* if a is 1, return 1 */
-    return 1;
+  if (a == 1)			/* if a is 1, then non-natural sqrt */
+    return -1;			/* return -1 */
   return helper(n, a - 1);	/* do recursive call */
 }
 
