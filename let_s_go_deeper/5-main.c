@@ -37,6 +37,14 @@ int main(void)
   printf("main.c, *m*a*i*n*.*c*\n");
   printf("Result: %d\n", r);
   printf("Expected: 1\n");
+  r = shell_comp("mainmain", "ma*");
+  printf("mainmain, ma*\n");
+  printf("Result: %d\n", r);
+  printf("Expected: 1\n");
+  r = shell_comp("inn", "*n");
+  printf("inn, *n\n");
+  printf("Result: %d\n", r);
+  printf("Expected: 1\n");
   printf("---------------------------\n");
   r = shell_comp("main.c", "*.c");
   printf("%d\n", r);
