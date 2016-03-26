@@ -17,10 +17,6 @@ int main(void)
   printf("ab, a*\n");
   printf("Result: %d\n", r);
   printf("Expected: 1\n");
-  r = shell_comp("ab", "*b");
-  printf("ab, *b\n");
-  printf("Result: %d\n", r);
-  printf("Expected: 1\n");
   printf("ab, *a\n");
   r = shell_comp("ab", "*a");
   printf("Result: %d\n", r);
@@ -29,8 +25,16 @@ int main(void)
   printf("ab, *c\n");
   printf("Result: %d\n", r);
   printf("Expected: 0\n");
+  r = shell_comp("ab", "*b");
+  printf("ab, *b\n");
+  printf("Result: %d\n", r);
+  printf("Expected: 1\n");
   r = shell_comp("xyza", "*a");
   printf("xyza, *a\n");
+  printf("Result: %d\n", r);
+  printf("Expected: 1\n");
+  r = shell_comp("main.c", "*m*a*i*n*.*c*");
+  printf("main.c, *m*a*i*n*.*c*\n");
   printf("Result: %d\n", r);
   printf("Expected: 1\n");
   printf("---------------------------\n");
