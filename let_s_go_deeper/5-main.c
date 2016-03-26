@@ -5,7 +5,19 @@ int shell_comp(char *s1, char *s2);
 int main(void)
 {
   int r;
-
+  r = shell_comp("ab", "a*");
+  printf("Result: %d\n", r);
+  printf("Expected: 1\n", r);
+  r = shell_comp("ab", "*b");
+  printf("Result: %d\n", r);
+  printf("Expected: 1\n", r);
+  r = shell_comp("ab", "*a");
+  printf("Result: %d\n", r);
+  printf("Expected: 0\n", r);
+  r = shell_comp("ab", "*c");
+  printf("Result: %d\n", r);
+  printf("Expected: 0\n", r);
+  printf("---------------------------", r);
   r = shell_comp("main.c", "*.c");
   printf("%d\n", r);
   r = shell_comp("main.c", "m*a*i*n*.*c*");
