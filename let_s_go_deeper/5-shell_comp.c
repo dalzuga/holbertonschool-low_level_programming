@@ -8,6 +8,9 @@ int string_length(char * str)
 
 int shell_comp(char *s1, char *s2)
 {
+  char *last1;
+  char *last2;
+
   if (*s1 == '\0' && *s2 == '\0') /* if both strings are empty */
     return 1;			  /* strings match */
 
@@ -25,10 +28,14 @@ int shell_comp(char *s1, char *s2)
     return shell_comp(s1 + 1, s2 + 1); /* move forward 1 character */
 
   /* if the last characters of each string are equal, remove them */
-  if ( *(s1 + string_length(s1) - 1) == *(s2 + string_length(s2) - 1) )
+
+  last1 = (s1 + string_length(s1) - 1);
+  last2 = (s2 + string_length(s2) - 1);
+
+  if ( *last1 != '*' && *last1 == *last2 )
   {
-    *(s1 + string_length(s1) - 1) = '\0';
-    *(s2 + string_length(s2) - 1) = '\0';
+    *last1 = '\0';
+    *last2  = '\0';
   }
 
   /* "xyza" and "*a"; keep going until s1 becomes "a" */
