@@ -12,6 +12,12 @@ int main(int argc, char **argv)
     {      
       j++; 			/* move j forward */
 
+      if (argv[i][1] == '-')
+      {
+	j++; 			/* move j forward */
+      }
+
+
       while (argv[i][j] != '\0')	/* print chars */
       {
 	printf("%c", argv[i][j]);
