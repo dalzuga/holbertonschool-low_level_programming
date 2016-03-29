@@ -2,7 +2,12 @@
 
 int main(int argc, char **argv)
 {
-  argv[0] = "";
-  printf("%d\n", argc - 1);
+  int i;
+
+  for (i = 0; i < argc - 1; i++)
+  {
+    
+  }
+
   return 0;
 }
