@@ -33,10 +33,12 @@ int main(int argc, char **argv)
 	  printf(", ");
       }
       
-      if (flag)
-	printf("\n"); 		/* add new line if before '--' case */
+      if (flag && csflag != 0)
+	printf(", ");
     }
   }
+
+  printf("\n");
 
   return 0;
 }

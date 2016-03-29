@@ -13,5 +13,7 @@ int main(void)
   printf("%d\n", r);
   r = factorial(-1024);
   printf("%d\n", r);
+  r = factorial(13);
+  printf("%d\n", r);
   return (0);
 }
