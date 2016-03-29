@@ -21,7 +21,6 @@ int main(int argc, char **argv)
 	  flag = 0;
       }
 
-
       while (argv[i][j] != '\0' && flag)	/* print chars */
       {
 	printf("%c", argv[i][j]);
