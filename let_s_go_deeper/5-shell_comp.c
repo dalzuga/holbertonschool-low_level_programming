@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int shell_comp(char *s1, char *s2)
 {
   if (*s1 == '\0' && *s2 == '\0') /* if both strings are empty */
@@ -11,6 +13,9 @@ int shell_comp(char *s1, char *s2)
 
   if (*s2 == '*' && *(s2 + 1) == '*') /* if string of '**' encountered */
     return shell_comp(s1, s2 + 1);    /* skip to the last one */
+
+  if (*s1 == '\0' && *s2 != '\0')
+    return 0;
 
   /* s1 = "ab", s2 = "a*", remove first character of each */
   if (*s1 == *s2)
