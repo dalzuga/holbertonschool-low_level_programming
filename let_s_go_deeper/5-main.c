@@ -101,6 +101,14 @@ int main(void)
   printf("abb, *ab\n");
   printf("Result: %d\n", r);
   printf("Expected: 0\n");
+  r = shell_comp("main", "main*d");
+  printf("main, main*d\n");
+  printf("Result: %d\n", r);
+  printf("Expected: 0\n");
+  r = shell_comp("abc", "*b");
+  printf("abc, *b\n");
+  printf("Result: %d\n", r);
+  printf("Expected: 0\n");
   printf("---------------------------\n");
   r = shell_comp("main.c", "*.c");
   printf("%d\n", r);
