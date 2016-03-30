@@ -1,11 +1,3 @@
-#include <stdio.h>
-#include <unistd.h>
-
-int print_char(char c)
-{
-  return (write(1, &c, 1));
-}
-
 int shell_comp(char *s1, char *s2)
 {
   if (*s1 == '\0' && *s2 == '\0') /* if both strings are empty */
@@ -25,24 +17,15 @@ int shell_comp(char *s1, char *s2)
 
   /* s1 = "ab", s2 = "a*", remove first character of each */
   if (*s1 == *s2)
-  {
-    /* printf("trigger 1\n"); */
     return ( shell_comp(s1 + 1, s2 + 1) );
-  }
 
   /* "xyza" and "*a"; keep going until s1 becomes "a" */
   if (*s2 == '*' && *(s2 + 1) != *(s1) ) 
-  {
-    /* printf("trigger 2\n"); */
     return shell_comp(s1 + 1, s2);
-  }
 
   /* we are at "a", "*a" */  
   if (*s2 == '*' && *(s2 + 1) == *s1 )
-  {
-    /* printf("trigger 3\n"); */
     return ( shell_comp(s1, s2 + 1) || shell_comp(s1 + 1, s2) );
-  }
   
   return 12345;
 }
