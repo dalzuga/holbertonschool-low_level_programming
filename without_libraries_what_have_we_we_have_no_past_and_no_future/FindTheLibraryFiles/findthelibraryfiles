@@ -1,0 +1,53 @@
+#!/bin/bash
+echo '---------'
+echo 'Starting search for files...'
+echo '---------'
+find $1 -name '0-absolute.c' -type f -exec cp {} $2 \;
+echo 'Done: 1/23'
+find $1 -name '0-contact_strings.c' -type f -exec cp {} $2 \;
+echo 'Done: 2/23'
+find $1 -name '0-first_digit.c' -type f -exec cp {} $2 \;
+echo 'Done: 3/23'
+find $1 -name '0-lowercase.c' -type f -exec cp {} $2 \;
+echo 'Done: 4/23'
+find $1 -name '0-print_number.c' -type f -exec cp {} $2 \;
+echo 'Done: 5/23'
+find $1 -name '0-uppercase_string.c' -type f -exec cp {} $2 \;
+echo 'Done: 6/23'
+find $1 -name '1-cap_string.c' -type f -exec cp {} $2 \;
+echo 'Done: 7/23'
+find $1 -name '1-nconcat_strings.c' -type f -exec cp {} $2 \;
+echo 'Done: 8/23'
+find $1 -name '1-power.c' -type f -exec cp {} $2 \;
+echo 'Done: 9/23'
+find $1 -name '1-swap_int.c' -type f -exec cp {} $2 \;
+echo 'Done: 10/23'
+find $1 -name '1-uppercase.c' -type f -exec cp {} $2 \;
+echo 'Done: 11/23'
+find $1 -name '2-print_array.c' -type f -exec cp {} $2 \;
+echo 'Done: 12/23'
+find $1 -name '2-square_root.c' -type f -exec cp {} $2 \;
+echo 'Done: 13/23'
+find $1 -name '2-str_len.c' -type f -exec cp {} $2 \;
+echo 'Done: 14/23'
+find $1 -name '2-string_copy.c' -type f -exec cp {} $2 \;
+echo 'Done: 15/23'
+find $1 -name '3-is_prime_number.c' -type f -exec cp {} $2 \;
+echo 'Done: 16/23'
+find $1 -name '3-print_string.c' -type f -exec cp {} $2 \;
+echo 'Done: 17/23'
+find $1 -name '3-string_ncopy.c' -type f -exec cp {} $2 \;
+echo 'Done: 18/23'
+find $1 -name '4-positive_or_not.c' -type f -exec cp {} $2 \;
+echo 'Done: 19/23'
+find $1 -name '4-reverse_string.c' -type f -exec cp {} $2 \;
+echo 'Done: 20/23'
+find $1 -name '4-strings_compare.c' -type f -exec cp {} $2 \;
+echo 'Done: 21/23'
+find $1 -name '5-reverse_array.c' -type f -exec cp {} $2 \;
+echo 'Done: 22/23'
+find $1 -name '5-string_to_integer.c' -type f -exec cp {} $2 \;
+echo 'Done: 23/23'
+echo '---------'
+echo 'All Done!'
+echo '---------'
