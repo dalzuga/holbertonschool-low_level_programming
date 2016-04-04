@@ -1,6 +1,15 @@
 #include <stdio.h>
 
+void print_args(int argc, char **argv);
+
 int main(int argc, char **argv)
+{
+  print_args(argc, argv);
+
+  return 0;
+}
+
+void print_args(int argc, char **argv)
 {
   int i, j;
   char flag = 1;
@@ -39,6 +48,4 @@ int main(int argc, char **argv)
   }
 
   printf("\n");
-
-  return 0;
 }
