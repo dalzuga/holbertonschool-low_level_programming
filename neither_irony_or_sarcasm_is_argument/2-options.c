@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 	  printf(", ");
       }
       
-      if (flag && csflag != 0)
+      if (flag && csflag == 2) 	/* add a comma and space at the end of string arg */
 	printf(", ");
     }
   }
