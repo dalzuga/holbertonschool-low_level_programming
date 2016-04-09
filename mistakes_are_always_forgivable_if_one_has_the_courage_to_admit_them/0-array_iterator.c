@@ -4,6 +4,6 @@ void array_iterator(int *arr, int n, void (*func_ptr)(int))
 
   for (i = 0; i < n; i++)
   {
-    (func_ptr)(arr[i]);
+    func_ptr(arr[i]);
   }
 }
