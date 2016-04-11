@@ -6,7 +6,7 @@ int main()
 {
   char *concat;
 
-  concat = string_concat("Holberton ", "School");
+  concat = string_concat("Holberton asdfasdfasdfasdfasdf", "School");
   printf("%s\n", concat);
   free(concat);
   return (0);
