@@ -25,7 +25,7 @@ char *string_concat(char *s1, char *s2)
 
   lengthtotal = length1 + length2 + 1; /* to accomodate null char */
 
-  strout = malloc(sizeof(strout) * lengthtotal); /* allocate memory */
+  strout = malloc(sizeof(*strout) * lengthtotal); /* allocate memory */
 
   for (i = 0; i < length1; i++) /* copy string 1 */
   {
