@@ -1,5 +1,5 @@
 #include <stdlib.h>
-
+#include <stdio.h>
 int str_len(char *str)
 {
   int i;			/* i used as a counter */
@@ -37,7 +37,7 @@ char *string_concat(char *s1, char *s2)
     strout++;			/* advance */
   }
 
-  for (i = 0; i <= length1; i++) /* copy string 2 + null char */
+  for (i = 0; i <= length2; i++) /* copy string 2 + null char */
   {
     *strout = *s2;		/* copy char */
     s2++;			/* advance */
