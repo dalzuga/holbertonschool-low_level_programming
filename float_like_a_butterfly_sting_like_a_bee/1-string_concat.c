@@ -27,6 +27,9 @@ char *string_concat(char *s1, char *s2)
 
   strout = malloc(sizeof(strout) * lengthtotal); /* allocate memory */
 
+  if (strout == NULL)		/* if memory cannot be allocated */
+    return NULL;
+
   for (i = 0; i < length1; i++) /* copy string 1 */
   {
     *strout = *s1;		/* copy char */
