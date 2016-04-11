@@ -29,13 +29,17 @@ char *string_concat(char *s1, char *s2)
 
   for (i = 0; i < length1; i++) /* copy string 1 */
   {
-    strout[i] = s1[i];		/* copy char */
+    *strout = *s1;		/* copy char */
+    s1++;			/* advance */
+    strout++;			/* advance */
   }
 
   for (i = 0; i <= length1; i++) /* copy string 2 + null char */
   {
-    strout[length1 + i] = s2[i]; /* copy char */
+    *strout = *s2;		/* copy char */
+    s2++;			/* advance */
+    strout++;			/* advance */
   }
 
-  return strout;
+  return strout - lengthtotal;
 }
