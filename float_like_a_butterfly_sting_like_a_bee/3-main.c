@@ -2,7 +2,24 @@
 #include <stdio.h>
 
 int **alloc_grid(int, int);
+
 void print_grid(int **, int, int);
+
+void print_grid(int **inputgrid, int a, int b)
+{
+  int i, j;
+
+  for (i = 0; i < a; i++)
+  {
+    for (j = 0; j < b; j++)
+    {
+      printf("%d,", inputgrid[i][j]);
+    }
+    printf("\n");
+  }
+
+  printf("\n");
+}
 
 int main()
 {
@@ -30,20 +47,4 @@ int main()
   grid[4][4] = 402;
   print_grid(grid, 5, 5);
   return (0);
-}
-
-void print_grid(int **inputgrid, int a, int b)
-{
-  int i, j;
-
-  for (i = 0; i < a; i++)
-  {
-    for (j = 0; j < b; j++)
-    {
-      printf("%d,", inputgrid[i][j]);
-    }
-    printf("\n");
-  }
-
-  printf("\n");
 }
