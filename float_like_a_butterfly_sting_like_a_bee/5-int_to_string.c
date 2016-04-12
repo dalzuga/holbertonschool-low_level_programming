@@ -3,12 +3,12 @@ int count_digits(int);
 
 char *int_to_string(int n)
 {
-  char *str;  char digit, flag; int length, i;
+  char *str; char digit, flag; int length, i;
   length = count_digits(n);	/* set the int length to the number of digits*/
   if (n > 0) {			/* from now on, we work in negative realm */
     n *= -1;
     flag = 'p'; 		/* save flag to positive */
-  } else
+  } else {
     length++;			/* increase length to accomodate '-' sign */
     flag = 'n';			/* save flag to negative */
   }
