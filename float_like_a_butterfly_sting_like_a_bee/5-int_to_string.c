@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 int count_digits(int);
 
 char *int_to_string(int n)
