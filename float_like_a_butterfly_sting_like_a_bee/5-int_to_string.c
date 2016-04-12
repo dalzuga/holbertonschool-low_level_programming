@@ -1,13 +1,26 @@
 #include <stdlib.h>
-#include <stdio.h>
 int count_digits(int);
 
 char *int_to_string(int n)
 {
   char *str;
-  str = malloc(sizeof(str));
+  char digit;
+  int length, i;
 
-  printf("Digits of %d are: %d\n", n, count_digits(n));
+  length = count_digits(n);
+  str = malloc(sizeof(char) * (length + 1)); /* allocate memory for string + null char */
+
+  if (str == NULL)	   /* check if memory allocated succesfully */
+    return NULL;
+
+  for (i = 0; i < length; i++)	/* traverse through the string */
+  {
+    digit = n - n / 10; 	/* get leading digit */
+
+    str[i] = digit + 48; 	/* convert int into char representation */
+  }
+  
+  str[i+1] = '\0'; 		/* append null char at the end */
 
   return str;
 }
