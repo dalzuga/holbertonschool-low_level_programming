@@ -24,9 +24,9 @@ int count_digits(int n)
 
   while (x < -9)		  /* while the number has more than 1 digit */
   {
-    x = x / 10;
-    i++;
+    x = x / 10;			/* remove a digit */
+    i++;			/* count */
   }
 
-  return i;
+  return i;			/* return total digits counted */
 }
