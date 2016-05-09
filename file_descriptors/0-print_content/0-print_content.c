@@ -2,6 +2,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdio.h>
 
 int print_char(char c);
 
@@ -11,9 +12,12 @@ int main(int argc, char __attribute__((unused)) *argv[]) /* get around compiler 
   char c;
 
   if (argc < 2)			/* check usage */
+  {
+    printf("usage\n");
     return 1;
-  
-  fp = open("lorem_ipsum", O_RDONLY);
+  }
+
+  fp = open(argv[1], O_RDONLY);
 
   if (fp == -1)
     return 1;
