@@ -1,7 +1,7 @@
 GCC = gcc
 CFLAGS = -Wall -Wextra -Werror -pedantic
 
-SRC	:= 0-print_content.c
+SRC	:= print_char.c 0-print_content.c
 OBJECTS	:= $(SRC:.c=.o)
 TARGET	:= 0-print_content
 
