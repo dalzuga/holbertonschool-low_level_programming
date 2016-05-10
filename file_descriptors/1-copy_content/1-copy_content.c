@@ -1,8 +1,5 @@
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <stdio.h>
 
 int print_char(char c);
 
@@ -13,7 +10,7 @@ int main(int argc, char __attribute__((unused)) *argv[]) /* get around compiler 
 
   if (argc != 3)			/* check usage */
   {
-    printf("usage\n");
+    /* printf("usage\n"); */
     return 1;
   }
 
