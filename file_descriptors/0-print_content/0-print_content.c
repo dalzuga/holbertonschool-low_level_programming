@@ -20,7 +20,10 @@ int main(int argc, char __attribute__((unused)) *argv[]) /* get around compiler 
   fp = open(argv[1], O_RDONLY);
 
   if (fp == -1)
+  {
+    perror("open");
     return 1;
+  }
   
   while(read(fp, &c, 1) > 0)   /* read 1 byte and store it in char c */
   {
