@@ -11,7 +11,7 @@ int main(int argc, char __attribute__((unused)) *argv[]) /* get around compiler 
   int fpi, fpo;
   char c;
 
-  if (argc < 3)			/* check usage */
+  if (argc != 3)			/* check usage */
   {
     printf("usage\n");
     return 1;
