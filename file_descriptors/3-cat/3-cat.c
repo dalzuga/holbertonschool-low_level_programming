@@ -14,7 +14,7 @@ int main(int argc, char __attribute__((unused)) *argv[]) /* get around compiler 
     return 1;
   }
 
-  while(read(0, &c, 1) > 0)   /* read 1 byte from stdin and store it in char c */
+  while(read(0, &c, 1))   /* read 1 byte from stdin and store it in char c */
     /* if no error, keep going */
   {
     if (c == 4)			/* if Ctrl-D EOT character (ASCII value 4) */
