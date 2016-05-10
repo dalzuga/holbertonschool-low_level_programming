@@ -18,7 +18,7 @@ int main(int argc, char __attribute__((unused)) *argv[]) /* get around compiler 
   }
 
   fpi = open(argv[1], O_RDONLY);
-  fpo = open(argv[2], O_RDWR | O_CREAT, 00644); /* read/write permission for owner, read for others */
+  fpo = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 00644); /* read/write permission for owner, read for others */
 
   if (fpi == -1 || fpo == -1)
   {
