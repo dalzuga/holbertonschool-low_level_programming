@@ -89,5 +89,37 @@ int add_begin_dl_list(List **list, char *str)
 
 List *array_to_dl_list(char **array)
 {
+        List *list;
+        int i;
+
+        list = NULL;
+
+        for (i = 0; array[i][0] != '\0'; i++) {
+                
+        }
+
+        return list;
+}
+
+/* creates node with a specified string */
+List *create_node_str(char *str)
+{
+        List *node;
+
+        /* allocate mem for b and check for errors */
+        node = malloc (sizeof (List));
+        if (node == NULL)
+                return NULL;
         
+        /* initialize prev and next values to NULL */
+        node->next = NULL;
+        node->prev = NULL;
+
+        /* add to node the string we want */
+        node->str = strdup(str);
+        /* memory allocation check */
+        if (node->str == NULL)
+                return NULL;
+
+        return node;
 }
