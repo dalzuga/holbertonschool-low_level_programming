@@ -86,3 +86,8 @@ int add_begin_dl_list(List **list, char *str)
 
         return 0;
 }
+
+List *array_to_dl_list(char **array)
+{
+        
+}
