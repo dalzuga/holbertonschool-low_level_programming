@@ -14,7 +14,8 @@ int add_end_dl_list(List **list, char *str)
         b = malloc (sizeof (List));
         if (b == NULL)
                 return 1;
-        /* set prev and next values to NULL */
+
+        /* initialize prev and next values to NULL */
         b->next = NULL;
         b->prev = NULL;
 
@@ -54,6 +55,10 @@ int add_begin_dl_list(List **list, char *str)
         b = malloc (sizeof (List));
         if (b == NULL)
                 return 1;
+
+        /* initialize prev and next values to NULL */
+        b->next = NULL;
+        b->prev = NULL;
 
         /* add to b the string we want */
         b->str = strdup(str);
