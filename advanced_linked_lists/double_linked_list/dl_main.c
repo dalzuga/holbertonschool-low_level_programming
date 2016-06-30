@@ -9,10 +9,14 @@ int main()
 {
         List *list;
 
-        printf("FIRST EXAMPLE:\n");
-
         add_end_dl_list(&list, "Holberton");
+        add_end_dl_list(&list, "Engineer");
 
+        printf("FIRST EXAMPLE:\n");
+        printf("%s\n", list->str);
+
+        printf("SECOND EXAMPLE:\n");
+        list = list->next;
         printf("%s\n", list->str);
 
         return 0;
