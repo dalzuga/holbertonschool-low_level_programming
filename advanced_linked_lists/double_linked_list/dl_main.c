@@ -4,6 +4,7 @@
 #include "list.h"
 
 int add_end_dl_list(List **list, char *str);
+int add_begin_dl_list(List **list, char *str);
 
 int main()
 {
@@ -11,6 +12,7 @@ int main()
 
         add_end_dl_list(&list, "Holberton");
         add_end_dl_list(&list, "Engineer");
+        add_begin_dl_list(&list, "Daniel");
 
         printf("FIRST EXAMPLE:\n");
         printf("%s\n", list->str);
