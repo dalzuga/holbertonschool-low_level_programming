@@ -1,4 +1,4 @@
-unsigned int hash_func(const char *key, unsigned int size)
+unsigned int hash(const char *key, unsigned int size)
 {
         unsigned int hash;
         unsigned int i;
