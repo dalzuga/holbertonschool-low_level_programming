@@ -1,4 +1,5 @@
 #include "hashtable.h"
+#include <stdlib.h>
 
 /* creates a hash table */
 HashTable *ht_create(unsigned int size)
@@ -8,10 +9,12 @@ HashTable *ht_create(unsigned int size)
         if (size < 1)
                 return NULL;
 
-        if (t = malloc (sizeof(HashTable)) == NULL)
+        /* create HashTable and check for allocation errors */
+        if ((t = malloc (sizeof (HashTable))) == NULL)
                 return NULL;
 
-        if (t->array = malloc(size * sizeof(List) == NULL)
+        /* create List and check for allocation errors */        
+        if ((t->array = malloc(size * sizeof(List)) == NULL)
                 return NULL;
 
         return t;
