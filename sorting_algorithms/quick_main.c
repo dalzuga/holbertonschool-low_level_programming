@@ -1,3 +1,4 @@
+#include <stdio.h>
 void quick_sort(int *, int);
 void print_array(int *, int);
 
@@ -10,14 +11,17 @@ int main(void)
         print_array(array, 5);
         quick_sort(array, 5);
         print_array(array, 5);
+        printf("-----------\n");
 
         print_array(array2, 6);
         quick_sort(array2, 6);
         print_array(array2, 6);
+        printf("-----------\n");
 
         print_array(array3, 6);
         quick_sort(array3, 6);
         print_array(array3, 6);
+        printf("-----------\n");
 
         return (0);
 }

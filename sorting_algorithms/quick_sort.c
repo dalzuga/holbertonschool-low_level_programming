@@ -16,23 +16,31 @@ void partition(int *array, int size)
         int i, pivot, l, r;
         l = -1;
 
-         /* let's use the middle one, favoring the left if even */
+        /* let's use the middle one, favoring the left if even */
         r = pivot = array[(size + 1) / 2 - 1];
-
+        printf("PIVOT: %d\n", pivot);
         for (i = 0; i < (size + 1) / 2; i++) {
                 /* find element >= to pivot from left */
                 if (array[i] >= pivot && l == -1)
-                        l = i;
+                  {
+                          l = i;
+                          printf("Left\t: %d\n", array[l]);
+                  }
         }
         
         for (i = 0; i < (size + 1) / 2; i++) {
-                /* find element < to pivot from right */
-                if (array[size - i] < pivot)
-                        r = size - i - 1;
+                /* find element <= to pivot from right */
+                if (array[size - i - 1] <= pivot)
+                  {
+                          r = size - i - 1;
+                          printf("Right\t: %d\n", array[r]);
+                  }
         }
 
         if (l != -1)
-                swap_and_continue(array, l, r, size);
+          {
+                  swap_and_continue(array, l, r, size);
+          }
 }
 
 /* swap two array elements and continue the partition */
