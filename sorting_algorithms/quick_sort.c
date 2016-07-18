@@ -15,6 +15,8 @@ void quick_sort(int *array, int size)
 
                 for (i = 0; i < size / 2; i++) {
                         print_number(i);
+                        print_char('\t');
                 }
+                print_char('\n');
         }
 }
