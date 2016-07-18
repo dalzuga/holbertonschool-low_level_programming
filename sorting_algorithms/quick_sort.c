@@ -46,7 +46,11 @@ void partition(int *array, int size)
 /* swap two array elements and continue the partition */
 void swap_and_continue(int *array, int l, int r, __attribute__ ((unused)) int size) {
         int tmp;
-        tmp = array[l];
-        array[l] = array[r];
-        array[r] = tmp;
+
+        if (l != r) {
+                tmp = array[l];
+                array[l] = array[r];
+                array[r] = tmp;
+                partition(array,size);
+        }
 }
