@@ -1,4 +1,4 @@
-void bubble_sort(__attribute__ ((unused)) int *array, __attribute__ ((unused)) int n)
+void bubble_sort(int *array, int n)
 {
         int i, tmp;
 
