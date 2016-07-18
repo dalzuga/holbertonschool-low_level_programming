@@ -9,4 +9,8 @@ void bubble_sort(__attribute__ ((unused)) int *array, __attribute__ ((unused)) i
                         array[i + 1] = tmp;
                 }
         }
+
+        /* now do recursion with the last one left alone */
+        if (n > 1)
+                bubble_sort(array, n - 1);
 }
