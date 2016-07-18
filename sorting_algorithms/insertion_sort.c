@@ -3,13 +3,13 @@ void insert(int *array, int val, int n);
 /* sort the array using insertion sorting method */
 void insertion_sort(int *array, int size)
 {
-        int i, val;
+        int i;
 
         /* find the first unsorted value */
         for (i = 0; i < (size - 1); i++) {
                 if (array[i + 1] < array[i]) {
                         /* first unsorted value found at place i+1 */
-                        insert(*array, array[i + 1],  i + 1);
+                        insert(array, array[i + 1],  i + 1);
                         break;
                 }
         }
