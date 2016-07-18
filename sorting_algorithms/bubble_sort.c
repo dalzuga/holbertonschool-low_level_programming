@@ -2,7 +2,7 @@ void bubble_sort(__attribute__ ((unused)) int *array, __attribute__ ((unused)) i
 {
         int i, tmp;
 
-        for (i = 0; i < n; i++) {
+        for (i = 0; i < (n - 1); i++) {
                 if (array[i + 1] < array[i]) {
                         tmp = array[i];
                         array[i] = array[i + 1];
