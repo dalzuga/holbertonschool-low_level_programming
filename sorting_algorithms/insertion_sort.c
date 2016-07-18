@@ -13,6 +13,10 @@ void insertion_sort(int *array, int size)
                         break;
                 }
         }
+
+        /* recursion */
+        if (i < (size - 1))
+                insertion_sort(array, size);
 }
 
 /*
