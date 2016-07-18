@@ -54,6 +54,7 @@ void swap_and_continue(int *array, int l, int r, __attribute__ ((unused)) int si
                 tmp = array[l];
                 array[l] = array[r];
                 array[r] = tmp;
-                /* partition(array, size); */
+                printf("RECURSION\n");
+                partition(array, size);
         }
 }
