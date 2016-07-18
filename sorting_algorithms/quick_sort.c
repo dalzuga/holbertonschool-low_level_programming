@@ -37,7 +37,7 @@ void partition(int *array, int size)
                   }
         }
 
-        if (l != -1)
+        if (l != -1 && r != -1)
           {
                   swap_and_continue(array, l, r, size);
           }
