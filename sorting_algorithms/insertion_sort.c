@@ -32,8 +32,10 @@ void insert(int *array, int val, int n) {
                         for (j = n; j > i; j--) {
                                 array[j] = array[j - 1];
                         }
+
                         /* insert */
                         array[i] = val;
+                        break;
                 }
         }
 }

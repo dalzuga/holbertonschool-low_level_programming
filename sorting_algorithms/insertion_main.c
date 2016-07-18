@@ -4,7 +4,7 @@ void print_array(int *, int);
 int main(void)
 {
         int array[] = {402, 94111, 98, 12, 1024};
-        int array2[] = {2, 3, 1, 4, 5};
+        int array2[] = {4, 2, 1, 5, 3};
 
         print_array(array, 5);
         insertion_sort(array, 5);
