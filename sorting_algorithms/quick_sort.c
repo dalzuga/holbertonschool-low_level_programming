@@ -8,12 +8,12 @@ void quick_sort(int *array, int size)
         int i, pivot;
 
         if (size > 1) {
-                pivot = array[(size + 1) / 2];
+                pivot = array[size / 2];
                 
                 print_number(pivot);
                 print_char('\n');
 
-                for (i = 0; i < size / 2; i++) {
+                for (i = 0; i < (size + 1) / 2; i++) {
                         print_number(i);
                         print_char('\t');
                 }
