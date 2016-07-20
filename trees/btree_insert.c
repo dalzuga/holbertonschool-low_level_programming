@@ -1,5 +1,5 @@
 #include "tree.h"
-#include <strings.h>
+#include <string.h>
 #include <stdlib.h>
 
 int empty_tree_check(BTree *tree);
@@ -28,9 +28,12 @@ int empty_tree_check(BTree *tree)
  */
 int empty_tree(BTree *tree, char *data)
 {
+        if (tree.data == NULL)
+                return 0;
+
         if ((*tree->data = strdup(data)) == 1)
                 return 0;
-        return 1
+        return 1;
 }
 
 /* tree that is not empty */
@@ -38,13 +41,14 @@ int nonempty_insert(BTree *tree, char *data)
 {
         if (strcmp(tree->data, data) < 0) {
                 if (empty_tree_check(tree.left)) {
-                        
+                        return empty_tree(tree.left, data);
                 }
         }
-}
         else {
-                if ((tree->right = malloc(BTree)) == NULL)
-                        return 1;
+                if (empty_tree_check(tree.right) == NULL) {
+                        return empty_tree(tree.right, data);
+                }
         }
+
         return 0;
 }

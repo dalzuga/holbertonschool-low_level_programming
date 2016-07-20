@@ -16,6 +16,6 @@ int main()
         printf("-----------------------\n");
         printf("address of the int\nhex:\t%p\n", *dp);
         printf("-----------------------\n");
-        printf("value of int\n:\t%d\n", **dp);
+        printf("value of int\nint:\t%d\n", **dp);
 }
 
