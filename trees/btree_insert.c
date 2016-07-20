@@ -33,7 +33,7 @@ int empty_tree(BTree *tree, char *data)
         return 1
 }
 
-/* definition of subtree: tree that is not empty */
+/* tree that is not empty */
 int nonempty_insert(BTree *tree, char *data)
 {
         if (strcmp(tree->data, data) < 0) {
