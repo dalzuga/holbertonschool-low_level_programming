@@ -8,14 +8,9 @@ int main()
         BTree **tree;
         char data[] = "Hello";
 
-        /* allocate the BTree in memory with error-check */
+        /* allocate the BTree structure in memory with error-check */
         if ((*tree = malloc(sizeof(struct BTree)) == NULL))
                 return 1;
-
-        /* copy our string to the data in the struct */
-        if ((*tree->data = strdup(data)) == NULL) {
-                
-        }
 
         if (btree_insert(&tree, data)) {
                 printf("Success!\n");

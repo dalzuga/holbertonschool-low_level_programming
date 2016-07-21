@@ -9,6 +9,11 @@ int nonempty_insert(BTree *tree, char *data);
 /* insert a tree node */
 int btree_insert(BTree **tree, char *data)
 {
+        /* copy our string to the data in the struct */
+        if ((*tree->data = strdup(data)) == NULL) {
+                
+        }
+
         if (empty_tree_check(*tree)) {
                 return empty_tree(*tree, *tree->data);
         }
