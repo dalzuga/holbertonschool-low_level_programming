@@ -3,6 +3,8 @@ CFLAGS=-Wall -Werror -Wextra -pedantic
 
 all: btree_insert
 
-btree_insert: $@
+btree_insert: $@ main
+
+main: $@
 
 clean:

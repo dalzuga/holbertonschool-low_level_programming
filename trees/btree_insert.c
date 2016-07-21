@@ -17,6 +17,7 @@ int btree_insert(BTree **tree, char *data)
         if (empty_tree_check(*tree)) {
                 return empty_tree(*tree, *tree->data);
         }
+
         return nonempty_insert(*tree, *tree->data);
 }
 
