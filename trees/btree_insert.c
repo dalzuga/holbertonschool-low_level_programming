@@ -9,9 +9,10 @@ int nonempty_insert(BTree *tree, char *data);
 /* insert a tree node */
 int btree_insert(BTree **tree, char *data)
 {
-        if (empty_tree_check(*tree))
-                return empty_tree(*tree, data);
-        return nonempty_insert(*tree, data);
+        if (empty_tree_check(*tree)) {
+                return empty_tree(*tree, *tree->data);
+        }
+        return nonempty_insert(*tree, *tree->data);
 }
 
 /* return 1 if empty, 0 if not empty */
