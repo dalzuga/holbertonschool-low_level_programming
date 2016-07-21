@@ -7,8 +7,12 @@ int empty_tree(BTree *tree, char *data);
 int nonempty_insert(BTree *tree, char *data);
 
 /* insert a tree node */
-int btree_insert(BTree **tree, char *data)
+int btree_insert(BTree *tree, char *data)
 {
+        /* allocate the BTree structure in memory with error-check */
+        if ((*tree = malloc(sizeof(*BTree))) == NULL)
+                return 1;
+
         /* copy our string to the data in the struct */
         if ((*tree->data = strdup(data)) == NULL) {
                 

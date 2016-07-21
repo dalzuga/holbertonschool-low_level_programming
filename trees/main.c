@@ -9,13 +9,14 @@ int main()
         BTree **tree;
         char data[] = "Hello";
 
-        /* allocate the BTree structure in memory with error-check */
-        if ((*tree = malloc(sizeof(struct BTree)) == NULL))
+        if ((tree = malloc(sizeof(void *))) == NULL) {
                 return 1;
+        }        
 
-        if (btree_insert(&tree, data)) {
+        if (btree_insert(tree, data)) {
                 printf("Success!\n");
         }
 
+        printf("No success :(\n");
         return 0;
 }

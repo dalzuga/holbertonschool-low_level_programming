@@ -1,10 +1,9 @@
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic
 
-all: btree_insert
+all: main
 
-btree_insert: $@ main
-
-main: $@
+main: main.c btree_insert.c
 
 clean:
+	rm main
