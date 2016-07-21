@@ -7,7 +7,7 @@ int main()
 
         dp = malloc(sizeof(void *));
         *dp = malloc(sizeof(void *));
-        /* the below malloc is done automatically, not correct */
+        /* the below malloc is done automatically */
         /* **dp = malloc(sizeof(int)); */
         **dp = 10;
 
