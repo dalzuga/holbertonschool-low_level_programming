@@ -1,9 +1,9 @@
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic
 
-all: test
+all: test_double_pointer
 
-test: test.c
-	$(CC) $(CFLAGS) test.c
+test_double_pointer: test_double_pointer.c
+
 clean:
 	rm a.out
