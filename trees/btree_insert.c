@@ -10,13 +10,13 @@ void print_tree(BTree *tree);
 /* insert a tree node */
 int btree_insert(BTree **tree, char *data)
 {
-	if (*tree == NULL) {	/* insert node if doesnt exist */
-		if (create_node(tree, data))
+	if (*tree == NULL)	/* insert node if doesnt exist */
+	{
+		if (create_node(tree, data)) /* error check */
 			return 1;
 	}
-	else {
+	else
 		find_and_insert(tree, data);
-	}
 
 	return 0;
 }
@@ -25,20 +25,20 @@ int btree_insert(BTree **tree, char *data)
 int create_node(BTree **tree, char *data)
 {
 	(*tree) = malloc(sizeof(BTree));
-	if (*tree == NULL)	 /* error check */
+	if (*tree == NULL)	/* error check */
 		return 1;
-	
+
 	(*tree)->str = strdup(data);
-	if ((*tree)->str == NULL)  /* error check */
+	if ((*tree)->str == NULL) /* error check */
 		return 1;
 
 	(*tree)->left = malloc(sizeof(BTree));
 	if ((*tree)->left == NULL) /* error check */
-		   return 1;
+		return 1;
 
 	(*tree)->right = malloc(sizeof(BTree));
 	if ((*tree)->right == NULL) /* error check */
-		   return 1;
+		return 1;
 
 	return 0;
 }
@@ -48,20 +48,19 @@ int find_and_insert(BTree **tree, char *data)
 {
 	BTree **ptr;
 
-	if (strcmp((*tree)->str, data) <= 0)
+	if (strcmp(data, (*tree)->str) <= 0)
 	{
-		printf("one\n");
 		ptr = &((*tree)->left);
+		printf("left\n");
 		if (create_node(ptr, data))
 			return 1;
-		print_tree(*tree);
 	}
-	else if (strcmp((*tree)->str, data) > 0)
+	else if (strcmp(data, (*tree)->str) > 0)
 	{
 		ptr = &((*tree)->right);
+		printf("right\n");
 		if (create_node(ptr, data))
 			return 1;
-		print_tree(*tree);
 	}
 	return 0;
 }

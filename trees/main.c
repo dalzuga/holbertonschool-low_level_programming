@@ -13,10 +13,10 @@ int main()
 
         if (btree_insert(&tree, "e")) /* error check */
                 return 1;
-	printf("'e' added\n");
         if (btree_insert(&tree, "i")) /* error check */
                 return 1;
-	printf("'i' added\n");
+	if (btree_insert(&tree, "b")) /* error check */
+		return 1;
 
         return 0;
 }
