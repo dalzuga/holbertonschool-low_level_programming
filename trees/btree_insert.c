@@ -26,6 +26,8 @@ int btree_insert(BTree **tree, char *data)
 		{
 			if ((*tree)->left == NULL)
 				(*tree)->left = node;
+			else
+				btree_insert(&((*tree)->left), data);				
 		}
 		else if (strcmp(node->str,(*tree)->str) >= 0)
 		{
