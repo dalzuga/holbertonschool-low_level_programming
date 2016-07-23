@@ -55,6 +55,7 @@ int find_create_node_and_insert(BTree **tree, char *data)
 	if (strcmp(data, (*tree)->str) <= 0)
 	{
 		ptr = &((*tree)->left);
+		(*ptr)->str = NULL;
 		printf("left\n");
 		if (btree_insert(ptr, data))
 			return 1;
@@ -63,6 +64,7 @@ int find_create_node_and_insert(BTree **tree, char *data)
 	{
 		ptr = &((*tree)->right);
 		printf("right\n");
+		(*ptr)->str = NULL;
 		if (btree_insert(ptr, data))
 			return 1;
 	}
