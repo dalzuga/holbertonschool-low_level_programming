@@ -6,4 +6,7 @@ all: test_double_pointer
 test_double_pointer: test_double_pointer.c
 
 clean:
-	rm a.out
+	rm test_double_pointer
+
+run:
+	./test_double_pointer

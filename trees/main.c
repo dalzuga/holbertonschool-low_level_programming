@@ -3,20 +3,31 @@
 #include <stdio.h>
 
 int btree_insert(BTree **tree, char *data);
+void print_tree(BTree *tree);
 
 int main()
 {
-        BTree **tree;
-        char data[] = "Hello";
+        BTree *tree;
 
-        if ((tree = malloc(sizeof(void *))) == NULL) {
+        tree = NULL;
+
+        if (btree_insert(&tree, "e")) /* error check */
                 return 1;
-        }        
+	printf("'e' added\n");
+        if (btree_insert(&tree, "i")) /* error check */
+                return 1;
+	printf("'i' added\n");
 
-        if (btree_insert(tree, data)) {
-                printf("Success!\n");
+        return 0;
+}
+
+/* prints a node */
+void print_tree(BTree *tree)
+{
+        if (tree == NULL) {
+                printf("Tree NULL\n");
+                return;
         }
 
-        printf("No success :(\n");
-        return 0;
+        printf("print_tree:\t%s\n", (*tree).str);
 }
