@@ -11,12 +11,26 @@ int main()
 
         tree = NULL;
 
+        printf("print_tree:\t%s\n", "e");
         if (btree_insert(&tree, "e")) /* error check */
                 return 1;
+	printf("----------\n");
+        printf("print_tree:\t%s\n", "i");
         if (btree_insert(&tree, "i")) /* error check */
                 return 1;
+	printf("----------\n");
+        printf("print_tree:\t%s\n", "b");
 	if (btree_insert(&tree, "b")) /* error check */
 		return 1;
+	printf("----------\n");
+        printf("print_tree:\t%s\n", "f");
+	if (btree_insert(&tree, "f")) /* error check */
+		return 1;
+	printf("----------\n");
+        printf("print_tree:\t%s\n", "f");
+	if (btree_insert(&tree, "f")) /* error check */
+		return 1;
+	printf("----------\n");
 
         return 0;
 }
