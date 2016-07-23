@@ -27,7 +27,8 @@ int main()
 	printf("insert:\tc\n");
 	if (btree_insert(&tree, "c")) /* error check */
 		return 1;
-	/* printf("-------PRINTING STARTS NOW-----------\n"); */
+
+	printf("-------PRINTING STARTS NOW-----------\n");
 
 	print_preorder(tree);
 
