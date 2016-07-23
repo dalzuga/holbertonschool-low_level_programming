@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 int btree_insert(BTree **tree, char *data);
-void print_tree(BTree **tree);
+void print_tree_all_nodes(BTree **tree);
 void print_tree_node(BTree **tree);
 
 int main()
@@ -23,18 +23,21 @@ int main()
 	if (btree_insert(&tree, "f")) /* error check */
 		return 1;
 
-	print_tree(&tree);
+	print_tree_all_nodes(&tree);
 
         return 0;
 }
 
 /* prints a tree */
-void print_tree(BTree **tree)
+void print_tree_all_nodes(BTree **tree)
 {
 	BTree **ptr;
 
-        if (tree == NULL || *tree == NULL || (*tree)->str == NULL)
+        if (tree == NULL)
                 return;
+	if ((*tree)->str == NULL)
+		return;
+
 	print_tree_node(tree);
 
 	if ((*tree)->left == NULL || (*tree)->right == NULL)
@@ -42,11 +45,11 @@ void print_tree(BTree **tree)
 
 	ptr = &((*tree)->left);
 	if (ptr != NULL)
-		print_tree(ptr);
+		print_tree_all_nodes(ptr);
 
 	ptr = &((*tree)->right);
 	if (ptr != NULL)
-		print_tree(ptr);
+		print_tree_all_nodes(ptr);
 }
 
 /* prints a node */

@@ -5,7 +5,7 @@
 
 int insert_node_data(BTree **tree, char *data);
 int find_create_node_and_insert(BTree **tree, char *data);
-void print_tree(BTree *tree);
+int allocate_left_right_nodes(BTree **tree);
 
 /* insert a tree node */
 int btree_insert(BTree **tree, char *data)
@@ -29,13 +29,22 @@ int btree_insert(BTree **tree, char *data)
 	return 0;
 }
 
-/* store data string, allocate memory for node members left and right */
+/* store data string, allocate memory for its nodes */
 int insert_node_data(BTree **tree, char *data)
 {
 	(*tree)->str = strdup(data);
 	if ((*tree)->str == NULL) /* error check */
 		return 1;
 
+	if (allocate_left_right_nodes(tree))
+		return 1;
+
+	return 0;
+}
+
+/* allocate memory for node members left and right, and initialize to NULL */
+int allocate_left_right_nodes(BTree **tree)
+{
 	(*tree)->left = malloc(sizeof(BTree));
 	if ((*tree)->left == NULL) /* error check */
 		return 1;
@@ -43,6 +52,14 @@ int insert_node_data(BTree **tree, char *data)
 	(*tree)->right = malloc(sizeof(BTree));
 	if ((*tree)->right == NULL) /* error check */
 		return 1;
+
+	((*tree)->left)->str = NULL;
+	((*tree)->right)->str = NULL;
+
+	((*tree)->left)->left = NULL;
+	((*tree)->left)->right = NULL;
+	((*tree)->right)->right = NULL;
+	((*tree)->right)->left = NULL;
 
 	return 0;
 }
