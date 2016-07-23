@@ -12,8 +12,15 @@ int btree_insert(BTree **tree, char *data)
 {
 	if (*tree == NULL)	/* insert node if doesnt exist */
 	{
+		(*tree) = malloc(sizeof(BTree));
+		if (*tree == NULL)	/* error check */
+			return 1;
 		if (create_node(tree, data)) /* error check */
 			return 1;
+	}
+	else if ((*tree)->str == NULL)
+	{
+		(*tree)->str = strdup(data);
 	}
 	else
 		find_and_insert(tree, data);
@@ -24,10 +31,6 @@ int btree_insert(BTree **tree, char *data)
 /* if there is no node allocated in memory, create and allocate */
 int create_node(BTree **tree, char *data)
 {
-	(*tree) = malloc(sizeof(BTree));
-	if (*tree == NULL)	/* error check */
-		return 1;
-
 	(*tree)->str = strdup(data);
 	if ((*tree)->str == NULL) /* error check */
 		return 1;
