@@ -12,16 +12,25 @@ int main()
 
         tree = NULL;
 
-        if (btree_insert(&tree, "e")) /* error check */
+	printf("insert:\tb\n");
+        if (btree_insert(&tree, "b")) /* error check */
                 return 1;
-        if (btree_insert(&tree, "i")) /* error check */
-                return 1;
-	if (btree_insert(&tree, "b")) /* error check */
+	printf("------------------\n");
+
+	printf("insert:\ta\n");
+	if (btree_insert(&tree, "a")) /* error check */
 		return 1;
-	if (btree_insert(&tree, "f")) /* error check */
+	printf("------------------\n");
+
+	printf("insert:\tc\n");
+	if (btree_insert(&tree, "c")) /* error check */
 		return 1;
-	if (btree_insert(&tree, "f")) /* error check */
+	printf("------------------\n");
+
+	printf("insert:\tc\n");
+	if (btree_insert(&tree, "c")) /* error check */
 		return 1;
+	printf("------------------\n");
 
 	printf("root:\t");
 	print_tree_node(&tree);
