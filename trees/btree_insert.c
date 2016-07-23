@@ -51,23 +51,17 @@ int find_and_insert(BTree **tree, char *data)
 	if (strcmp((*tree)->str, data) <= 0)
 	{
 		printf("one\n");
-		/* if ((*tree)->left == NULL) */
-		/* { */
 		ptr = &((*tree)->left);
 		if (create_node(ptr, data))
 			return 1;
 		print_tree(*tree);
-		/* } */
 	}
 	else if (strcmp((*tree)->str, data) > 0)
 	{
-		/* if ((*tree)->right == NULL) */
-		/* { */
-			ptr = &((*tree)->right);
-			if (create_node(ptr, data))
-				return 1;
-			print_tree(*tree);
-		/* } */
+		ptr = &((*tree)->right);
+		if (create_node(ptr, data))
+			return 1;
+		print_tree(*tree);
 	}
 	return 0;
 }
