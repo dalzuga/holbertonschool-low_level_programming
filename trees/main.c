@@ -23,6 +23,8 @@ int main()
 	if (btree_insert(&tree, "f")) /* error check */
 		return 1;
 
+	printf("root:\t");
+	print_tree_node(&tree);
 	print_tree_all_nodes(&tree);
 
         return 0;
@@ -31,29 +33,31 @@ int main()
 /* prints a tree */
 void print_tree_all_nodes(BTree **tree)
 {
-	BTree **ptr;
+	BTree **ptr_left, **ptr_right;
 
         if (tree == NULL)
                 return;
 	if ((*tree)->str == NULL)
 		return;
 
-	print_tree_node(tree);
+	ptr_left = &((*tree)->left);
+	ptr_right = &((*tree)->right);
 
-	ptr = &((*tree)->left);
-	if (ptr != NULL)
-		print_tree_all_nodes(ptr);
+	printf("left:\t");
+	print_tree_node(ptr_left);
+	printf("right: \t");
+	print_tree_node(ptr_right);
+	printf("------------------\n");
 
-	ptr = &((*tree)->right);
-	if (ptr != NULL)
-		print_tree_all_nodes(ptr);
+	print_tree_all_nodes(ptr_left);
+	print_tree_all_nodes(ptr_right);
 }
 
 /* prints a node */
 void print_tree_node(BTree **tree)
 {
-        if (tree == NULL || *tree == NULL || (*tree)->str == NULL)
-                return;
-
-	printf("%s\n", (*tree)->str);
+	if ((*tree)->str == NULL)
+		printf("NULL\n");
+	else
+		printf("%s\n", (*tree)->str);
 }
