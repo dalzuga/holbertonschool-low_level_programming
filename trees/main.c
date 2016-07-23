@@ -5,6 +5,8 @@
 int btree_insert(BTree **tree, char *data);
 void print_tree_all_nodes(BTree **tree);
 void print_tree_node(BTree **tree);
+void print_preorder(BTree *tree);
+int test_insert();
 
 int main()
 {
@@ -22,46 +24,21 @@ int main()
 		return 1;
 	printf("------------------\n");
 
-	printf("insert:\tb\n");
-	if (btree_insert(&tree, "b")) /* error check */
-		return 1;
-	printf("------------------\n");
+	/* printf("insert:\tb\n"); */
+	/* if (btree_insert(&tree, "b")) /\* error check *\/ */
+	/* 	return 1; */
+	/* printf("-------PRINTING STARTS NOW-----------\n"); */
 
-	printf("root:\t");
-	print_tree_node(&tree);
-	print_tree_all_nodes(&tree);
+	print_preorder(tree);
 
         return 0;
 }
-
-/* prints a tree */
-void print_tree_all_nodes(BTree **tree)
+void print_preorder(BTree *tree)
 {
-	BTree **ptr_left, **ptr_right;
-
-        if (tree == NULL)
-                return;
-	if ((*tree)->str == NULL)
+	if (tree == NULL)
 		return;
 
-	ptr_left = &((*tree)->left);
-	ptr_right = &((*tree)->right);
-
-	printf("left:\t");
-	print_tree_node(ptr_left);
-	printf("right: \t");
-	print_tree_node(ptr_right);
-	printf("------------------\n");
-
-	print_tree_all_nodes(ptr_left);
-	print_tree_all_nodes(ptr_right);
-}
-
-/* prints a node */
-void print_tree_node(BTree **tree)
-{
-	if ((*tree)->str == NULL)
-		printf("NULL\n");
-	else
-		printf("%s\n", (*tree)->str);
+	printf("%s\n", tree->str);
+	print_preorder(tree->left);
+	print_preorder(tree->right);
 }
