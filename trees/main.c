@@ -24,9 +24,9 @@ int main()
 		return 1;
 	printf("------------------\n");
 
-	/* printf("insert:\tb\n"); */
-	/* if (btree_insert(&tree, "b")) /\* error check *\/ */
-	/* 	return 1; */
+	printf("insert:\tb\n");
+	if (btree_insert(&tree, "b")) /* error check */
+		return 1;
 	/* printf("-------PRINTING STARTS NOW-----------\n"); */
 
 	print_preorder(tree);
