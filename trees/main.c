@@ -40,9 +40,6 @@ void print_tree_all_nodes(BTree **tree)
 
 	print_tree_node(tree);
 
-	if ((*tree)->left == NULL || (*tree)->right == NULL)
-		return;
-
 	ptr = &((*tree)->left);
 	if (ptr != NULL)
 		print_tree_all_nodes(ptr);
