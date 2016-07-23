@@ -60,6 +60,7 @@ int find_and_insert(BTree **tree, char *data)
 		/* } */
 	}
 	else if (strcmp((*tree)->str, data) > 0)
+	{
 		/* if ((*tree)->right == NULL) */
 		/* { */
 			ptr = &((*tree)->right);
@@ -67,5 +68,6 @@ int find_and_insert(BTree **tree, char *data)
 				return 1;
 			print_tree(*tree);
 		/* } */
+	}
 	return 0;
 }
