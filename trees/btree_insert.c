@@ -31,6 +31,9 @@ int btree_insert(BTree **tree, char *data)
 		{
 			if ((*tree)->right == NULL)
 				(*tree)->right = node;
+			else
+				btree_insert(&((*tree)->right), data);
+
 		}
 	}
 
