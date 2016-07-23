@@ -1,11 +1,13 @@
 CC=gcc
-CFLAGS=-Wall -Werror -Wextra -pedantic -g
+CFLAGS=-Wall -Werror -Wextra -pedantic
 
-all: 0-main
+all: 0-main 1-main
 
 0-main: 0-main.c btree_insert.c
 
+1-main: 1-main.c btree_insert.c btree_find.c
+
 run:
-	./0-main
+	./1-main
 clean:
-	rm 0-main
+	rm 1-main

@@ -4,6 +4,7 @@
 
 int btree_insert(BTree **tree, char *data);
 void print_preorder(BTree *tree);
+BTree *btree_find(BTree *tree, char *str);
 
 int main()
 {
@@ -29,24 +30,16 @@ int main()
         if (btree_insert(&tree, "b")) /* error check */
                 return 1;
 
-	print_preorder(tree);
-
-	tree = NULL;
-
-	printf("-------JOHN SERRANO'S TREE STARTS NOW-----------\n");
-
-	btree_insert(&tree, "q - 1");
-	btree_insert(&tree, "w - 6");
-	btree_insert(&tree, "e - 2");
-	btree_insert(&tree, "r - 7");
-	btree_insert(&tree, "t - 8");
-	btree_insert(&tree, "y - 10");
-	btree_insert(&tree, "u - 9");
-	btree_insert(&tree, "i - 3");
-	btree_insert(&tree, "o - 4");
-	btree_insert(&tree, "p - 5");
+	printf("insert:\tb\n");
+        if (btree_insert(&tree, "hello")) /* error check */
+                return 1;
 
 	print_preorder(tree);
+
+	if (btree_find(tree, "hello") == NULL)
+		printf("Not found.");
+	else
+		printf("Found!");
 
         return 0;
 }
