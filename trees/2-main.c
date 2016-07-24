@@ -3,31 +3,35 @@
 #include <stdio.h>
 
 void print_preorder(BTree *tree);
-int array_to_btree(char **array);
+BTree *array_to_btree(char **array);
 
 int main()
 {
-	/* BTree *tree; */
-	char array[] = {'b', 'a', 'c'};
-	char *array_ptr;
+	BTree *tree;
+	char array[] = {'b', '\0', 'b', '\0', 'c', '\0', 'a', '\0'};
+	char **array_ptr;
 	int i;
 
-	array_ptr = malloc(sizeof(array) + 1);
+	printf("sizeof(array):\t%lu\n", sizeof(array));
+	
+	array_ptr = malloc(sizeof(char *) * (sizeof(array) / 2 + 1));
+	if (array_ptr == NULL)	/* malloc error */
+		return 1;
 
-	for (i = 0; i < (int) sizeof(array); i++)
-		array_ptr[i] = array[i];
-
-	array_ptr[i] = '\0';
-	printf("%s\n", array_ptr);
+	for (i = 0; i < (int) (sizeof(array) / 2); i++)
+	{
+		array_ptr[i] = array + 2 * i;
+		/* printf("%s\n", array_ptr[i]); */
+	}
 
 	printf("-------array_to_btree-----------\n");
 
-	if (array_to_btree(&array_ptr))
+	tree = array_to_btree(array_ptr);
+	if (tree == NULL)
 		return 1;
+	print_preorder(tree);
 
-	/* print_preorder(tree); */
-
-        return 0;
+	return 0;
 }
 
 void print_preorder(BTree *tree)

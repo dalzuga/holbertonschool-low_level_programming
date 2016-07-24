@@ -8,21 +8,19 @@ BTree *btree_find(BTree *tree, char *str);
 void print_preorder(BTree *tree);
 
 /* create btree from array */
-int array_to_btree(char **array)
+BTree *array_to_btree(char **array)
 {
 	BTree *tree;
 	int i;
 
 	tree = NULL;
 
-	i = 0;
-	for (i = 0; (*array)[i] != '\0'; i++)
+	for (i = 0; array[i] != NULL; i++)
 	{
-		if (btree_insert(&tree, &((*array)[i])))
-			return 1;
+		if (btree_insert(&tree, array[i]))
+			return NULL;
 	}
-
-	/* print_preorder(tree); */
-
-	return 0;
+	
+	printf("node returned:\t%s\n", tree->str);
+	return tree;
 }
