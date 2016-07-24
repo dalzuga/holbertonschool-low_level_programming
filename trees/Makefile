@@ -10,4 +10,4 @@ all: 0-main 1-main
 run:
 	./1-main
 clean:
-	rm 1-main
+	rm *-main
