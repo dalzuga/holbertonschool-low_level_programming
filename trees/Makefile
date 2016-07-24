@@ -7,7 +7,7 @@ all: 0-main 1-main 2-main
 
 1-main: 1-main.c btree_insert.c btree_find.c
 
-2-main: 2-main.c array_to_btree.c
+2-main: 2-main.c btree_insert.c btree_find.c array_to_btree.c
 
 run:
 	./2-main

@@ -8,7 +8,7 @@ int array_to_btree(char **array);
 int main()
 {
 	/* BTree *tree; */
-	char array[] = {'b', 'a', 'b'};
+	char array[] = {'b', 'a', 'c'};
 	char *array_ptr;
 	int i;
 
