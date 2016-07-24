@@ -2,36 +2,30 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int btree_insert(BTree **tree, char *data);
 void print_preorder(BTree *tree);
-BTree *btree_find(BTree *tree, char *str);
+int array_to_btree(char **array);
 
 int main()
 {
-        BTree *tree;
+	/* BTree *tree; */
+	char array[] = {'b', 'a', 'b'};
+	char *array_ptr;
+	int i;
 
-        tree = NULL;
+	array_ptr = malloc(sizeof(array) + 1);
 
-	printf("-------DANIEL'S TREE STARTS NOW-----------\n");
+	for (i = 0; i < (int) sizeof(array); i++)
+		array_ptr[i] = array[i];
 
-	printf("insert:\tb\n");
-        if (btree_insert(&tree, "b")) /* error check */
-                return 1;
+	array_ptr[i] = '\0';
+	printf("%s\n", array_ptr);
 
-	printf("insert:\ta\n");
-	if (btree_insert(&tree, "a")) /* error check */
+	printf("-------array_to_btree-----------\n");
+
+	if (array_to_btree(&array_ptr))
 		return 1;
 
-	printf("insert:\tb\n");
-        if (btree_insert(&tree, "b")) /* error check */
-                return 1;
-
-	print_preorder(tree);
-
-	if (btree_find(tree, "b") == NULL)
-		printf("Not found.");
-	else
-		printf("Found!");
+	/* print_preorder(tree); */
 
         return 0;
 }
