@@ -18,6 +18,7 @@ int main()
 		return 1;	/* main() returns 1 */
 
 	print_preorder(tree);
+	btree_free(tree);
 
 	return 0;
 }

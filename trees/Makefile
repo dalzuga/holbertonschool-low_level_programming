@@ -14,4 +14,4 @@ all: 0-main 1-main 2-main 3-main
 run:
 	./3-main
 clean:
-	rm 0-main 1-main 2-main
+	rm 0-main 1-main 2-main 3-main
