@@ -30,7 +30,7 @@ int main()
         if (btree_insert(&tree, "b")) /* error check */
                 return 1;
 
-	printf("insert:\tb\n");
+	printf("insert:\thello\n");
         if (btree_insert(&tree, "hello")) /* error check */
                 return 1;
 

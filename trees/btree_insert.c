@@ -9,20 +9,32 @@ BTree *create_node(char *data);
 int btree_insert(BTree **tree, char *data)
 {
 	if (*tree == NULL)	/* very first node in the tree - 0th level */
+	{
 		*tree = create_node(data);
+		if (*tree == NULL) /* error check */
+			return 1;
+	}
 	else			/* first level of tree */
 	{
 		if (strcmp(data,(*tree)->str) < 0)
 		{
 			if ((*tree)->left == NULL)
+			{
 				(*tree)->left = create_node(data);
+				if ((*tree)->left == NULL) /* error check */
+					return 1;
+			}
 			else
 				btree_insert(&((*tree)->left), data);
 		}
 		else if (strcmp(data,(*tree)->str) >= 0)
 		{
 			if ((*tree)->right == NULL)
+			{
 				(*tree)->right = create_node(data);
+				if ((*tree)->right == NULL) /* error check */
+					return 1;
+			}
 			else
 				btree_insert(&((*tree)->right), data);
 
