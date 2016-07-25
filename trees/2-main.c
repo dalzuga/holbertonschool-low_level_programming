@@ -8,27 +8,31 @@ BTree *array_to_btree(char **array);
 int main()
 {
 	BTree *tree;
-	char array[] = {'b', '\0', 'b', '\0', 'c', '\0', 'a', '\0'};
-	char **array_ptr;
-	int i;
+	char *array[] = {"c", "g", "a", "f", "s", "b", NULL};
 
-	printf("sizeof(array):\t%lu\n", sizeof(array));
+	/* char array[] = {'b', '\0', 'b', '\0', 'c', '\0', 'a', '\0'}; */
+	/* char **array_ptr; */
+	/* int i; */
+
+	/* printf("sizeof(array):\t%lu\n", sizeof(array)); */
 	
-	array_ptr = malloc(sizeof(char *) * (sizeof(array) / 2 + 1));
-	if (array_ptr == NULL)	/* malloc error */
-		return 1;
+	/* array_ptr = malloc(sizeof(char *) * (sizeof(array) / 2 + 1)); */
+	/* /\* if (array_ptr == NULL)	/\* malloc error *\/ */
+	/* 	return 1; */
 
-	for (i = 0; i < (int) (sizeof(array) / 2); i++)
-	{
-		array_ptr[i] = array + 2 * i;
-		/* printf("%s\n", array_ptr[i]); */
-	}
+	/* for (i = 0; i < (int) (sizeof(array) / 2); i++) */
+	/* { */
+	/* 	array_ptr[i] = array + 2 * i; */
+	/* 	/\* printf("%s\n", array_ptr[i]); *\/ */
+	/* } */
 
 	printf("-------array_to_btree-----------\n");
 
-	tree = array_to_btree(array_ptr);
+	/* tree = array_to_btree(array_ptr); */
+	tree = array_to_btree(array);
 	if (tree == NULL)
 		return 1;
+
 	print_preorder(tree);
 
 	return 0;

@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Werror -Wextra -pedantic
+CFLAGS=-Wall -Werror -Wextra -pedantic -g
 
 all: 0-main 1-main 2-main
 
@@ -12,4 +12,4 @@ all: 0-main 1-main 2-main
 run:
 	./2-main
 clean:
-	rm *-main
+	rm 0-main 1-main 2-main
