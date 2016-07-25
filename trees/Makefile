@@ -12,6 +12,6 @@ all: 0-main 1-main 2-main 3-main
 3-main: 3-main.c btree_insert.c btree_find.c array_to_btree.c btree_free.c
 
 run:
-	./3-main
+	./2-main
 clean:
 	rm 0-main 1-main 2-main 3-main

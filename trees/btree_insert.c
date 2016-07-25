@@ -3,36 +3,26 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+BTree *create_node(char *data);
+
 /* insert a tree node */
 int btree_insert(BTree **tree, char *data)
 {
-	BTree *node;
-	node = malloc(sizeof(BTree));
-	if (node == NULL)	/* malloc check */
-		return 1;
-
-	node->str = strdup(data);
-	if (node->str == NULL) 	/* strdup alloc check */
-		return 1;
-
-	node->left = NULL; 	/* initialize */
-	node->right = NULL;	/* initialize */
-
 	if (*tree == NULL)	/* very first node in the tree - 0th level */
-		*tree = node;
+		*tree = create_node(data);
 	else			/* first level of tree */
 	{
-		if (strcmp(node->str,(*tree)->str) < 0)
+		if (strcmp(data,(*tree)->str) < 0)
 		{
 			if ((*tree)->left == NULL)
-				(*tree)->left = node;
+				(*tree)->left = create_node(data);
 			else
 				btree_insert(&((*tree)->left), data);
 		}
-		else if (strcmp(node->str,(*tree)->str) >= 0)
+		else if (strcmp(data,(*tree)->str) >= 0)
 		{
 			if ((*tree)->right == NULL)
-				(*tree)->right = node;
+				(*tree)->right = create_node(data);
 			else
 				btree_insert(&((*tree)->right), data);
 
@@ -40,4 +30,22 @@ int btree_insert(BTree **tree, char *data)
 	}
 
 	return 0;
+}
+
+/* create a new node, allocate its members, initialize them, and return it */
+BTree *create_node(char *data)
+{
+	BTree *node;
+	node = malloc(sizeof(BTree));
+	if (node == NULL)	/* malloc check */
+		return NULL;
+
+	node->str = strdup(data);
+	if (node->str == NULL) 	/* strdup alloc check */
+		return NULL;
+
+	node->left = NULL; 	/* initialize */
+	node->right = NULL;	/* initialize */
+
+	return node;
 }
