@@ -1,4 +1,5 @@
 	int **double_ptr;
+	int *ptr;
 	int n;
 	n = 98;
 
@@ -9,7 +10,6 @@
  value: |  0x120 |
         ----------
 
-	*double_ptr
 	ptr - type (int *)
 	----------
   addr:	|  0x120 |

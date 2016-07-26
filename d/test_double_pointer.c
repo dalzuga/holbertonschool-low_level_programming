@@ -6,19 +6,19 @@ int main()
         int **dp;
 
         dp = malloc(sizeof(void *));
-        *dp = malloc(sizeof(void *));
-        /* the below malloc is done automatically */
-        /* **dp = malloc(sizeof(int)); */
-        **dp = 10;
 
-        printf("double pointer address\nhex:\t%p\n", (void *) &dp);
-        printf("double pointer value\nhex:\t%p\n", (void *) dp);
+        *dp = malloc(sizeof(void *));
+
+        **dp = 327;
+
+        printf("dp\naddr:\t%p\n", (void *) &dp);
+        printf("value:\t%p\n", (void *) dp);
         printf("-----------------------\n");
-        printf("intermediate pointer address\nhex:\t%p\n", (void *) &*dp);
-        printf("intermediate pointer value\nhex:\t%p\n", (void *) *dp);
+        printf("ptr\naddr:\t%p\n", (void *) &(*dp));
+        printf("value:\t%p\n", (void *) *dp);
         printf("-----------------------\n");
-        printf("address of the int\nhex:\t%p\n", (void *) &**dp);
-        printf("value of the int\nint:\t%d\n", **dp);
+        printf("n\naddr:\t%p\n", (void *) &(**dp));
+        printf("value:\t%d\n", **dp);
 
         return 0;
 }
