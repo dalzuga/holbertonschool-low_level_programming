@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic
 
-all: test_double_pointer
+all: test_double_pointer test_int_size
 
 test_double_pointer: test_double_pointer.c
 

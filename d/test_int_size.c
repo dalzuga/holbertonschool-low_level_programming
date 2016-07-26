@@ -4,8 +4,8 @@ int main()
 {
 	printf("Hello there\n");
 
-	printf("The size of an (int) is:\t");
-	printf("%lu\n", sizeof());
+	printf("The size of an (void *) is:\t");
+	printf("%lu\n", sizeof(void *));
 
 	return 0;
 }
