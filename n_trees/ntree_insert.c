@@ -3,7 +3,6 @@
 #include <string.h>
 #include <stdio.h>
 
-
 NTree *create_node(char *data);
 List *create_list(void);
 

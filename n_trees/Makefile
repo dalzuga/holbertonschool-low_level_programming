@@ -7,8 +7,5 @@ all: 0-main
 
 0-main: $(SOURCES).c $(OBJECTS)
 
-run:
-	valgrind ./0-main
-
 clean:
 	$(RM) 0-main
