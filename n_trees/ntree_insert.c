@@ -23,10 +23,10 @@ NTree *create_node(char *data)
 		return NULL;
 
 	node->str = strdup(data); /* set 'str' member */
-	if (node->str == NULL) 	/* strdup allock check */
+	if (node->str == NULL) 	/* strdup alloc check */
 		return NULL;
 	
-	node->children = NULL;
+	node->children = NULL;	/* initiliaze 'children' member */
 
 	return node;
 }
@@ -39,7 +39,7 @@ List *create_list(void)
 	if (list == NULL)	/* malloc check */
 		return NULL;
 
-	list->next = NULL;
+	list->next = NULL;	/* initialize list members */
 	list->node = NULL;
 
 	return list;
