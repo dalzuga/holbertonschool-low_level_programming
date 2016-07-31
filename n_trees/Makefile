@@ -10,9 +10,6 @@ all: $(SOURCES) $(EXECUTABLE)
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(OBJECTS) -o $@
 
-$(OBJECTS):
-	$(CC) $(CFLAGS) $< -o $@
-
 .PHONY: clean
 clean:
-	$(RM) 0-main $(OBJECTS)
+	$(RM) 0-main $(SOURCES:.c=.o)

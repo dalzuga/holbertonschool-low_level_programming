@@ -11,13 +11,13 @@ void free_str_array(char **);
 int main(void)
 {
 	NTree *tree;
-	char **array;
+	char __attribute__((unused)) **array;
 
 	tree = NULL;
 	ntree_insert(&tree, NULL, "/");
 
-	ntree_insert(&tree, (array = string_split("/", ' ')), "tmp");
-	free_str_array(array);
+	/* ntree_insert(&tree, (array = string_split("/", ' ')), "tmp"); */
+	/* free_str_array(array); */
 	/* ntree_insert(&tree, (array = string_split("/ tmp", ' ')), "tmp_file"); */
 	/* free_str_array(array); */
 	/* ntree_insert(&tree, (array = string_split("/ tmp", ' ')), "tmp_file2"); */
