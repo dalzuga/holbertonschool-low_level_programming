@@ -1,11 +1,18 @@
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic -g
-SOURCES=ntree_insert
+SOURCES=0-main.c ntree_insert.c
 OBJECTS=free_str_array.o  ntree_free.o  ntree_print.o  string_split.o
+OBJECTS+=$(SOURCES:.c=.o)
+EXECUTABLE=0-main
 
-all: 0-main
+all: $(SOURCES) $(EXECUTABLE)
 
-0-main: $(SOURCES).c $(OBJECTS)
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@
 
+$(OBJECTS):
+	$(CC) $(CFLAGS) $< -o $@
+
+.PHONY: clean
 clean:
-	$(RM) 0-main
+	$(RM) 0-main $(OBJECTS)
