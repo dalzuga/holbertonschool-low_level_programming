@@ -8,7 +8,7 @@ List *create_list(void);
 
 int ntree_insert(NTree **tree, __attribute__((unused)) char **parents, char *data)
 {
-	if (tree == NULL)
+	if (*tree == NULL)
 		*tree = create_node(data);
 
 	return 0;

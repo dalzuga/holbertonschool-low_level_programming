@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "tree.h"
+#include <stdio.h>
 
 int ntree_insert(NTree **, char **, char *);
 
