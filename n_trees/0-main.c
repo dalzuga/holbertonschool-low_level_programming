@@ -14,15 +14,23 @@ int main(void)
 	NTree *tree;
 	char __attribute__((unused)) **array;
 
+	printf("------1------\n");
 	tree = NULL;
 	ntree_insert(&tree, NULL, "/");
 
-	/* ntree_insert(&tree, (array = string_split("/", ' ')), "tmp"); */
-	/* free_str_array(array); */
-	/* ntree_insert(&tree, (array = string_split("/ tmp", ' ')), "tmp_file"); */
-	/* free_str_array(array); */
-	/* ntree_insert(&tree, (array = string_split("/ tmp", ' ')), "tmp_file2"); */
-	/* free_str_array(array); */
+	printf("------2------\n");
+	ntree_insert(&tree, (array = string_split("/", ' ')), "tmp");
+	free_str_array(array);
+
+	printf("------3------\n");
+	ntree_insert(&tree, (array = string_split("/ tmp", ' ')), "tmp_file");
+	free_str_array(array);
+
+	printf("------4------\n");
+	ntree_insert(&tree, (array = string_split("/ tmp", ' ')), "tmp_file2");
+	free_str_array(array);
+
+	/* printf("------5------\n"); */
 	/* ntree_insert(&tree, (array = string_split("/ tmp", ' ')), "tmp_file3"); */
 	/* free_str_array(array); */
 
@@ -77,7 +85,9 @@ int main(void)
 	/* ntree_insert(&tree, (array = string_split("/ dev", ' ')), "sdb3"); */
 	/* free_str_array(array); */
 
+	printf("------print------\n");
 	ntree_print(tree);
+	printf("------free------\n");
 	ntree_free(tree);
 	return (0);
 }
