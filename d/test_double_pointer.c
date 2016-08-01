@@ -3,13 +3,12 @@
 
 int main()
 {
+	int *ptr;
         int **dp;
 
-        dp = malloc(sizeof(void *));
+	ptr = NULL;
 
-        *dp = malloc(sizeof(void *));
-
-        **dp = 327;
+        dp = &ptr;
 
         printf("dp\naddr:\t%p\n", (void *) &dp);
         printf("value:\t%p\n", (void *) dp);

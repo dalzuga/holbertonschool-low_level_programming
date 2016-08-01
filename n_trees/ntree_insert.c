@@ -5,35 +5,47 @@
 
 NTree *create_node(char *data);
 List *create_list(void);
-int ntree_insert(List **list, __attribute__((unused)) char **parents, char *data);
+NTree **find_parent_node(NTree **tree, char **parents);
 
 int ntree_insert(NTree **tree, __attribute__((unused)) char **parents, char *data)
 {
+	NTree **parent_node;
 	List *list_ptr;
 	list_ptr = NULL;
 
-	if (*tree == NULL)	/* case 1 */
+	parent_node = tree;
+
+	/* code to find correct parent_node */
+
+	if (*parent_node == NULL)	/* case 1 */
 	{
-		*tree = create_node(data);
-		if (*tree == NULL) /* error check */
+		*parent_node = create_node(data);
+		if (*parent_node == NULL) /* error check */
 			return 1;
+		(*parent_node)->children = create_list(); /* create list */
+		if ((*parent_node)->children == NULL)	/* error check */
+			return 1;
+		printf("The root has been added\n");
 		return 0;
 	}
 
-	list_ptr = (*tree)->children; /* case 2 */
+	list_ptr = (*parent_node)->children;
+
 	while (list_ptr->next != NULL) /* traverse children list */
 		list_ptr = list_ptr->next;
 	
-	list_ptr = create_list(); /* case 3: insert */
-	if (list_ptr == NULL) 	/* error check */
+	list_ptr->next = create_list(); /* create list and insert */
+	if (list_ptr->next == NULL) 	/* error check */
 		return 1;
 	
-	list_ptr->node = create_node(data); /* create the node to insert */
-	if (list_ptr->node == NULL) /* error check */
+	list_ptr->next->node = create_node(data); /* create the node and insert */
+	if (list_ptr->next->node == NULL) /* error check */
 		return 1;
 
-	
+	printf("The node has been added\n");
+	return 0;
 }
+
 NTree *create_node(char *data)
 {
 	NTree *node;
