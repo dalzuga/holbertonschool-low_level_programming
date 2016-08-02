@@ -15,7 +15,7 @@ int ntree_insert(NTree **tree, __attribute__((unused)) char **parents, char *dat
 
 	parent_node = tree;
 
-	/* code to find correct parent_node */
+	/* Code to find correct parent_node */
 
 	if (*parent_node == NULL)	/* case 1 */
 	{
@@ -34,16 +34,21 @@ int ntree_insert(NTree **tree, __attribute__((unused)) char **parents, char *dat
 	while (list_ptr->next != NULL) /* traverse children list */
 		list_ptr = list_ptr->next;
 	
-	list_ptr->next = create_list(); /* create list and insert */
+	list_ptr->next = create_list(); /* create list */
 	if (list_ptr->next == NULL) 	/* error check */
 		return 1;
 	
-	list_ptr->next->node = create_node(data); /* create the node and insert */
+	list_ptr->next->node = create_node(data); /* create the node */
 	if (list_ptr->next->node == NULL) /* error check */
 		return 1;
 
 	printf("The node has been added\n");
 	return 0;
+}
+
+NTree **find_parent_node(__attribute__((unused)) NTree **tree, __attribute__((unused)) char **parents)
+{
+	return NULL;
 }
 
 NTree *create_node(char *data)
