@@ -14,7 +14,7 @@ int main(void)
 	NTree *tree;
 	char __attribute__((unused)) **array;
 
-	printf("------1------\n");
+	printf("------1 (root node)------\n");
 	tree = NULL;
 	ntree_insert(&tree, NULL, "/");
 

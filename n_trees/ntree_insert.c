@@ -6,6 +6,7 @@
 NTree *create_node(char *data);
 List *create_list(void);
 NTree **find_parent_node(NTree **tree, char **parents);
+long unsigned int string_array_size(char **parents);
 
 int ntree_insert(NTree **tree, __attribute__((unused)) char **parents, char *data)
 {
@@ -14,8 +15,6 @@ int ntree_insert(NTree **tree, __attribute__((unused)) char **parents, char *dat
 	list_ptr = NULL;
 
 	parent_node = tree;
-
-	/* Code to find correct parent_node */
 
 	if (*parent_node == NULL)	/* case 1 */
 	{
@@ -28,6 +27,9 @@ int ntree_insert(NTree **tree, __attribute__((unused)) char **parents, char *dat
 		printf("The root has been added\n");
 		return 0;
 	}
+
+	/* Code to find correct parent_node */
+	printf("the size of the array is: %lu\n", string_array_size(parents));
 
 	list_ptr = (*parent_node)->children;
 
@@ -46,9 +48,59 @@ int ntree_insert(NTree **tree, __attribute__((unused)) char **parents, char *dat
 	return 0;
 }
 
+/* find the correct directory folder to insert node; returns NULL if not found */
 NTree **find_parent_node(__attribute__((unused)) NTree **tree, __attribute__((unused)) char **parents)
 {
+	NTree **node_ptr;
+	List *list_ptr;
+	long unsigned int depth;
+	/* long unsigned int i; */
+	/* long unsigned int j; */
+
+	list_ptr = NULL;
+	node_ptr = tree;
+	depth = string_array_size(parents) - 1;
+
+	if (depth == 1)		/* root node */
+		return node_ptr;
+
+	/* if we reach this point, 'depth' will always be greater than or equal to 2 */
+	for (i = 1; i < depth; i++)
+	{
+		list_ptr = node_ptr->children;
+		while (list_ptr != NULL)
+		{
+			if ((strcmp(list_ptr->node->str, parents[i]) == 0))
+			{
+				break;
+			}
+
+			list_ptr = list_ptr->next;
+		}
+	}
+
 	return NULL;
+}
+
+long unsigned int string_array_size(char **parents)
+{
+	long unsigned int i;
+	char *str_ptr;
+
+	if (parents == NULL)
+		return 0;
+
+	str_ptr = parents[0];
+
+	if (parents[0] == NULL)
+	{
+		return 0;
+	}
+
+	for (i = 0; str_ptr != NULL; i++)
+		str_ptr = parents[i+1];
+
+	return i;
 }
 
 NTree *create_node(char *data)
