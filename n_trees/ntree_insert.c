@@ -5,33 +5,32 @@
 
 NTree *create_node(char *data);
 List *create_list(void);
-NTree **find_parent_node(NTree **tree, char **parents);
+NTree *find_parent_node(NTree **tree, char **parents);
 long unsigned int string_array_size(char **parents);
 
 int ntree_insert(NTree **tree, __attribute__((unused)) char **parents, char *data)
 {
-	NTree **parent_node;
+	NTree **parent_node_dp;
 	List *list_ptr;
 	list_ptr = NULL;
+	parent_node_dp = tree;
 
-	parent_node = tree;
+	printf("the size of the array is: %lu\n", string_array_size(parents));
+	*parent_node_dp = find_parent_node(tree, parents);
 
-	if (*parent_node == NULL)	/* case 1 */
+	if (*parent_node_dp == NULL)	/* case 1 */
 	{
-		*parent_node = create_node(data);
-		if (*parent_node == NULL) /* error check */
+		*parent_node_dp = create_node(data);
+		if (*parent_node_dp == NULL) /* error check */
 			return 1;
-		(*parent_node)->children = create_list(); /* create list */
-		if ((*parent_node)->children == NULL)	/* error check */
+		(*parent_node_dp)->children = create_list(); /* create list */
+		if ((*parent_node_dp)->children == NULL)	/* error check */
 			return 1;
 		printf("The root has been added\n");
 		return 0;
 	}
 
-	/* Code to find correct parent_node */
-	printf("the size of the array is: %lu\n", string_array_size(parents));
-
-	list_ptr = (*parent_node)->children;
+	list_ptr = (*parent_node_dp)->children;
 
 	while (list_ptr->next != NULL) /* traverse children list */
 		list_ptr = list_ptr->next;
@@ -49,37 +48,21 @@ int ntree_insert(NTree **tree, __attribute__((unused)) char **parents, char *dat
 }
 
 /* find the correct directory folder to insert node; returns NULL if not found */
-NTree **find_parent_node(__attribute__((unused)) NTree **tree, __attribute__((unused)) char **parents)
+NTree *find_parent_node(__attribute__((unused)) NTree **tree, __attribute__((unused)) char **parents)
 {
-	NTree **node_ptr;
-	List *list_ptr;
+	NTree *node_ptr;
 	long unsigned int depth;
-	/* long unsigned int i; */
-	/* long unsigned int j; */
 
-	list_ptr = NULL;
-	node_ptr = tree;
-	depth = string_array_size(parents) - 1;
+	node_ptr = *tree;
+	depth = string_array_size(parents);
 
 	if (depth == 1)		/* root node */
 		return node_ptr;
 
-	/* if we reach this point, 'depth' will always be greater than or equal to 2 */
-	for (i = 1; i < depth; i++)
-	{
-		list_ptr = node_ptr->children;
-		while (list_ptr != NULL)
-		{
-			if ((strcmp(list_ptr->node->str, parents[i]) == 0))
-			{
-				break;
-			}
+	/* if (depth == 2) */
+	/* 	return node_ptr->children->node; */
 
-			list_ptr = list_ptr->next;
-		}
-	}
-
-	return NULL;
+	return node_ptr;
 }
 
 long unsigned int string_array_size(char **parents)
