@@ -18,11 +18,13 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 
 	depth = string_array_size(parents);
 
-	printf("array is \"");
+	printf("path is \"");
 
-	for (i = 0; i < depth; i++)
+	if (0 < depth)
+		printf("%s", parents[0]);
+	for (i = 1; i < depth; i++)
 	{
-		printf("%s ", parents[i]);
+		printf("%s/", parents[i]);
 	}
 
 	printf("\". size is: %lu\n", depth);
