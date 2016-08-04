@@ -20,14 +20,12 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 
 	printf("path is \"");
 
-	if (0 < depth)
-		printf("%s", parents[0]);
-	for (i = 1; i < depth; i++)
+	for (i = 0; i < depth; i++)
 	{
-		printf("%s/", parents[i]);
+		printf("%s ", parents[i]);
 	}
 
-	printf("\". size is: %lu\n", depth);
+	printf("\". data is: %s. size is: %lu\n", data, depth);
 
 	if (depth == 0)
 	{
@@ -95,12 +93,6 @@ NTree *find_parent_node(NTree **tree, char **parents)
 
 	node_ptr = *tree;
 	depth = string_array_size(parents);
-
-	if (depth == 1)
-	{
-		*tree = node_ptr;
-		return node_ptr->children->node;
-	}
 
 	return node_ptr;
 }
