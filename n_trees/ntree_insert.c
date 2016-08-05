@@ -4,8 +4,6 @@
 #include <stdio.h>
 
 List *create_child(char *data);
-NTree *create_node(char *data);
-List *create_list(void);
 NTree *find_parent_node(NTree **tree, char **parents);
 long unsigned int string_array_size(char **parents);
 int ntree_insert_parent(NTree **tree, char *data);
@@ -26,7 +24,7 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 		printf("%s ", parents[i]);
 	}
 
-	printf("\". data is: %s. size is: %lu\n", data, depth);
+	printf("\". data is: %s. depth is: %lu\n", data, depth);
 
 	if (depth == 0)
 	{
