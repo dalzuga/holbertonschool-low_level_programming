@@ -3,11 +3,12 @@
 #include <string.h>
 #include <stdio.h>
 
+List *create_child(char *data);
 NTree *create_node(char *data);
 List *create_list(void);
 NTree *find_parent_node(NTree **tree, char **parents);
 long unsigned int string_array_size(char **parents);
-int ntree_insert_at_parent(NTree **tree, char *data);
+int ntree_insert_parent(NTree **tree, char *data);
 
 int ntree_insert(NTree **tree, char **parents, char *data)
 {
@@ -29,7 +30,7 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 
 	if (depth == 0)
 	{
-		if (ntree_insert_at_parent(&parent_node_ptr, data) == 0)
+		if (ntree_insert_parent(&parent_node_ptr, data) == 0)
 		{
 			*tree = parent_node_ptr;
 			return 0;
@@ -39,49 +40,43 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 	{
 		parent_node_ptr = find_parent_node(tree, parents);
 
-		if (ntree_insert_at_parent(&parent_node_ptr, data) == 0)
+		if (ntree_insert_parent(&parent_node_ptr, data) == 0)
 			return 0;
 	}	
 
 	return 0;
 }
 
-int ntree_insert_at_parent(NTree **parent_node_dp, char *data)
+/* inserts a node to the parent node specified by the NTree double pointer */
+int ntree_insert_parent(NTree **parent_node_dp, char *data)
 {
 	NTree *parent_node_ptr;
 	List *list_ptr;
 	list_ptr = NULL;
-	parent_node_ptr = *parent_node_dp;
+	parent_node_ptr = NULL;
 
-	if (parent_node_ptr == NULL)	/* case 1 */
+	if (parent_node_dp == NULL) /* make sure there is double ptr */
+		return 1;
+	if (*parent_node_dp == NULL) /* make sure there is single ptr */
+		return 1;
+
+	parent_node_ptr = *parent_node_dp; /* make new pointer to parent */
+
+	if (parent_node_ptr->children == NULL) /* check if there is a child */
 	{
-		*parent_node_dp = create_node(data);
-		if (*parent_node_dp == NULL) /* error check */
+		parent_node_ptr->children = create_child(data); /* make node */
+		if (parent_node_ptr->children == NULL) /* error check */
 			return 1;
-		(*parent_node_dp)->children = create_list(); /* create list */
-		if ((*parent_node_dp)->children == NULL)	/* error check */
-			return 1;
-		parent_node_ptr = *parent_node_dp;
-		printf("The root has been added\n");
-		return 0;
 	}
 
-	list_ptr = parent_node_ptr->children;
-
-	while (list_ptr->next != NULL) /* traverse children list */
+	list_ptr = parent_node_ptr->children; /* set pointer to child */
+	while (list_ptr->next != NULL)	      /* traverse children */
 		list_ptr = list_ptr->next;
-	
-	list_ptr->next = create_list(); /* create list */
-	if (list_ptr->next == NULL) 	/* error check */
-		return 1;
-	
-	list_ptr->next->node = create_node(data); /* create the node */
-	if (list_ptr->next->node == NULL) /* error check */
+
+	list_ptr->next = create_child(data);
+	if (parent_node_ptr->children == NULL) /* error check */
 		return 1;
 
-	
-
-	printf("The node has been added\n");
 	return 0;
 }
 
@@ -118,11 +113,19 @@ long unsigned int string_array_size(char **parents)
 	return i;
 }
 
-NTree *create_node(char *data)
+List *create_child(*data)
 {
 	NTree *node;
+	List *list;
 
-	node = malloc(sizeof(NTree));
+	list = malloc(sizeof(List)); /* create list */
+	if (list == NULL)	/* malloc check */
+		return NULL;
+
+	list->next = NULL;	/* initialize list members */
+	list->node = NULL;
+
+	node = malloc(sizeof(NTree)); /* create NTree node */
 	if (node == NULL)	/* malloc check */
 		return NULL;
 
@@ -132,19 +135,7 @@ NTree *create_node(char *data)
 	
 	node->children = NULL;	/* initiliaze 'children' member */
 
-	return node;
-}
-
-List *create_list(void)
-{
-	List *list;
-
-	list = malloc(sizeof(List));
-	if (list == NULL)	/* malloc check */
-		return NULL;
-
-	list->next = NULL;	/* initialize list members */
-	list->node = NULL;
+	list->node = node;	/* link list to node */
 
 	return list;
 }
