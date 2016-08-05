@@ -71,18 +71,18 @@ int ntree_insert_parent(NTree **parent_node_dp, char *data)
 	while (list_ptr->next != NULL)	      /* traverse children */
 		list_ptr = list_ptr->next;
 
-	list_ptr->next = create_child(data);
+	list_ptr->next = create_child(data);   /* make node */
 	if (parent_node_ptr->children == NULL) /* error check */
 		return 1;
 
 	return 0;
 }
 
-/* find the correct directory folder to insert node; returns NULL if not found */
+/* find the correct parent to insert node; returns NULL if not found */
 NTree *find_parent_node(NTree **tree, char **parents)
 {
 	NTree *node_ptr;
-	long unsigned int depth;
+	__attribute__((unused)) long unsigned int depth;
 
 	node_ptr = *tree;
 	depth = string_array_size(parents);
