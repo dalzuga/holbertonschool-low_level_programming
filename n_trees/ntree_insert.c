@@ -91,7 +91,7 @@ NTree *find_parent_node(NTree **tree, char **parents)
 	int i;
 	NTree *node_ptr;
 	List *list_ptr;
-	__attribute__((unused)) int depth;
+	int depth;
 
 	node_ptr = *tree;
 	list_ptr = NULL;
