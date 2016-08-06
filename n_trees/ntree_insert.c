@@ -30,19 +30,17 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 	if (depth == 0)      /* if there are no nodes, create root */
 	{
 		list_ptr = create_child(data); /* make root node */
-		/* printf("##################################\n"); */
 		parent_node_ptr = list_ptr->node;
 		free(list_ptr);
 		if (parent_node_ptr == NULL)	      /* error check */
 			return 1;
 		*tree = parent_node_ptr; /* connect the tree */
 
-		printf("I am being run only once.\n");
 		return 0;
 	}
 
 	parent_node_ptr = find_parent_node(tree, parents);
-	printf("%s\n", parent_node_ptr->str);
+	printf("parent dir is:\t%s\n", parent_node_ptr->str);
 
 	if (ntree_insert_parent(&parent_node_ptr, data) == 1)
 		return 1;
@@ -80,8 +78,6 @@ int ntree_insert_parent(NTree **parent_node_dp, char *data)
 	list_ptr->next = create_child(data);   /* make node */
 	if (parent_node_ptr->children == NULL) /* error check */
 		return 1;
-
-	printf("I am being run\n");
 
 	return 0;
 }
