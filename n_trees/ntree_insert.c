@@ -92,30 +92,27 @@ NTree *find_parent_node(NTree **tree, char **parents)
 	NTree *node_ptr;
 	List *list_ptr;
 	int depth;
-
+	
 	node_ptr = *tree;
 	list_ptr = NULL;
 	depth = string_array_size(parents);
 
-	if (depth == 0)		/* if root, return NULL */
+	if (depth == 0)		/* if root, return NULL as parent */
 		return NULL;
 	if (depth == 1)		/* if depth 1, return root as parent */
 		return node_ptr;
 
-	for (i = 0; i < depth; i++)
+	list_ptr = node_ptr->children;
+
+	for (i = 1; i < depth; i++)
 	{
-		list_ptr = node_ptr->children;
-		if (strcmp(node_ptr->str, parents[i]) == 0)
+		while (strcmp(list_ptr->node->str, parents[i]) != 0)
 		{
-			printf("%s: It's a match!\n", parents[i]);
+			list_ptr=list_ptr->next;
 		}
-		else
-			while (strcmp(list_ptr->node->str, parents[i]) != 0)
-			{
-				list_ptr = list_ptr->next;
-			}
 		printf("%s:Hello there!\n", parents[i]);
-		return list_ptr->node;
+		node_ptr = list_ptr->node;
+		list_ptr = list_ptr->node->children;
 	}
 
 	return node_ptr;
