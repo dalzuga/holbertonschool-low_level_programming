@@ -89,21 +89,33 @@ int ntree_insert_parent(NTree **parent_node_dp, char *data)
 NTree *find_parent_node(NTree **tree, char **parents)
 {
 	int i;
-
 	NTree *node_ptr;
+	List *list_ptr;
 	__attribute__((unused)) int depth;
 
 	node_ptr = *tree;
+	list_ptr = NULL;
 	depth = string_array_size(parents);
 
-	if (depth == 0)
+	if (depth == 0)		/* if root, return NULL */
+		return NULL;
+	if (depth == 1)		/* if depth 1, return root as parent */
 		return node_ptr;
 
 	for (i = 0; i < depth; i++)
 	{
-		printf("Repetitive\n");
+		list_ptr = node_ptr->children;
 		if (strcmp(node_ptr->str, parents[i]) == 0)
-			printf("%s:Hello there!\n", parents[i]);
+		{
+			printf("%s: It's a match!\n", parents[i]);
+		}
+		else
+			while (strcmp(list_ptr->node->str, parents[i]) != 0)
+			{
+				list_ptr = list_ptr->next;
+			}
+		printf("%s:Hello there!\n", parents[i]);
+		return list_ptr->node;
 	}
 
 	return node_ptr;

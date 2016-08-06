@@ -34,8 +34,11 @@ int main(void)
 	ntree_insert(&tree, (array = string_split("/ tmp", ' ')), "tmp_file3");
 	free_str_array(array);
 
+	printf("------6------\n");
 	ntree_insert(&tree, (array = string_split("/", ',')), "mnt");
 	free_str_array(array);
+
+	printf("------7------\n");
 	ntree_insert(&tree, (array = string_split("/ mnt", ' ')), "HDD1");
 	free_str_array(array);
 
