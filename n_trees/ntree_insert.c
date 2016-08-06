@@ -11,8 +11,10 @@ int ntree_insert_parent(NTree **tree, char *data);
 int ntree_insert(NTree **tree, char **parents, char *data)
 {
 	NTree *parent_node_ptr;
+	List *list_ptr;
 	int depth, i;
 	parent_node_ptr = NULL;
+	list_ptr = NULL;
 
 	depth = string_array_size(parents);
 
@@ -23,13 +25,17 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 		printf("%s ", parents[i]);
 	}
 
-	printf("\". data is: %s. depth is: %lu\n", data, depth);
+	printf("\". data is: %s. depth is: %d\n", data, depth);
 
 	if (depth == 0)		/* if there are no nodes, create root */
 	{
-		parent_node_ptr = create_child(data); /* make root node */
+		list_ptr = create_child(data); /* make root node */
+		parent_node_ptr = list_ptr->node;
+		free(list_ptr);
 		if (parent_node_ptr == NULL)	      /* error check */
 			return 1;
+		*tree = parent_node_ptr; /* connect the tree */
+
 		return 0;
 	}
 
@@ -107,7 +113,7 @@ int string_array_size(char **parents)
 	return i;
 }
 
-List *create_child(*data)
+List *create_child(char *data)
 {
 	NTree *node;
 	List *list;
