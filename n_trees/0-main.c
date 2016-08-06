@@ -18,6 +18,10 @@ int main(void)
 	tree = NULL;
 	ntree_insert(&tree, NULL, "/");
 
+	printf("------2hi------\n");
+	ntree_insert(&tree, (array = string_split("/", ' ')), "hi");
+	free_str_array(array);
+
 	printf("------2------\n");
 	ntree_insert(&tree, (array = string_split("/", ' ')), "tmp");
 	free_str_array(array);
