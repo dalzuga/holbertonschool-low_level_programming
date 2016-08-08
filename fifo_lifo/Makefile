@@ -1,9 +1,9 @@
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic -g
-SOURCES=push_queue.c pop_queue.c
-OBJECTS=print_queue_Ubuntu.o
+SOURCES=push_queue.c pop_queue.c push_stack.c
+OBJECTS=print_queue_Ubuntu.o print_stack_Ubuntu.o
 OBJECTS+=$(SOURCES:.c=.o)
-EXECUTABLE=0-main 1-main
+EXECUTABLE=0-main 1-main 2-main
 
 all: $(SOURCES) $(EXECUTABLE)
 
@@ -18,6 +18,9 @@ all: $(SOURCES) $(EXECUTABLE)
 
 1-main: $(OBJECTS) 1-main.o
 	$(CC) $(OBJECTS) 1-main.o -o $@
+
+2-main: $(OBJECTS) 2-main.o
+	$(CC) $(OBJECTS) 2-main.o -o $@
 
 # pop_queue.o: pop_queue.c
 # 	$(CC) $< -o $@
