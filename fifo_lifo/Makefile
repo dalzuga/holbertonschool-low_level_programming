@@ -22,12 +22,6 @@ all: $(SOURCES) $(EXECUTABLE)
 2-main: $(OBJECTS) 2-main.o
 	$(CC) $(OBJECTS) 2-main.o -o $@
 
-# pop_queue.o: pop_queue.c
-# 	$(CC) $< -o $@
-
-# 1-main.o: 1-main.c
-# 	$(CC) $< -o $@
-
 .PHONY: clean
 clean:
-	$(RM) $(EXECUTABLE) $(SOURCES:.c=.o) 0-main.o 1-main.o
+	$(RM) $(EXECUTABLE) $(SOURCES:.c=.o) 0-main.o 1-main.o 2-main.o
