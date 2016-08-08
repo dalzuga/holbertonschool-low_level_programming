@@ -27,4 +27,4 @@ all: $(SOURCES) $(EXECUTABLE)
 
 .PHONY: clean
 clean:
-	$(RM) $(EXECUTABLE) $(SOURCES:.c=.o) 0-main.o 1-main.o
+	$(RM) $(EXECUTABLE) $(OBJECTS) 0-main.o 1-main.o
