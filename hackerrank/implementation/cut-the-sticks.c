@@ -25,7 +25,7 @@ int main(){
 	{
 		/* print_array(arr, n); */
 		tmp = find_smallest(arr, n);
-		count = 0;		/* counts the cuts */
+		count = 0;	/* counts the cuts */
 
 		for (i = 0; i < n; i++)
 		{
@@ -43,7 +43,7 @@ int main(){
 	return (EXIT_SUCCESS);
 }
 
-	/* returns 0 if no sticks are left */
+/* returns 0 if no sticks are left */
 int find_smallest(int *arr, int n)
 {
 	int i, ret;
