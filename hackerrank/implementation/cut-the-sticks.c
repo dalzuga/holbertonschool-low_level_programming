@@ -19,7 +19,7 @@ int main(){
 		scanf("%d",&arr[arr_i]);
 	}
 
-	/* printf("%d", find_smallest(arr, n)); */
+	tmp = find_smallest(arr, n);
 
 	while (tmp > 0)
 	{
