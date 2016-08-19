@@ -23,10 +23,8 @@ int main(){
 
 	while (tmp > 0)
 	{
-		/* print_array(arr, n); */
 		tmp = find_smallest(arr, n);
 		count = 0;	/* counts the cuts */
-
 		for (i = 0; i < n; i++)
 		{
 			if (arr[i] > 0)
@@ -35,56 +33,41 @@ int main(){
 				count++;
 			}
 		}
-
 		if (count > 0)
 			printf("%d\n", count);
 	}
-
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 /* returns 0 if no sticks are left */
 int find_smallest(int *arr, int n)
 {
 	int i, ret;
-
 	ret = find_greatest(arr, n);
-
 	for (i = 0; i < n; i++)
 	{
 		if (arr[i] != 0 && arr[i] < ret)
-		{
 			ret = arr[i];
-		}
 	}
-
 	return (ret);
 }
 
 int find_greatest(int *arr, int n)
 {
 	int i, ret;
-
 	ret = 0;
 	for (i = 0; i < n; i++)
 	{
 		if (arr[i] > ret)
-		{
 			ret = arr[i];
-		}
 	}
-
-	return ret;
+	return (ret);
 }
 
 void print_array(int *arr, int n)
 {
 	int i;
-
 	for (i = 0; i < n; i++)
-	{
 		printf("%d ", arr[i]);
-	}
-
 	printf("\n");
 }
