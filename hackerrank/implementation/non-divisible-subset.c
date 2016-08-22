@@ -20,37 +20,22 @@ int main() {
 		scanf("%d", &(arr[i]));
 	}
 	
-	for (i = 0; i < n; i++)
+	int arr2[n];
+	memset(arr2, 0, n * sizeof(int));
+
+	printf("%d", arr[0] % k);
+	arr2[arr[0] % k]++;
+        for (i = 1; i < n; i++)
 	{
-		for (j = i; j < n; j++)
-		{
-			if (i == j)
-			{}
-			else if ((arr[i] + arr[j]) % k == 0)
-			{
-				printf("(%d, %d)\n", arr[i], arr[j]);
-				count_pairs++;
-			}
-		}
+		printf(" %d", arr[i] % k);
+		arr2[arr[i] % k]++;
 	}
-
-	printf("count_pairs: %d\n", count_pairs);
-
-	count_freq = 0;
+	printf("\n");
 
 	for (i = 0; i < n; i++)
 	{
-		for (j = 0; j < n; j++)
-		{
-			if (i == j)
-			{}
-			else if ((arr[i] + arr[j]) % k == 0)
-			{
-				count_freq++;
-			}
-		}
-		printf("%d appears %d times.\n", arr[i], count_freq);
-		count_freq = 0;
+		if (arr2[i] != 0)
+			printf("arr2[%d] = %d\n", i, arr2[i]);
 	}
 
 	return (0);
