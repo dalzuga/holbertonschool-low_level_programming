@@ -6,46 +6,35 @@
 #define ABS(x) ((x)<0 ? -(x) : (x))
 
 int main() {
-	/* Enter your code here. Read input from STDIN. Print output to STDOUT */
 	int n;
 	scanf("%d", &n);
 	int d[n];
 	int m[n];
 	int i;
-	int j;
-	int sum[n];
-	int maxmin[n];
+	int sum_prev, sum_curr;
+	int maxmin_prev, maxmin_curr;
 
 	for (i = 0; i < n; i++)	/* input */
 	{
 		scanf("%d %d", &d[i], &m[i]);
 	}
 
-	/* for (i = 0; i < n; i++)	/\* print input *\/ */
-	/* { */
-	/* 	printf("%d %d\n", d[i], m[i]); */
-	/* } */
+	sum_prev = sum_curr = maxmin_prev = maxmin_curr = 0;
 
-	printf("--------------------\n");
-
-	for (j = 1; j <= n; j++)
+	for (i = 0; i < n; i++)
 	{
-		sum[j] = 0;
-		maxmin[j] = 0;
-
-		for (i = 0; i < j; i++)
+		sum_curr += m[i];
+		if (maxmin_curr < d[i]) /* get the biggest deadline */
+			maxmin_curr = d[i];
+		if (sum_curr < maxmin_curr)
 		{
-			sum[j] += m[i];
-			if (maxmin[j] < d[i])
-				maxmin[j] = d[i];
-			if ((sum[j] - maxmin[j]) < 0)
-			{
-				sum[j] = sum[j - 1];
-				maxmin[j] = maxmin[j - 1];
-			}
+			sum_curr = sum_prev;
+			maxmin_curr = maxmin_prev;
 		}
 
-		printf("%d\n", ABS(sum[j] - maxmin[j]));
+		maxmin_prev = maxmin_curr;
+		sum_prev = sum_curr;
+		printf("%d\n", ABS(sum_curr - maxmin_curr));
 	}
 
 	return 0;
