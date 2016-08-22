@@ -28,13 +28,21 @@ int main() {
 			maxmin_curr = d[i];
 		if (sum_curr < maxmin_curr)
 		{
+			/* printf("trippin the flag\n"); */
 			sum_curr = sum_prev;
 			maxmin_curr = maxmin_prev;
 		}
 
+		/* if (34 < i && i < 50) */
+		/* { */
+			/* printf("--------------line %d----------\n", i); */
+			/* printf("sum_curr:\t%d\n", sum_curr); */
+			/* printf("m[%d]:\t%d\n", i, m[i]); */
+			printf("%d\n", ABS(sum_curr - maxmin_curr));
+		/* } */
+
 		maxmin_prev = maxmin_curr;
 		sum_prev = sum_curr;
-		printf("%d\n", ABS(sum_curr - maxmin_curr));
 	}
 
 	return 0;
