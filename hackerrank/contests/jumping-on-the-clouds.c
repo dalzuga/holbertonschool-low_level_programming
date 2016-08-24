@@ -6,6 +6,9 @@
 #include <limits.h>
 #include <stdbool.h>
 
+int parity_int(int n);
+int opposite_parity(int n);
+
 int main(){
 	int n; 
 	scanf("%d",&n);
@@ -14,25 +17,33 @@ int main(){
 		scanf("%d",&c[c_i]);
 	}
 
-	int even;
+	int par = 0;	/* parity, initialized to 0 */
 	int i;
-	int count;		/* change in parity */
-	for (i = 0, count = 0, even = 0; i < n; i++)
+	int count = 0;		/* hops */
+
+	for (i = 4; i < n && c[i] != 0; i++)
 	{
-		if ((c[i] == 1) && ((i % 2) == even))
+		if (parity_int(i) == par)
 		{
 			count++;
-			even = (even + 1) % 2;
-			/* printf("count:\t%d\t%d\n", count, i); */
-			/* printf("even:\t%d\n", even); */
+			par = opposite_parity(par);
 		}
 	}
 
-	if (count > 0 && ((n % 2) == 0))
-	    count--;
+	if ((count > 0) && (parity_int(n) == 0)) /* if n is even forgive 1 count */
+		count--;
 
-	/* printf("n:\t%d\n", n); */
-	printf("%d", n / 2 + count);	/* n/2 is the lower bound */
+	printf("%d", n / 2 + count);	/* (n / 2) is the lower bound */
 	return 0;
 }
 
+/* returns 0 if even, 1 if odd */
+int parity_int(int n)
+{
+	return n % 2;
+}
+
+int opposite_parity(int n)
+{
+	return (n + 1) % 2;
+}
