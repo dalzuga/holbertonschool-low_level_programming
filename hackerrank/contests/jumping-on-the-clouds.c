@@ -23,16 +23,22 @@ int main(){
 
 	for (i = 4; i < n && c[i] != 0; i++)
 	{
+		printf("$$\n");
 		if (parity_int(i) == par)
 		{
+			printf("$$$\n");
 			count++;
 			par = opposite_parity(par);
 		}
 	}
 
 	if ((count > 0) && (parity_int(n) == 0)) /* if n is even forgive 1 count */
+	{
+		printf("###");
 		count--;
+	}
 
+	printf("count:\t%d\n", count);
 	printf("%d", n / 2 + count);	/* (n / 2) is the lower bound */
 	return 0;
 }
