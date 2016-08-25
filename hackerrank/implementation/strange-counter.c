@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int find_k(long int);
 
@@ -19,16 +20,15 @@ int main()
 /*
  * starting at k = 0, increment k until the following equation is true:
  * t <= 3(2^(k+1) - 1)
+ * or, alternatively,
+ * use the log2 function to solve the equivalent equation
+ * (left as an exercise for the reader)
  */
 int find_k(long int t)
 {
 	int k;
 
-	k = 0;
-	while (t > (3 * ((1 << (k + 1)) - 1)))
-	{
-		k++;
-	}
+	k = (int) log2(1 + ((double) (t - 1) / 3));
 
 	return k;
 }
