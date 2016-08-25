@@ -40,21 +40,14 @@ int main() {
 		printf("\t");
 		if (flag == 0)	/* never tripped */
 		{
-			printf("%d\n", ABS(sum_curr - maxmin_curr));
-			maxmin_prev = maxmin_curr;
+			printf("%d\n", ABS(sum_curr - maxmin_curr)); /* print the real sum */
+			maxmin_prev = maxmin_curr; /* keep updating prev */
 			sum_prev = sum_curr;
 		}
-		else if (flag == 1) /* tripped once */
+		else	/* flag is 1 */
 		{
-			printf("%d\n", ABS(sum_prev - maxmin_prev));
-			printf("UNTRIP\n");
-			flag = 2;
-		}
-		else if (flag == 2) /* tripped more than once */
-		{
-			printf("%d\n", ABS(sum_curr - maxmin_curr));
-			maxmin_prev = maxmin_curr;
-			sum_prev = sum_curr;
+			printf("%d\n", ABS(sum_prev - maxmin_prev)); /* print the previously stored data */
+			flag = 0;
 		}
 	}
 
