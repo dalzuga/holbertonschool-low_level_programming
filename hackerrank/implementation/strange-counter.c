@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#define INIT 3 			/* initial value at t = 1 */
-
 int find_k(long int);
 
 int main()
