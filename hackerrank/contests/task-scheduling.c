@@ -46,10 +46,10 @@ void task_scheduling(int n, int *d, int *m)
 		{
 			prev_res = m[i] - d[i];
 		}
-		if (m[i] > sum_curr)
-		{
+		/* if (m[i] > sum_curr) */
+		/* { */
 			
-		}
+		/* } */
 		if (curr_res < prev_res) /* if curr result is less than a prev result */
 		{
 			if (DEBUG_MODE)
