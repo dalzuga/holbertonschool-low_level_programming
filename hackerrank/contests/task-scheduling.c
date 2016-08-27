@@ -27,7 +27,8 @@ int main() {
 		sum_curr += m[i];
 		if (maxmin_curr < d[i]) /* get the biggest deadline */
 			maxmin_curr = d[i];
-		if (sum_curr < maxmin_curr) /* if the result goes negative */
+		if (sum_curr < maxmin_curr || \
+		    ABS(sum_prev - maxmin_prev) > ABS(sum_curr - maxmin_curr))
 		{
 			printf("%d\n", ABS(sum_prev - maxmin_prev)); /* print prev result */
 		}
