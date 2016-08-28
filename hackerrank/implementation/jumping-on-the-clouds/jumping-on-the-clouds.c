@@ -6,8 +6,9 @@
 #include <limits.h>
 #include <stdbool.h>
 
-int parity_int(int n);
-int opposite_parity(int n);
+#define DEBUG_MODE 0
+
+int is_odd(int);
 
 int main(){
 	int n; 
@@ -17,39 +18,43 @@ int main(){
 		scanf("%d",&c[c_i]);
 	}
 
-	int par = 0;	/* parity, initialized to 0 */
-	int i;
-	int count = 0;		/* hops */
+	/* if (DEBUG_MODE) */
+	/* 	printf("lower bound: %d\n", n / 2); */
 
-	for (i = 4; i < n && c[i] != 0; i++)
+	int count = 0;
+
+	for (int i = 0; i < n - 1;) /* (n / 2) is the lower bound */
 	{
-		printf("$$\n");
-		if (parity_int(i) == par)
+		/* if (i == (n - 1))	/\* reached the end *\/ */
+		/* { */
+		/* 	if (DEBUG_MODE) */
+		/* 		printf("end\n"); */
+		/* 	break; */
+		/* } */
+
+		if ((i + 2 <= n - 1) && c[i + 2] == 0) /* jump two at a time */
 		{
-			printf("$$$\n");
+			i += 2;
 			count++;
-			par = opposite_parity(par);
+			if (DEBUG_MODE)
+				printf("jump by two\n");
+		}
+		else		/* jump one at a time */
+		{
+			i++;
+			count++;
+			if (DEBUG_MODE)
+				printf("jump by one\n");
 		}
 	}
 
-	if ((count > 0) && (parity_int(n) == 0)) /* if n is even forgive 1 count */
-	{
-		printf("###");
-		count--;
-	}
+	printf("%d", count);
 
-	printf("count:\t%d\n", count);
-	printf("%d", n / 2 + count);	/* (n / 2) is the lower bound */
 	return 0;
 }
 
 /* returns 0 if even, 1 if odd */
-int parity_int(int n)
+int is_odd(int n)
 {
 	return n % 2;
-}
-
-int opposite_parity(int n)
-{
-	return (n + 1) % 2;
 }
