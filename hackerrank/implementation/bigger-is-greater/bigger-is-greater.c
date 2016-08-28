@@ -5,6 +5,8 @@
 #define DEBUG_MODE 1
 #define BUF_SIZE 101
 
+int bigger_is_greater(char **, int);
+
 int main()
 {
 	int n;
@@ -25,5 +27,12 @@ int main()
 			printf("strlen:%2lu\n", strlen(s[i]));
 		}
 
+	bigger_is_greater(s, n);
+
 	return 0;
+}
+
+int bigger_is_greater(char **s, int n)
+{
+	
 }
