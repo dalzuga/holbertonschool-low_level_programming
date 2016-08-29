@@ -37,17 +37,17 @@ void jumping_on_the_clouds(int n, int k, int *c)
 
 	for (int i = 1; i <= n / k; i++)
 	{
-		if (c[i * k] == 0)
+		if (c[i * k % n] == 0)
 		{
 			energy--;
-			printf("down by 1\n");
+			/* printf("down by 1\n"); */
 		}
 		else
 		{
 			energy -= 3;
-			printf("down by 3\n");
+			/* printf("down by 3\n"); */
 		}
-		printf("i*k = %d\n", i * k);
+		/* printf("i*k = %d\n", i * k); */
 	}
 
 	printf("%d", energy);
