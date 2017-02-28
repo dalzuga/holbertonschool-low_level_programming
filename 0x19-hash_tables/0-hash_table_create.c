@@ -7,7 +7,7 @@ hash_table_t *hash_table_create(unsigned long int size) {
 	ht_ptr->size = 0;
 	ht_ptr->array = NULL;
 
-	ht_ptr->array=malloc(sizeof(hash_node_t));
+	ht_ptr->array=malloc(sizeof(hash_node_t) * size);
 	if (ht_ptr->array == NULL) {
 		return NULL;
 	}
