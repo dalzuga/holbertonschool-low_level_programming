@@ -11,8 +11,11 @@
 int main(void)
 {
     hash_table_t *ht;
+    unsigned long int n;
+    n = 1 << 10;
 
-    ht = hash_table_create(1024);
+    ht = hash_table_create(n);
     printf("%p\n", (void *)ht);
+    printf("tested with size: %lu\n", n);
     return (EXIT_SUCCESS);
 }
