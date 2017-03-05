@@ -112,7 +112,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char* value)
 	if (strcmp(key, (tmp_node->key)) == 0)
 	{
 		printf("banana update! (key: %s)\n", node->key);
-		tmp_node->value = strdup(value);
+		tmp_node->value = node->value;
 		return (EXIT_SUCCESS);
 	}
 
