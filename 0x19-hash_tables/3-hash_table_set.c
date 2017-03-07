@@ -8,7 +8,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char* value)
 	unsigned long int index;
 	hash_node_t *node, *tmp_node;
 	int i, j;
-	char c, flag;
+	char c;
 	
 	node = malloc(sizeof(hash_node_t));
 	if (node == NULL)
@@ -21,7 +21,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char* value)
 	node->value = NULL;
 	node->next = NULL;
 	tmp_node = NULL;
-	flag = 0;
 
 	/* get the length */
 	c = *key;
@@ -84,56 +83,42 @@ int hash_table_set(hash_table_t *ht, const char *key, const char* value)
 
 	/* roll back ~node->value~ using pointer arithmetic */
 	node->value = node->value - j;
+	value = value - j;
 
 	/* the node has been made */
 
 	/* queries hash function for index and stores it in ~index~ */
 	index = key_index((const unsigned char *) node->key, ht->size);
 
-	/* simple case. no bananas. insert node */
-	if ((*(ht->array + index)) == NULL)
+	tmp_node = *(ht->array + index);
+
+	/* traverse the list until tmp_node is the last */
+	while (tmp_node != NULL)
 	{
-		printf("empty! (key: %s, index: %lu)\n", node->key, index);
-		*(ht->array + index) = node;
-		return (EXIT_SUCCESS);
-	}
-
-	/* at this point, there is a collision or an update, or "banana". */
-
-	printf("non-empty! (key: %s, index: %lu)\n", node->key, index);
-
-	/* case 1: our banana is an update */
-	tmp_node = ht->array[index];
-	printf("Here is our tmp_node->key:%s\n", tmp_node->key);
-	printf("Here is our tmp_node->value:%s\n", tmp_node->value);
-	printf("Here is our key:%s\n", key);
-
-	/* update with new value */
-	if (strcmp(key, (tmp_node->key)) == 0)
-	{
-		printf("banana update! (key: %s)\n", node->key);
-		tmp_node->value = node->value;
-		return (EXIT_SUCCESS);
-	}
-
-	while (tmp_node->next != NULL)
-	{
-		/* update with new value */
+		/* simple update */
 		if (strcmp(key, tmp_node->key) == 0)
 		{
 			tmp_node->value = strdup(value);
-			flag = 1;
+			return (EXIT_SUCCESS);
+		}
+
+		if (tmp_node->next == NULL)
+		{
 			break;
 		}
 
-		/* advance tmp_node */
 		tmp_node = tmp_node->next;
 	}
 
-	/* append node to linked list */
-	if (!flag)
+	/* simple case: there was no node at this index */
+	if (tmp_node == NULL)
 	{
-		((hash_node_t *) (ht->array + index))->next = node;
+		*(ht->array + index) = node;
+	}
+	/* there were nodes at this index, but we are now at the last node */
+	else
+	{
+		tmp_node->next = node;
 	}
 
 	return (EXIT_SUCCESS);
