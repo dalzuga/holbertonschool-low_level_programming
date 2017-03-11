@@ -15,4 +15,8 @@ int _strlen_recursion(char *s);
 
 /* my recursive factorial function */
 int factorial(int n);
+
+/* my exponentiation function */
+int _pow_recursion(int x, int y);
+
 #endif
