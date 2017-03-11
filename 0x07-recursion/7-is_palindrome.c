@@ -32,9 +32,6 @@ int is_palindrome(char *s)
  */
 int is_palindrome_helper(char *s, int s_len, int i)
 {
-	int i;
-	i = 0;
-
 	if ( (i < (s_len/2)) && (*s == *(s + s_len - i - 1)) )
 	{
 		return is_palindrome_helper(s, i + 1);
