@@ -24,4 +24,9 @@ int _sqrt_recursion(int n);
 /* helper for _sqrt_recursion */
 int sqrt_helper(int n, int i);
 
+/* recursive prime checking */
+int is_prime_number(int n);
+/* helper for is_prime_number recursion */
+int is_prime_helper(int n, int i);
+
 #endif
