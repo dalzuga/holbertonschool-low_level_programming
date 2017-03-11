@@ -19,4 +19,9 @@ int factorial(int n);
 /* my exponentiation function */
 int _pow_recursion(int x, int y);
 
+/* my sqrt recursive function */
+int _sqrt_recursion(int n);
+/* helper for _sqrt_recursion */
+int sqrt_helper(int n, int i);
+
 #endif
