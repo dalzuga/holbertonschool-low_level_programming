@@ -12,4 +12,7 @@ void _print_rev_recursion(char *s);
 
 /* my recursive strlen function */
 int _strlen_recursion(char *s);
+
+/* my recursive factorial function */
+int factorial(int n);
 #endif
