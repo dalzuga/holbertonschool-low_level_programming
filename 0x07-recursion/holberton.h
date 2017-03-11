@@ -29,4 +29,9 @@ int is_prime_number(int n);
 /* helper for is_prime_number recursion */
 int is_prime_helper(int n, int i);
 
+/* checks if a string is a palindrome */
+int is_palindrome(char *s);
+/* helper for is_palindrome recursion  */
+int is_palindrome_helper(char *s, int s_len);
+  
 #endif
