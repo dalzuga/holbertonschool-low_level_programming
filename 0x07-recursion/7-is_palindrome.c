@@ -23,7 +23,7 @@ int is_palindrome(char *s)
 }
 
 /**
- * is_palindrome_helper - recursive palidrome checker.
+ * is_palindrome_helper - recursive palindrome checker.
  *
  * @s: string to check
  * @i: counter used as char index
@@ -34,7 +34,7 @@ int is_palindrome_helper(char *s, int s_len, int i)
 {
 	if ( (i < (s_len/2)) && (*s == *(s + s_len - i - 1)) )
 	{
-		return is_palindrome_helper(s, i + 1);
+		return is_palindrome_helper(s, s_len, i + 1);
 	}
 
 	return (1);
