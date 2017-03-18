@@ -37,7 +37,7 @@ int is_palindrome_helper(char *s, int s_len, int i)
 		return (1);
 	}
 
-	if ( *s == *(s + s_len - i - 1) )
+	if ( *(s + i) == *(s + s_len - i - 1) )
 	{
 		return is_palindrome_helper(s, s_len, i + 1);
 	}
