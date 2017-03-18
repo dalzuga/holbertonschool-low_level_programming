@@ -32,6 +32,6 @@ int is_prime_helper(int n, int i);
 /* checks if a string is a palindrome */
 int is_palindrome(char *s);
 /* helper for is_palindrome recursion  */
-int is_palindrome_helper(char *s, int s_len);
+int is_palindrome_helper(char *s, int s_len, int i);
   
 #endif
