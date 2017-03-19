@@ -16,3 +16,6 @@ typedef struct listint_s
 
 /* print_listint - prints a simple linked list. */
 size_t print_listint(const listint_t *h);
+
+/* listint_len - returns number of items in a simple linked list. */
+size_t listint_len(const listint_t *h);
