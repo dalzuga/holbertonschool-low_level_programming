@@ -25,3 +25,6 @@ listint_t *add_nodeint(listint_t **head, const int n);
 
 /* add_nodeint_end - adds a node to the end of a simple linked list. */
 listint_t *add_nodeint_end(listint_t **head, const int n);
+
+/* free_listint - frees a simple linked list. */
+void free_listint(listint_t *head);
