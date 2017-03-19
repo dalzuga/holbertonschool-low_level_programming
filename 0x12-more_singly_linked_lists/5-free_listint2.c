@@ -20,6 +20,7 @@ void free_listint2(listint_t **head)
 	/* ll is empty */
 	if (*head == NULL)
 	{
+		free(*head);
 		return;
 	}
 
