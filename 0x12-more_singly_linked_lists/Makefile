@@ -1,4 +1,4 @@
-all: a b c d e
+all: a b c d e f
 
 a:
 	gcc -Wall -pedantic -Werror -Wextra 0-main.c 0-print_listint.c -o a
@@ -10,3 +10,5 @@ d:
 	gcc -Wall -pedantic -Werror -Wextra 3-main.c 3-add_nodeint_end.c 0-print_listint.c -o d
 e: 4-main.c 4-free_listint.c
 	gcc -Wall -pedantic -Werror -Wextra 4-main.c 3-add_nodeint_end.c 0-print_listint.c 4-free_listint.c -o e
+f: 5-main.c 5-free_listint2.c
+	gcc -Wall -pedantic -Werror -Wextra 5-main.c 3-add_nodeint_end.c 0-print_listint.c 5-free_listint2.c -o f
