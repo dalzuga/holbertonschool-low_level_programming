@@ -22,3 +22,6 @@ size_t listint_len(const listint_t *h);
 
 /* add_nodeint - adds a node to the beginning of a simple linked list. */
 listint_t *add_nodeint(listint_t **head, const int n);
+
+/* add_nodeint_end - adds a node to the end of a simple linked list. */
+listint_t *add_nodeint_end(listint_t **head, const int n);
