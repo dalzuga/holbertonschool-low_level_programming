@@ -14,4 +14,5 @@ typedef struct listint_s
     struct listint_s *next;
 } listint_t;
 
+/* prototype */
 size_t print_listint(const listint_t *h);
