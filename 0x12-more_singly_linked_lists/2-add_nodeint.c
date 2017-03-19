@@ -4,6 +4,7 @@
 /**
  * add_nodeint - adds a node to the beginning of a simple linked list.
  * @head: pointer to pointer first simple linked list node.
+ * @n: value held at node
  *
  * Return: address of new element.
  */
