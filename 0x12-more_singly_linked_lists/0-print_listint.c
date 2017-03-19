@@ -5,7 +5,7 @@
 /**
  * print_listint - prints a simple linked list.
  *
- * @h - pointer to first simple linked list iteml
+ * @h: pointer to first simple linked list iteml
  *
  * Return: how many items in the simple linked list.
  */
