@@ -20,14 +20,15 @@ void free_listint2(listint_t **head)
 	/* ll is empty */
 	if (*head == NULL)
 	{
-		free(*head);
+		head = NULL;
 		return;
 	}
 
 	/* ll has one item */
 	if ((*head)->next == NULL)
 	{
-		free((*head));
+		free(*head);
+		*head = NULL;
 		return;
 	}
 
