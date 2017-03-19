@@ -4,9 +4,7 @@
 
 /**
  * print_listint - prints a simple linked list.
- *
- * @h: pointer to first simple linked list iteml
- *
+ * @h: pointer to first simple linked list item
  * Return: how many items in the simple linked list.
  */
 size_t print_listint(const listint_t *h)
