@@ -10,67 +10,40 @@
  */
 void free_listint2(listint_t **head)
 {
-	/* vars */
-	listint_t *tmp_ptr, **arr;
-	size_t list_len, i;
+	/* Variable declarations */
+	listint_t *tmp_ptr, *trl_ptr;
 
-	/* inits */
-	arr = NULL;
+	/* Initializations */
 	tmp_ptr = *head;
+	trl_ptr = NULL;
 
-	/* special case */
-	if (head == NULL)
-	{
-		return;
-	}
-
-	/* special case */
+	/* ll is empty */
 	if (*head == NULL)
 	{
 		head = NULL;
 		return;
 	}
-	
-	list_len = listint_len(tmp_ptr);
-	arr = malloc(sizeof(listint_t *) * list_len);
-	
-	/* store node addresses in arr */
-	for (i = 0; i < list_len; i++)
+
+	/* ll has one item */
+	if ((*head)->next == NULL)
 	{
-		*(arr + i) = tmp_ptr;
+		free(*head);
+		*head = NULL;
+		head = NULL;
+		return;
+	}
+
+	/* Traverse ll */
+	while (tmp_ptr->next != NULL)
+	{
+		trl_ptr = tmp_ptr;
 		tmp_ptr = tmp_ptr->next;
 	}
 
-	/* free all nodes */
-	for (i = 0; i < list_len; i++)
-	{
-		free(*(arr + i));
-	}
+	/* Delete reference to next in trailing node */
+	trl_ptr->next = NULL;
+	free(tmp_ptr);
+	tmp_ptr = NULL;
 
-	/* free arr */
-	free(arr);
-	*head = NULL;
-}
-
-/**
- * listint_len - returns number of items in a simple linked list.
- * @h: pointer to first simple linked list item
- *
- * Return: how many items in the simple linked list.
- */
-size_t listint_len(const listint_t *h)
-{
-	/* Variable declarations */
-	int ctr;
-
-	/* Initializations */
-	ctr = 0;
-
-	while (h != NULL)
-	{
-		h = h->next;
-		ctr++;
-	}
-
-	return (ctr);
+	free_listint2(head);
 }
