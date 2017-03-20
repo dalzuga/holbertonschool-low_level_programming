@@ -13,6 +13,12 @@ void free_listint2(listint_t **head)
 	/* Variable declarations */
 	listint_t *tmp_ptr, *trl_ptr;
 
+	/* Checking for valid addresses */
+	if (head == NULL)
+	{
+		return;
+	}
+
 	/* Initializations */
 	tmp_ptr = *head;
 	trl_ptr = NULL;
@@ -33,16 +39,20 @@ void free_listint2(listint_t **head)
 		return;
 	}
 
-	/* Traverse ll */
+	/* Traverse ll until it points to last node */
 	while (tmp_ptr->next != NULL)
 	{
 		trl_ptr = tmp_ptr;
 		tmp_ptr = tmp_ptr->next;
 	}
 
-	/* Delete reference to next in trailing node */
+	/* Delete reference to next in second to last node */
 	trl_ptr->next = NULL;
+
+	/* Free the last node */
 	free(tmp_ptr);
+
+	/* Re-initialize tmp_ptr */
 	tmp_ptr = NULL;
 
 	free_listint2(head);
