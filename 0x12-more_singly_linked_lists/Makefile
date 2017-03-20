@@ -1,5 +1,4 @@
-all: a b c d e f
-
+all: f
 a:
 	gcc -Wall -pedantic -Werror -Wextra 0-main.c 0-print_listint.c -o a
 b:
