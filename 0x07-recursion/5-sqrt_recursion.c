@@ -14,10 +14,10 @@ int _sqrt_recursion(int n)
 
 	if (i * i == n)
 	{
-		return i;
+		return (i);
 	}
 
-	return sqrt_helper(n, i + 1);
+	return (sqrt_helper(n, i + 1));
 }
 
 /**
@@ -33,15 +33,15 @@ int sqrt_helper(int n, int i)
 	/* case sqrt found */
 	if (i * i == n)
 	{
-		return i;
+		return (i);
 	}
 
 	/* case sqrt not yet found */
 	if (i * i < n)
 	{
-		return sqrt_helper(n, i + 1);
+		return (sqrt_helper(n, i + 1));
 	}
 
 	/* natural sqrt does not exist */
-	return -1;
+	return (-1);
 }
