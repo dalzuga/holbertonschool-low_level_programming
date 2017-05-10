@@ -12,11 +12,9 @@
  * Return: Nothing.
  */
 
-void print_linked_list(hash_node_t *first_node_ptr);
-
 void hash_table_print(const hash_table_t *ht)
 {
-	long unsigned int i;
+	unsigned long int i;
 	hash_node_t *tmp_ptr;
 
 	/* Inits */
@@ -24,7 +22,7 @@ void hash_table_print(const hash_table_t *ht)
 	tmp_ptr = (hash_node_t *) NULL;
 
 	/* all cases where ht is NULL */
-	if (ht == NULL || ht->array == NULL || ht->size < (long unsigned int) 1)
+	if (ht == NULL || ht->array == NULL || ht->size < 1)
 	{
 		printf("Error: empty table.");
 		return;
@@ -44,8 +42,6 @@ void hash_table_print(const hash_table_t *ht)
 			print_linked_list(tmp_ptr);
 		}
 	}
-
-	return;
 }
 
 /**

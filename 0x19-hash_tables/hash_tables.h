@@ -50,4 +50,11 @@ char *hash_table_get(const hash_table_t *ht, const char *key);
  * will not print anything.
  */
 void hash_table_print(const hash_table_t *ht);
+
+/*
+ * print_linked_list - prints a linked list starting at first_node_ptr until
+ * there are no more values.
+ */
+void print_linked_list(hash_node_t *first_node_ptr);
+
 #endif
