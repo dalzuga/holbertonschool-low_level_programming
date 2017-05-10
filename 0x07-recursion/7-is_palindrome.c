@@ -26,6 +26,7 @@ int is_palindrome(char *s)
  * is_palindrome_helper - recursive palindrome checker.
  *
  * @s: string to check
+ * @s_len: length of the string
  * @i: counter used as char index
  *
  * Return: 1 if string is a palindrome, 0 if not.
