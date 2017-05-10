@@ -19,7 +19,7 @@ int is_palindrome(char *s)
 
 	/* call helper function */
 	s_len = _strlen_recursion(s);
-	return is_palindrome_helper(s, s_len, 0);
+	return (is_palindrome_helper(s, s_len, 0));
 }
 
 /**
@@ -32,14 +32,14 @@ int is_palindrome(char *s)
  */
 int is_palindrome_helper(char *s, int s_len, int i)
 {
-	if (i == s_len/2)
+	if (i == (s_len / 2))
 	{
 		return (1);
 	}
 
-	if ( *(s + i) == *(s + s_len - i - 1) )
+	if (*(s + i) == *(s + s_len - i - 1))
 	{
-		return is_palindrome_helper(s, s_len, i + 1);
+		return (is_palindrome_helper(s, s_len, i + 1));
 	}
 
 	return (0);
@@ -56,9 +56,9 @@ int _strlen_recursion(char *s)
 	/* case empty string */
 	if (*s == 0)
 	{
-		return 0;
+		return (0);
 	}
 
 	/* general case */
-	return 1 + _strlen_recursion(s + 1);
+	return (1 + _strlen_recursion(s + 1));
 }
