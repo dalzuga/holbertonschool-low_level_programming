@@ -35,6 +35,6 @@ int is_palindrome(char *s);
 int is_palindrome_helper(char *s, int s_len, int i);
 
 /* wild_cmp - compare two strings using shell expansion */
-int wild_cmp(char *s1, char *s2);
+int wildcmp(char *s1, char *s2);
 
 #endif

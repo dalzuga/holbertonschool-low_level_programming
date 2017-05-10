@@ -1,14 +1,14 @@
 #include "holberton.h"
 
 /**
- * wild_cmp - compare two strings using shell expansion
+ * wildcmp - compare two strings using shell expansion
  *
  * @s1 - first string.
  * @s2 - second string.
  *
  * Return: 1 if strings are identical, 0 otherwise.
  */
-int wild_cmp(char *s1, char *s2)
+int wildcmp(char *s1, char *s2)
 {
 	if (*s1 == '\0' && *s2 == '\0') /* if both strings are empty */
 		return (1);			  /* strings match */
@@ -21,17 +21,17 @@ int wild_cmp(char *s1, char *s2)
 					 */
 		return (0);			/* strings don't match */
 	if (*s2 == '*' && *(s2 + 1) == '*') /* if string of '**' encountered */
-		return (wild_cmp(s1, s2 + 1));    /* skip to the last one */
+		return (wildcmp(s1, s2 + 1));    /* skip to the last one */
 	if (*s1 == '\0' && *s2 != '\0')
 		return (0);
 	/* s1 = "ab", s2 = "a*", remove first character of each */
 	if (*s1 == *s2)
-		return (wild_cmp(s1 + 1, s2 + 1));
+		return (wildcmp(s1 + 1, s2 + 1));
 	/* "xyza" and "*a"; keep going until s1 becomes "a" */
 	if (*s2 == '*' && *(s2 + 1) != *(s1))
-		return (wild_cmp(s1 + 1, s2));
+		return (wildcmp(s1 + 1, s2));
 	/* we are at "a", "*a" */
 	if (*s2 == '*' && *(s2 + 1) == *s1)
-		return (wild_cmp(s1, s2 + 1) || wild_cmp(s1 + 1, s2));
+		return (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2));
 	return (12345);
 }
