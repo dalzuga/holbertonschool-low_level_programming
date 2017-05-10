@@ -3,13 +3,20 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * hash_table_get - gets a value from the key in a hash table
+ * @ht: the hash table
+ * @key: the key string
+ *
+ * Return: The value string, NULL if not found.
+ */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	unsigned long int index;
 	hash_node_t *tmp_node;
 
 	/* initializations */
-	tmp_node = NULL;
+	tmp_node = (NULL);
 	index = 0;
 
 	/* retrieve location */
@@ -27,10 +34,10 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 		if (strcmp(key, tmp_node->key) == 0)
 		{
-			return tmp_node->value;
+			return (tmp_node->value);
 		}
 	}
 
 	/* key not found */
-	return NULL;
+	return (NULL);
 }

@@ -4,11 +4,12 @@
 #include "hash_tables.h"
 
 /**
- * params:
- * @ht : a hash table pointer
- * This function prints a hash_table and returns nothing.
- * If the hash table is not valid, it will not print anything.
- * return: void
+ * hash_table_print - prints a hash table. If the hash table is not valid, it
+ * will not print anything.
+ *
+ * @ht: the hash table address.
+ *
+ * Return: Nothing.
  */
 
 void print_linked_list(hash_node_t *first_node_ptr);
@@ -48,7 +49,12 @@ void hash_table_print(const hash_table_t *ht)
 }
 
 /**
- * prints a linked list starting at first_node_ptr until there are no more values. 
+ * print_linked_list - prints a linked list starting at first_node_ptr until
+ * there are no more values.
+ *
+ * @first_node_ptr: pointer to the first node of linked list.
+ *
+ * Return: Nothing.
  */
 void print_linked_list(hash_node_t *first_node_ptr)
 {
