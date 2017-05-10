@@ -11,7 +11,7 @@ int _strlen_recursion(char *s)
 	/* case empty string */
 	if (*s == 0)
 	{
-		return 0;
+		return (0);
 	}
 
 	/* general case */
