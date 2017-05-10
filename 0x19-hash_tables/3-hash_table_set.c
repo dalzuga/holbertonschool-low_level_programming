@@ -3,13 +3,22 @@
 #include <stdlib.h>
 #include <string.h>
 
-int hash_table_set(hash_table_t *ht, const char *key, const char* value)
+/**
+ * hash_table_set - set a key-value pair in a hash table
+ *
+ * @ht: the hash table
+ * @key: the key string
+ * @value: the value string
+ *
+ * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure.
+ */
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *node, *tmp_node;
 	int i, j;
 	char c;
-	
+
 	node = malloc(sizeof(hash_node_t));
 	if (node == NULL)
 	{
@@ -38,9 +47,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char* value)
 	node->key = malloc(sizeof(char) * i);
 	if (node == NULL)
 	{
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
-	
+
 	/* copy the contents of ~key~ */
 	for (j = 0; j < i; j++)
 	{
@@ -70,9 +79,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char* value)
 	node->value = malloc(sizeof(char) * i);
 	if (node == NULL)
 	{
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
-	
+
 	/* copy the contents of ~value~ */
 	for (j = 0; j < i; j++)
 	{
