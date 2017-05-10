@@ -15,12 +15,12 @@ int is_prime_number(int n)
 	/* cases 0, 1, and < 0 */
 	if (n < 2)
 	{
-		return 0;
+		return (0);
 	}
 
 	i = 2;
 	/* call the helper function */
-	return is_prime_helper(n, i);
+	return (is_prime_helper(n, i));
 }
 
 /**
@@ -37,17 +37,17 @@ int is_prime_helper(int n, int i)
 	if (i * i > n)
 	{
 		/* then it's prime */
-		return 1;
+		return (1);
 	}
 
 	/* if there is a divisor */
 	if (n % i == 0)
 	{
 		/* then it's not prime */
-		return 0;
+		return (0);
 	}
 
 	/* check for more divisors */
-	return is_prime_helper(n, i + 1);
+	return (is_prime_helper(n, i + 1));
 
 }
