@@ -22,7 +22,7 @@ int _sqrt_recursion(int n)
 }
 
 /**
- * _sqrt_helper - recursive square root function helper
+ * sqrt_helper - recursive square root function helper
  *
  * @n: number to calculate the square root of
  * @i: increment counter
