@@ -19,5 +19,7 @@ int main(void)
     printf("----------------------------------------\n");
     hash_table_set(ht, "mentioner", "holberton");
 
+    hash_table_print(ht);
+
     return (EXIT_SUCCESS);
 }

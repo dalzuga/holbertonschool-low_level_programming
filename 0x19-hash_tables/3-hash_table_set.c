@@ -17,6 +17,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *node, *tmp_node;
 	int i, j;
+	/* int klen, vlen; */
 	char c;
 
 	node = malloc(sizeof(hash_node_t));
@@ -131,4 +132,24 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 
 	return (EXIT_SUCCESS);
+}
+
+/**
+ *
+ *
+ */
+int _strlen(char *s)
+{
+	/* declarations */
+	int i;
+
+	/* inits */
+	i = 0;
+
+	while(s[i] != '\0')
+	{
+		i++;
+	}
+
+	return (i);
 }
