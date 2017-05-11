@@ -22,7 +22,6 @@ hash_table_t *hash_table_create(unsigned long int size)
 	ht_ptr = malloc(sizeof(hash_table_t));
 	if (ht_ptr == NULL)
 	{
-		/* printf("---first malloc---\n"); */
 		return (NULL);
 	}
 	ht_ptr->size = 0;
@@ -31,8 +30,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 	ht_ptr->array = malloc(sizeof(hash_node_t *) * size);
 	if (ht_ptr->array == NULL)
 	{
-		/* printf("---second malloc---\n"); */
-		/* free(ht_ptr); */
+		free(ht_ptr);
 		return (NULL);
 	}
 	ht_ptr->size = size;
