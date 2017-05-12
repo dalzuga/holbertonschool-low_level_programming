@@ -14,91 +14,12 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
+	/* declarations */
 	unsigned long int index;
 	hash_node_t *node, *tmp_node;
-	int i, j;
-	/* int klen, vlen; */
-	char c;
-
-	node = malloc(sizeof(hash_node_t));
-	if (node == NULL)
-	{
-		return (EXIT_FAILURE);
-	}
-
-	/* Initializations */
-	node->key = NULL;
-	node->value = NULL;
-	node->next = NULL;
-	tmp_node = NULL;
-
-	/* get the length */
-	c = *key;
-	for (i = 1; c != 0; i++)
-	{
-		key++;
-		c = *key;
-	}
-	/* i is now the string length, including NULL char (tested) */
-
-	/* bring back ~key~ using pointer arithmetic */
-	key = key - i + 1;
-
-	/* allocate ~i~ characters (string + NULL char) */
-	node->key = malloc(sizeof(char) * i);
-	if (node == NULL)
-	{
-		return (EXIT_FAILURE);
-	}
-
-	/* copy the contents of ~key~ */
-	for (j = 0; j < i; j++)
-	{
-		*(node->key) = *key;
-		(node->key)++;
-		key++;
-	}
-
-	/* bring back node->key using pointer arithmetic */
-	node->key = node->key - j;
-	/* bring back =key= using pointer arithmetic */
-	key = key - j;
-
-	/* get the length of ~value~ */
-	c = *value;
-	for (i = 1; c != 0; i++)
-	{
-		value++;
-		c = *value;
-	}
-	/* i is now the length, including NULL char */
-
-	/* roll back ~value~ using pointer arithmetic */
-	value = value - i + 1;
-
-	/* allocate memory for ~node->value~ */
-	node->value = malloc(sizeof(char) * i);
-	if (node == NULL)
-	{
-		return (EXIT_FAILURE);
-	}
-
-	/* copy the contents of ~value~ */
-	for (j = 0; j < i; j++)
-	{
-		*(node->value) = *value;
-		(node->value)++;
-		value++;
-	}
-
-	/* roll back ~node->value~ using pointer arithmetic */
-	node->value = node->value - j;
-	value = value - j;
-
-	/* the node has been made */
 
 	/* queries hash function for index and stores it in ~index~ */
-	index = key_index((const unsigned char *) node->key, ht->size);
+	index = key_index((const unsigned char *) key, ht->size);
 
 	tmp_node = *(ht->array + index);
 
@@ -108,7 +29,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		/* simple update */
 		if (strcmp(key, tmp_node->key) == 0)
 		{
-			tmp_node->value = strdup(value);
+			free(tmp_node->value);
+			tmp_node->value = _strdup(value);
 			return (EXIT_SUCCESS);
 		}
 
@@ -118,6 +40,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 
 		tmp_node = tmp_node->next;
+	}
+
+	node = make_node(key, value);
+	if (node == NULL)
+	{
+		return (EXIT_FAILURE);
 	}
 
 	/* simple case: there was no node at this index */
@@ -138,7 +66,31 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  *
  *
  */
-int _strlen(char *s)
+hash_node_t *make_node(const char *key, const char *value)
+{
+	/* declarations */
+	hash_node_t *node;
+
+	/* allocs */
+	node = malloc(sizeof(hash_node_t));
+	if (node == NULL)
+	{
+		return (NULL);
+	}
+
+	/* inits */
+	node->key = _strdup(key);
+	node->value = _strdup(value);
+	node->next = NULL;
+
+	return (node);
+}
+
+/**
+ *
+ *
+ */
+int _strlen(const char *s)
 {
 	/* declarations */
 	int i;
@@ -152,4 +104,30 @@ int _strlen(char *s)
 	}
 
 	return (i);
+}
+
+/**
+ *
+ *
+ */
+char *_strdup(const char *s1)
+{
+	/* declarations */
+	int i, len;
+	char *s2;
+
+	len = _strlen(s1);
+
+	s2 = malloc(sizeof(char) * (len + 1));
+	if (s2 == NULL)
+	{
+		return (NULL);
+	}
+
+	for (i = 0; i < (len + 1); i++)
+	{
+		s2[i] = s1[i];
+	}
+
+	return (s2);
 }

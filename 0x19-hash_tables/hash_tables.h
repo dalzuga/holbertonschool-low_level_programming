@@ -58,6 +58,12 @@ void hash_table_print(const hash_table_t *ht);
 void print_linked_list(hash_node_t *first_node_ptr);
 
 /*  */
-int _strlen(char *s);
+int _strlen(const char *s);
+
+/*  */
+char *_strdup(const char *s1);
+
+/*  */
+hash_node_t *make_node(const char *key, const char *value);
 
 #endif
