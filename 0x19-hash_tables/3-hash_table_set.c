@@ -31,6 +31,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			free(tmp_node->value);
 			tmp_node->value = _strdup(value);
+			if (tmp_node->value == NULL)
+			{
+				return (EXIT_FAILURE);
+			}
 			return (EXIT_SUCCESS);
 		}
 

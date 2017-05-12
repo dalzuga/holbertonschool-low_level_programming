@@ -66,4 +66,10 @@ char *_strdup(const char *s1);
 /*  */
 hash_node_t *make_node(const char *key, const char *value);
 
+/*  */
+void hash_table_delete(hash_table_t *ht);
+
+/*  */
+int invalid_ht(hash_table_t *ht);
+
 #endif
