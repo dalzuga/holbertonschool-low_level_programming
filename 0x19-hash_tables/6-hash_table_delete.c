@@ -27,7 +27,10 @@ void hash_table_delete(hash_table_t *ht)
 		ptr = ht->array[i];
 		if (ptr != NULL)
 		{
-			printf("ll found at index %lu.\n", i);
+			if (DEBUG)
+			{
+				printf("ll found at index %lu.\n", i);
+			}
 			delete_ht_ll(ht->array[i]);
 			/* ht->array[i] = NULL; */
 		}
