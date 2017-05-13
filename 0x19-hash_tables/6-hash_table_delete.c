@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include "hash_tables.h"
 
-void _printf(const char *s);
-
 /**
+ * hash_table_delete - frees all memory allocated to a hash table.
  *
+ * @ht: address of the hash table to free
  *
+ * Return: Nothing.
  */
 void hash_table_delete(hash_table_t *ht)
 {
@@ -84,8 +85,11 @@ void delete_node(hash_node_t *node_ptr)
 }
 
 /**
+ * invalid_ht - checks if the hash table is considered invalid
  *
+ * @ht: address of hash table to check.
  *
+ * Return: 0 if valid, 1 otherwise.
  */
 int invalid_ht(hash_table_t *ht)
 {

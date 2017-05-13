@@ -24,7 +24,10 @@ void hash_table_print(const hash_table_t *ht)
 	/* all cases where ht is NULL */
 	if (ht == NULL || ht->array == NULL || ht->size < 1)
 	{
-		printf("Error: empty table.\n");
+		if (DEBUG)
+		{
+			printf("Error: empty table.\n");
+		}
 		return;
 	}
 

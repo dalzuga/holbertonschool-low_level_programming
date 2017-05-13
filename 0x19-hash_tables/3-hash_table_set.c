@@ -72,8 +72,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 }
 
 /**
+ * make_node - makes a hash table node
  *
+ * @key: key string to put in node
+ * @value: value string to put in node
  *
+ * Return: the address of the node.
  */
 hash_node_t *make_node(const char *key, const char *value)
 {
@@ -96,8 +100,11 @@ hash_node_t *make_node(const char *key, const char *value)
 }
 
 /**
+ * _strlen - gets the length of a string.
  *
+ * @s: input string.
  *
+ * Return: length of input string, not including null char.
  */
 int _strlen(const char *s)
 {
@@ -107,7 +114,7 @@ int _strlen(const char *s)
 	/* inits */
 	i = 0;
 
-	while(s[i] != '\0')
+	while (s[i] != '\0')
 	{
 		i++;
 	}
@@ -116,8 +123,11 @@ int _strlen(const char *s)
 }
 
 /**
+ * _strdup - duplicates a string
  *
+ * @s1: string to duplicate.
  *
+ * Return: duplicated string.
  */
 char *_strdup(const char *s1)
 {

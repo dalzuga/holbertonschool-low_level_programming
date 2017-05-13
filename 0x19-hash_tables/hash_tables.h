@@ -33,7 +33,7 @@ typedef struct hash_table_s
 } hash_table_t;
 
 #ifndef DEBUG
-#define DEBUG 1
+#define DEBUG 0
 #endif
 
 /* hash_table_create - creates a hash table. */
@@ -83,5 +83,8 @@ void delete_ht_ll(hash_node_t *head);
 
 /*  */
 void delete_node(hash_node_t *node_ptr);
+
+/*  */
+void _printf(const char *s);
 
 #endif
