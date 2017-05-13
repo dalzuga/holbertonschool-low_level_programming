@@ -24,7 +24,7 @@ void hash_table_print(const hash_table_t *ht)
 	/* all cases where ht is NULL */
 	if (ht == NULL || ht->array == NULL || ht->size < 1)
 	{
-		printf("Error: empty table.");
+		/* printf("Error: empty table.\n"); */
 		return;
 	}
 
@@ -36,7 +36,7 @@ void hash_table_print(const hash_table_t *ht)
 		{
 			if (tmp_ptr->key == NULL)
 			{
-				printf("Error: invalid hash table.");
+				/* printf("Error: invalid hash table."); */
 			}
 			printf("[%lu]: ", i);
 			print_linked_list(tmp_ptr);

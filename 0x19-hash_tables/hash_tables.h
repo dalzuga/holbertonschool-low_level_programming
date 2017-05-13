@@ -1,6 +1,8 @@
 #ifndef HASH_TABLES
 #define HASH_TABLES
 
+#include <stdlib.h>
+
 /**
  * struct hash_node_s - Node of a hash table
  *
@@ -29,6 +31,10 @@ typedef struct hash_table_s
 	unsigned long int size;
 	hash_node_t **array;
 } hash_table_t;
+
+#ifndef DEBUG
+#define DEBUG 1
+#endif
 
 /* hash_table_create - creates a hash table. */
 hash_table_t *hash_table_create(unsigned long int size);
@@ -71,5 +77,11 @@ void hash_table_delete(hash_table_t *ht);
 
 /*  */
 int invalid_ht(hash_table_t *ht);
+
+/*  */
+void delete_ht_ll(hash_node_t *head);
+
+/*  */
+void delete_node(hash_node_t *node_ptr);
 
 #endif

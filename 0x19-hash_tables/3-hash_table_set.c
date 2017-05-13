@@ -18,6 +18,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *node, *tmp_node;
 
+	if (invalid_ht(ht))
+	{
+		return (1);
+	}
+
 	/* queries hash function for index and stores it in ~index~ */
 	index = key_index((const unsigned char *) key, ht->size);
 
