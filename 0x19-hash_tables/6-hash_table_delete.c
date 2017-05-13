@@ -29,12 +29,9 @@ void hash_table_delete(hash_table_t *ht)
 		{
 			printf("ll found at index %lu.\n", i);
 			delete_ht_ll(ht->array[i]);
-			ht->array[i] = NULL;
+			/* ht->array[i] = NULL; */
 		}
 	}
-
-	_printf("Hash table printout\n");
-	hash_table_print(ht);
 
 	free(ht->array);
 	free(ht);

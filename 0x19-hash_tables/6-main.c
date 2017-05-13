@@ -18,6 +18,8 @@ int main(void)
 
 	hash_table_set(ht, "c", "fun");
 	hash_table_delete(ht);
+	ht = NULL; 		/* we need to set ht to 'NULL' */
+	hash_table_print(ht);
 
 	/* hash_table_set(ht, "python", "awesome"); */
 	/* hash_table_set(ht, "Jennie", "and Jay love asm"); */
