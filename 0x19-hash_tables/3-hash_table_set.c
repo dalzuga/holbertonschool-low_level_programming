@@ -10,7 +10,7 @@
  * @key: the key string
  * @value: the value string
  *
- * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure.
+ * Return: 1 on success, 0 on failure.
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
@@ -20,7 +20,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (invalid_ht(ht))
 	{
-		return (1);
+		return (0);
 	}
 
 	/* queries hash function for index and stores it in ~index~ */
@@ -38,9 +38,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			tmp_node->value = _strdup(value);
 			if (tmp_node->value == NULL)
 			{
-				return (EXIT_FAILURE);
+				return (0);
 			}
-			return (EXIT_SUCCESS);
+			return (1);
 		}
 
 		if (tmp_node->next == NULL)
@@ -54,7 +54,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node = make_node(key, value);
 	if (node == NULL)
 	{
-		return (EXIT_FAILURE);
+		return (0);
 	}
 
 	/* simple case: there was no node at this index */
@@ -68,7 +68,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		tmp_node->next = node;
 	}
 
-	return (EXIT_SUCCESS);
+	return (1);
 }
 
 /**
