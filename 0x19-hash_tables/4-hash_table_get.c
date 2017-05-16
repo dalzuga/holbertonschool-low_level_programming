@@ -32,7 +32,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 			break;
 		}
 
-		if (_strcmp((char *) key, tmp_node->key) == 0)
+		if (_strcmp(key, tmp_node->key) == 0)
 		{
 			return (tmp_node->value);
 		}
@@ -50,7 +50,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
  *
  * Return: < 0 if s1 < s2, > 0 if s2 > s1, 0 if strings match
  */
-int _strcmp(char *s1, char *s2)
+int _strcmp(const char *s1, const char *s2)
 {
 	int i = 0;
 	int j = 0;
