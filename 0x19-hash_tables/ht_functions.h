@@ -11,7 +11,7 @@
  *
  * Return: 0 if valid, 1 otherwise.
  */
-int invalid_ht(hash_table_t *ht)
+int invalid_ht(const hash_table_t *ht)
 {
 	if (ht == NULL)
 	{

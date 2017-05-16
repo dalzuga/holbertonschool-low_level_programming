@@ -13,6 +13,11 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	unsigned long int index;
 	hash_node_t *tmp_node;
 
+	if (invalid_ht(ht))
+	{
+		return (NULL);
+	}
+
 	/* initializations */
 	tmp_node = (NULL);
 	index = 0;
