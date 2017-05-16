@@ -33,7 +33,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	while (tmp_node != NULL)
 	{
 		/* simple update */
-		if (strcmp(key, tmp_node->key) == 0)
+		if (_strcmp(key, tmp_node->key) == 0)
 		{
 			free(tmp_node->value);
 			tmp_node->value = _strdup(value);

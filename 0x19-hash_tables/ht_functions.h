@@ -101,4 +101,26 @@ void _printf(const char *s)
 	}
 }
 
+/**
+ * _strcmp - compare two strings
+ *
+ * @s1: first string
+ * @s2: second string
+ *
+ * Return: < 0 if s1 < s2, > 0 if s2 > s1, 0 if strings match
+ */
+int _strcmp(const char *s1, const char *s2)
+{
+	int i = 0;
+	int j = 0;
+	for ( ; s1[i] != '\0'; i++)
+	{
+		if (s1[j] != s2[j]) /* if chars are different, break */
+		{
+			break;
+		}
+		j++;
+	}
+	return(s1[j] - s2[j]); /* return difference in chars */
+}
 #endif
