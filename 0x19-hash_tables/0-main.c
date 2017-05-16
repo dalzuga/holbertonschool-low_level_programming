@@ -15,6 +15,7 @@ int main(void)
     n = 1 << 10;
 
     ht = hash_table_create(n);
+    hash_table_delete(ht);
     printf("%p\n", (void *)ht);
     printf("tested with size: %lu\n", n);
     return (EXIT_SUCCESS);
