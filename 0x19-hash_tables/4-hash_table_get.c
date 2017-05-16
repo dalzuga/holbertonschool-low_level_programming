@@ -1,7 +1,6 @@
 #include "hash_tables.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * hash_table_get - gets a value from the key in a hash table
@@ -32,7 +31,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 			break;
 		}
 
-		if (strcmp(key, tmp_node->key) == 0)
+		if (_strcmp(key, tmp_node->key) == 0)
 		{
 			return (tmp_node->value);
 		}
