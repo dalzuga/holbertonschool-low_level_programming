@@ -32,7 +32,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 			break;
 		}
 
-		if (strcmp(key, tmp_node->key) == 0)
+		if (_strcmp((char *) key, tmp_node->key) == 0)
 		{
 			return (tmp_node->value);
 		}
@@ -40,4 +40,27 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 
 	/* key not found */
 	return (NULL);
+}
+
+/**
+ * _strcmp - compare two strings
+ *
+ * @s1: first string
+ * @s2: second string
+ *
+ * Return: < 0 if s1 < s2, > 0 if s2 > s1, 0 if strings match
+ */
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0;
+	int j = 0;
+	for ( ; s1[i] != '\0'; i++)
+	{
+		if (s1[j] != s2[j]) /* if chars are different, break */
+		{
+			break;
+		}
+		j++;
+	}
+	return(s1[j] - s2[j]); /* return difference in chars */
 }

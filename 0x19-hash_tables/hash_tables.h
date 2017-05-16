@@ -87,4 +87,7 @@ void delete_node(hash_node_t *node_ptr);
 /*  */
 void _printf(const char *s);
 
+/*  */
+int _strcmp(char *s1, char *s2);
+
 #endif
