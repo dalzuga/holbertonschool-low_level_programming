@@ -20,7 +20,7 @@ void hash_table_print(const hash_table_t *ht)
 
 	/* Inits */
 	i = 0;
-	tmp_ptr = (hash_node_t *) NULL;
+	tmp_ptr = NULL;
 
 	/* all cases where ht is NULL */
 	if (invalid_ht(ht))
