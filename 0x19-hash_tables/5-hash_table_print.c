@@ -23,17 +23,12 @@ void hash_table_print(const hash_table_t *ht)
 	tmp_ptr = (hash_node_t *) NULL;
 
 	/* all cases where ht is NULL */
-	if (ht == NULL || ht->array == NULL || ht->size < 1)
+	if (invalid_ht(ht))
 	{
-		if (DEBUG)
-		{
-			printf("Error: empty table.\n");
-		}
 		return;
 	}
 
 	printf("{");
-
 	for (i = 0; i < ht->size; i++)
 	{
 		tmp_ptr = *(ht->array + i);
