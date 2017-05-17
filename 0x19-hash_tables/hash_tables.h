@@ -90,4 +90,7 @@ void _printf(const char *s);
 /*  */
 int _strcmp(const char *s1, const char *s2);
 
+/*  */
+int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value);
+
 #endif

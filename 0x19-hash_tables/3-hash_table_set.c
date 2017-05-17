@@ -29,10 +29,32 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	tmp_node = *(ht->array + index);
 
-	/* traverse the list until tmp_node is the last */
+	/* case 1: there is no node at this index */
+	if (tmp_node == NULL)
+	{
+		node = make_node(key, value);
+		if (node == NULL)
+		{
+			return (0);
+		}
+		*(ht->array + index) = node;
+		return (1);
+	}
+
+	return (ht_set_helper(tmp_node, key, value));
+}
+
+/**
+ *
+ *
+ */
+int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
+{
+	hash_node_t *node;
+
 	while (tmp_node != NULL)
 	{
-		/* simple update */
+		/* case 2: simple update */
 		if (_strcmp(key, tmp_node->key) == 0)
 		{
 			free(tmp_node->value);
@@ -52,22 +74,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		tmp_node = tmp_node->next;
 	}
 
+	/*
+	 * case 3: there were nodes at this index.
+	 * We are now at the last node.
+	 */
+
 	node = make_node(key, value);
 	if (node == NULL)
 	{
 		return (0);
 	}
 
-	/* simple case: there was no node at this index */
-	if (tmp_node == NULL)
-	{
-		*(ht->array + index) = node;
-	}
-	/* there were nodes at this index, but we are now at the last node */
-	else
-	{
-		tmp_node->next = node;
-	}
+	tmp_node->next = node;
 
 	return (1);
 }
