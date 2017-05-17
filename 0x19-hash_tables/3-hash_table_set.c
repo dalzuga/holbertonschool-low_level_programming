@@ -17,7 +17,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *node, *tmp_node;
 
-	if (invalid_ht(ht))
+	if (invalid_ht(ht) || key == NULL || value == NULL)
 	{
 		return (0);
 	}
