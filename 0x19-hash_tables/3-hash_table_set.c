@@ -61,13 +61,15 @@ int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
 		/* case 2: simple update */
 		if (_strcmp(key, tmp_node->key) == 0)
 		{
-			free(tmp_node->value);
-			tmp_node->value = _strdup(value);
-			if (tmp_node->value == NULL)
-			{
-				return (0);
-			}
-			return (1);
+			return (ht_node_update(ht));
+
+			/* free(tmp_node->value); */
+			/* tmp_node->value = _strdup(value); */
+			/* if (tmp_node->value == NULL) */
+			/* { */
+			/* 	return (0); */
+			/* } */
+			/* return (1); */
 		}
 
 		if (tmp_node->next == NULL)
