@@ -82,9 +82,6 @@ void delete_ht_ll(hash_node_t *head);
 /* delete_node - frees a node inside a linked list. */
 void delete_node(hash_node_t *node_ptr);
 
-/*  */
-void _printf(const char *s);
-
 /* _strcmp - compare two strings */
 int _strcmp(const char *s1, const char *s2);
 

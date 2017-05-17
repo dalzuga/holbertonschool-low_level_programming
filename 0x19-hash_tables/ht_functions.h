@@ -15,22 +15,16 @@ int invalid_ht(const hash_table_t *ht)
 {
 	if (ht == NULL)
 	{
-		_printf("hash_table_delete.c: ");
-		_printf("---1---\n");
 		return (1);
 	}
 
 	if (ht->size < 1)
 	{
-		_printf("hash_table_delete.c: ");
-		_printf("---2---\n");
 		return (1);
 	}
 
 	if (ht->array == NULL)
 	{
-		_printf("hash_table_delete.c: ");
-		_printf("---3---\n");
 		return (1);
 	}
 
@@ -87,18 +81,6 @@ char *_strdup(const char *s1)
 	}
 
 	return (s2);
-}
-
-/**
- *
- *
- */
-void _printf(const char *s)
-{
-	if (DEBUG)
-	{
-		printf("%s", s);
-	}
 }
 
 /**
