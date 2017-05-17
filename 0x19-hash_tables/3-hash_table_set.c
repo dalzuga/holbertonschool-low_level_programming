@@ -23,6 +23,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 
+	if (_strcmp(key, "") == 0)
+	{
+		return (0);
+	}
+
 	/* queries hash function for index and stores it in ~index~ */
 	index = key_index((const unsigned char *) key, ht->size);
 
