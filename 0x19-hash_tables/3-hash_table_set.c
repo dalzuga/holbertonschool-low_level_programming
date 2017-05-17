@@ -45,22 +45,25 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (1);
 	}
 
-	return (ht_set_helper(tmp_node, key, value));
+	return (ht_set_helper(ht->array + index, key, value));
 }
 
 /**
- * ht_set_helper - traverses hash table linked list; updates if key is found,
- * appends a node at the end if key is not found.
+ * ht_set_helper - traverses hash table linked list; updates if key is
+ * found. inserts a node at the beginning of the linked list if key is not
+ * found.
  *
- * @tmp_node: pointer to first node of the linked list.
+ * @first_node: pointer to first node of the linked list.
  * @key: key string to insert.
  * @value: value string to insert.
  *
  * Return: 1 on success, 0 on failure.
  */
-int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
+int ht_set_helper(hash_node_t **ll_head, const char *key, const char *value)
 {
-	hash_node_t *node;
+	hash_node_t *node, *tmp_node;
+
+	tmp_node = *ll_head;
 
 	while (tmp_node != NULL)
 	{
@@ -78,18 +81,15 @@ int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
 		tmp_node = tmp_node->next;
 	}
 
-	/*
-	 * case 3: there were nodes at this index.
-	 * We are now at the last node.
-	 */
-
+	/* case 3: add new node at the beginning of the linked list */
 	node = make_node(key, value);
 	if (node == NULL)
 	{
 		return (0);
 	}
-
-	tmp_node->next = node;
+	tmp_node = *ll_head;
+	ll_head = &node;
+	node->next = tmp_node;
 	return (1);
 }
 
@@ -115,6 +115,7 @@ hash_node_t *make_node(const char *key, const char *value)
 
 	/* inits */
 	node->key = _strdup(key);
+
 	if (value == NULL)
 	{
 		node->value = NULL;
