@@ -45,8 +45,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 }
 
 /**
+ * ht_set_helper - traverses hash table linked list; updates if key is found,
+ * appends a node at the end if key is not found.
  *
+ * @tmp_node: pointer to first node of the linked list.
+ * @key: key string to insert.
+ * @value: value string to insert.
  *
+ * Return: 1 on success, 0 on failure.
  */
 int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
 {
