@@ -63,34 +63,34 @@ void hash_table_print(const hash_table_t *ht);
  */
 void print_linked_list(hash_node_t *first_node_ptr);
 
-/*  */
+/* _strlen - gets the length of a string. */
 int _strlen(const char *s);
 
-/*  */
+/* _strdup - duplicates a string. */
 char *_strdup(const char *s1);
 
-/*  */
+/* make_node - makes a hash table node. */
 hash_node_t *make_node(const char *key, const char *value);
 
-/*  */
+/* hash_table_delete - frees all memory allocated to a hash table. */
 void hash_table_delete(hash_table_t *ht);
 
-/*  */
+/* invalid_ht - checks if the hash table is valid. */
 int invalid_ht(const hash_table_t *ht);
 
-/*  */
+/*  delete_ht_ll - frees all memory allocated to a linked list. */
 void delete_ht_ll(hash_node_t *head);
 
-/*  */
+/* delete_node - frees a node inside a linked list. */
 void delete_node(hash_node_t *node_ptr);
 
 /*  */
 void _printf(const char *s);
 
-/*  */
+/* _strcmp - compare two strings */
 int _strcmp(const char *s1, const char *s2);
 
-/*  */
+/* ht_set_helper - traverses hash table linked list */
 int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value);
 
 #endif

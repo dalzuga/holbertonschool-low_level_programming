@@ -42,7 +42,7 @@ void hash_table_delete(hash_table_t *ht)
 }
 
 /**
- * delete_ht_ll - frees all memory allocated to a linked list
+ * delete_ht_ll - frees all memory allocated to a hash table linked list.
  *
  * @head: pointer to first node in the linked list
  *

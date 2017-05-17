@@ -1,8 +1,6 @@
 #include "hash_tables.h"
 
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * hash_table_set - set a key-value pair in a hash table

@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 /**
- * invalid_ht - checks if the hash table is considered invalid
+ * invalid_ht - checks if the hash table is valid.
  *
  * @ht: address of hash table to check.
  *
