@@ -1,6 +1,7 @@
 #include "hash_tables.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * hash_table_set - set a key-value pair in a hash table
@@ -17,7 +18,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *node, *tmp_node;
 
-	if (invalid_ht(ht) || key == NULL || value == NULL)
+	if (invalid_ht(ht) || key == NULL)
 	{
 		return (0);
 	}
@@ -84,7 +85,6 @@ int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
 	}
 
 	tmp_node->next = node;
-
 	return (1);
 }
 
@@ -110,7 +110,14 @@ hash_node_t *make_node(const char *key, const char *value)
 
 	/* inits */
 	node->key = _strdup(key);
-	node->value = _strdup(value);
+	if (value == NULL)
+	{
+		node->value = NULL;
+	}
+	else
+	{
+		node->value = _strdup(value);
+	}
 	node->next = NULL;
 
 	return (node);
@@ -127,6 +134,13 @@ hash_node_t *make_node(const char *key, const char *value)
 int ht_node_update(hash_node_t *tmp_node, const char *value)
 {
 	free(tmp_node->value);
+
+	if (value == NULL)
+	{
+		tmp_node->value = NULL;
+		return (1);
+	}
+
 	tmp_node->value = _strdup(value);
 	if (tmp_node->value == NULL)
 	{
