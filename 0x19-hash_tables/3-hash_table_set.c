@@ -20,7 +20,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (invalid_ht(ht) || key == NULL)
 	{
-		return (1);
+		return (0);
 	}
 
 	if (_strcmp(key, "") == 0)
