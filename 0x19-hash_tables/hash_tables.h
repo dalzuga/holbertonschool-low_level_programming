@@ -88,4 +88,7 @@ int _strcmp(const char *s1, const char *s2);
 /* ht_set_helper - traverses hash table linked list */
 int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value);
 
+/* ht_node_update - updates the value in a node */
+int ht_node_update(hash_node_t *tmp_node, const char *value);
+
 #endif

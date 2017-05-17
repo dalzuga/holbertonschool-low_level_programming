@@ -61,15 +61,7 @@ int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
 		/* case 2: simple update */
 		if (_strcmp(key, tmp_node->key) == 0)
 		{
-			return (ht_node_update(ht));
-
-			/* free(tmp_node->value); */
-			/* tmp_node->value = _strdup(value); */
-			/* if (tmp_node->value == NULL) */
-			/* { */
-			/* 	return (0); */
-			/* } */
-			/* return (1); */
+			return (ht_node_update(tmp_node, value));
 		}
 
 		if (tmp_node->next == NULL)
@@ -122,4 +114,23 @@ hash_node_t *make_node(const char *key, const char *value)
 	node->next = NULL;
 
 	return (node);
+}
+
+/**
+ * ht_node_update - updates the value in a node
+ *
+ * @tmp_node: node to change
+ * @value: string to change ~node->value~ to
+ *
+ * Return: 1 on success, 0 on failure.
+ */
+int ht_node_update(hash_node_t *tmp_node, const char *value)
+{
+	free(tmp_node->value);
+	tmp_node->value = _strdup(value);
+	if (tmp_node->value == NULL)
+	{
+		return (0);
+	}
+	return (1);
 }
