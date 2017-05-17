@@ -62,12 +62,19 @@ void hash_table_print(const hash_table_t *ht)
 void print_linked_list(hash_node_t *first_node_ptr)
 {
 	hash_node_t *tmp_ptr;
+	char flag;
 
 	/* Inits */
+	flag = 0;
 	tmp_ptr = first_node_ptr;
 
 	while (tmp_ptr != NULL)
 	{
+		if (flag == 1)
+		{
+			printf(", ");
+		}
+		flag = 1;
 		printf("'%s': '%s'", tmp_ptr->key, tmp_ptr->value);
 		tmp_ptr = tmp_ptr->next;
 	}
