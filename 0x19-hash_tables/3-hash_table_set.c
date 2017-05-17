@@ -25,7 +25,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (_strcmp(key, "") == 0)
 	{
-		return (0);
+		return (1);
 	}
 
 	/* queries hash function for index and stores it in ~index~ */
