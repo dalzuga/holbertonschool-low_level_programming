@@ -17,9 +17,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* declarations */
 	unsigned long int index;
 	hash_node_t *node, *tmp_node;
-	int r;
-
-	printf("---\n");
 
 	if (invalid_ht(ht) || key == NULL)
 	{
@@ -39,8 +36,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* case 1: there is no node at this index */
 	if (tmp_node == NULL)
 	{
-		printf("--3--\n");
-
 		node = make_node(key, value);
 		if (node == NULL)
 		{
@@ -50,24 +45,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (1);
 	}
 
-	printf("-----------------------\n\n");
-	printf("\thash_table_set():\n");
-
-	printf("--4--\n");
-	printf("(ht->array[i]): %p\n", (void *) (ht->array[index]));
-	printf("tmp_node: %p\n", (void *) (tmp_node));
-	printf("&tmp_node: %p\n", (void *) &(tmp_node));
-
-	r = ht_set_helper(&tmp_node, key, value);
-
-	printf("-----------------------\n\n");
-	printf("\thash_table_set():\n");
-
-	printf("(ht->array[i]): %p\n", (void *) (ht->array[index]));
-	printf("tmp_node: %p\n", (void *) (tmp_node));
-	printf("&tmp_node: %p\n", (void *) &(tmp_node));
-
-	return (r);
+	return (ht_set_helper(tmp_node, key, value));
 }
 
 /**
@@ -80,16 +58,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  *
  * Return: 1 on success, 0 on failure.
  */
-int ht_set_helper(hash_node_t **head_node, const char *key, const char *value)
+int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
 {
-	hash_node_t *node, *tmp_node;
-
-	printf("-----------------------\n\n");
-	printf("\tht_set_helper():\n");
-
-	tmp_node = *head_node;
-
-	printf("tmp_node: %p\n", (void *) tmp_node);
+	hash_node_t *node;
 
 	while (tmp_node != NULL)
 	{
@@ -118,19 +89,7 @@ int ht_set_helper(hash_node_t **head_node, const char *key, const char *value)
 		return (0);
 	}
 
-	tmp_node = *head_node;	/* move tmp back to head */
-
-	printf("tmp_node: %p\n", (void *) tmp_node);
-
-	printf("head_node: %p\n", (void *) head_node);
-	printf("*head_node: %p\n", (void *) *head_node);
-	printf("node: %p\n", (void *) tmp_node);
-
-	head_node = &node;		/* set head to new node */
-	printf("after set head to new node:\n");
-	printf("*head_node: %p\n", (void *) *head_node);
-
-	(*head_node)->next = tmp_node; /* link new node to the old head */
+	tmp_node->next = node;
 	return (1);
 }
 
