@@ -60,7 +60,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  */
 int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
 {
-	hash_node_t *node;
+	hash_node_t *node, *head;
+
+	head = tmp_node;
 
 	while (tmp_node != NULL)
 	{
@@ -89,7 +91,9 @@ int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
 		return (0);
 	}
 
-	tmp_node->next = node;
+	node->next = head;
+	head = node;
+
 	return (1);
 }
 
