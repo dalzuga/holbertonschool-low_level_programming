@@ -18,6 +18,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *node, *tmp_node;
 
+	printf("---\n");
+
 	if (invalid_ht(ht) || key == NULL)
 	{
 		return (0);
@@ -36,6 +38,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* case 1: there is no node at this index */
 	if (tmp_node == NULL)
 	{
+		printf("--3--\n");
+
 		node = make_node(key, value);
 		if (node == NULL)
 		{
@@ -44,6 +48,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		*(ht->array + index) = node;
 		return (1);
 	}
+
+	printf("--4--\n");
+	printf("&(ht->array[i]): %p\n", (void *) &(ht->array[index]));
+	printf("ht->array + index: %p\n", (void *) (ht->array + index));
 
 	return (ht_set_helper(&tmp_node, key, value));
 }
@@ -63,6 +71,8 @@ int ht_set_helper(hash_node_t **head_node, const char *key, const char *value)
 	hash_node_t *node, *tmp_node;
 
 	tmp_node = *head_node;
+
+	printf("tmp_node: %p\n", (void *) tmp_node);
 
 	while (tmp_node != NULL)
 	{
@@ -92,6 +102,12 @@ int ht_set_helper(hash_node_t **head_node, const char *key, const char *value)
 	}
 
 	tmp_node = *head_node;	/* move tmp back to head */
+
+	printf("tmp_node: %p\n", (void *) tmp_node);
+
+	printf("head_node address: %p\n", (void *) head_node);
+	printf("*head_node: %p\n", (void *) *head_node);
+	printf("node: %p\n", (void *) tmp_node);
 
 	head_node = &node;		/* set head to new node */
 
