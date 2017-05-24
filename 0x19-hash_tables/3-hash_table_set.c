@@ -16,7 +16,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	/* declarations */
 	unsigned long int index;
-	hash_node_t *node, *tmp_node;
+	hash_node_t *node, *tmp_node, **head;
+	int r;
 
 	if (invalid_ht(ht) || key == NULL)
 	{
@@ -45,7 +46,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (1);
 	}
 
-	return (ht_set_helper(tmp_node, key, value));
+	head = ht->array + index;
+	printf("head:\t\t%p\n", (void *) head);
+
+	r = ht_set_helper(tmp_node, key, value);
+
+	printf("tmp_node:\t%p\n", (void *) tmp_node);
+
+	return (r);
 }
 
 /**
@@ -93,6 +101,7 @@ int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
 
 	node->next = head;
 	head = node;
+	printf("head:\t\t%p\n", (void *) head);
 
 	return (1);
 }
