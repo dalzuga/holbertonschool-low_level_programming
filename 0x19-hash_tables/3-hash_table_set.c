@@ -55,8 +55,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	printf("tmp_node: %p\n", (void *) (tmp_node));
 	printf("&tmp_node: %p\n", (void *) &(tmp_node));
 
-	printf("-----------------------\n\n");
-	printf("ht_set_helper():\n");
 	return (ht_set_helper(&tmp_node, key, value));
 }
 
@@ -73,6 +71,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 int ht_set_helper(hash_node_t **head_node, const char *key, const char *value)
 {
 	hash_node_t *node, *tmp_node;
+
+	printf("-----------------------\n\n");
+	printf("ht_set_helper():\n");
 
 	tmp_node = *head_node;
 
@@ -114,6 +115,7 @@ int ht_set_helper(hash_node_t **head_node, const char *key, const char *value)
 	printf("node: %p\n", (void *) tmp_node);
 
 	head_node = &node;		/* set head to new node */
+	printf("*head_node: %p\n", (void *) *head_node);
 
 	(*head_node)->next = tmp_node; /* link new node to the old head */
 	return (1);
