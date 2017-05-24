@@ -50,9 +50,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (1);
 	}
 
+	printf("-----------------------\n\n");
+	printf("hash_table_set():\n");
+
 	printf("--4--\n");
 	printf("&(ht->array[i]): %p\n", (void *) &(ht->array[index]));
 	printf("ht->array + index: %p\n", (void *) (ht->array + index));
+	printf("(ht->array[i]): %p\n", (void *) (ht->array[index]));
+	printf("*(ht->array + index): %p\n", (void *) *(ht->array + index));
 	printf("tmp_node: %p\n", (void *) (tmp_node));
 	printf("&tmp_node: %p\n", (void *) &(tmp_node));
 
@@ -61,7 +66,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	printf("-----------------------\n\n");
 	printf("hash_table_set():\n");
 
-	
+	printf("&(ht->array[i]): %p\n", (void *) &(ht->array[index]));
+	printf("ht->array + index: %p\n", (void *) (ht->array + index));
+	printf("(ht->array[i]): %p\n", (void *) (ht->array[index]));
+	printf("*(ht->array + index): %p\n", (void *) *(ht->array + index));
+	printf("tmp_node: %p\n", (void *) (tmp_node));
+	printf("&tmp_node: %p\n", (void *) &(tmp_node));
 
 	return (r);
 }
