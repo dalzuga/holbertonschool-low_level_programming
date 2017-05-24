@@ -52,7 +52,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	printf("--4--\n");
 	printf("&(ht->array[i]): %p\n", (void *) &(ht->array[index]));
 	printf("ht->array + index: %p\n", (void *) (ht->array + index));
+	printf("tmp_node: %p\n", (void *) (tmp_node));
+	printf("&tmp_node: %p\n", (void *) &(tmp_node));
 
+	printf("-----------------------\n\n");
+	printf("ht_set_helper():\n");
 	return (ht_set_helper(&tmp_node, key, value));
 }
 
