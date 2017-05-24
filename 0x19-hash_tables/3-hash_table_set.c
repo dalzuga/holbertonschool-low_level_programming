@@ -122,7 +122,7 @@ int ht_set_helper(hash_node_t **head_node, const char *key, const char *value)
 
 	printf("tmp_node: %p\n", (void *) tmp_node);
 
-	printf("head_node address: %p\n", (void *) head_node);
+	printf("head_node: %p\n", (void *) head_node);
 	printf("*head_node: %p\n", (void *) *head_node);
 	printf("node: %p\n", (void *) tmp_node);
 
