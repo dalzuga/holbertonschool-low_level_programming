@@ -91,7 +91,11 @@ int ht_set_helper(hash_node_t **head_node, const char *key, const char *value)
 		return (0);
 	}
 
-	tmp_node->next = node;
+	tmp_node = *head_node;	/* move tmp back to head */
+
+	head_node = &node;		/* set head to new node */
+
+	(*head_node)->next = tmp_node; /* link new node to the old head */
 	return (1);
 }
 
