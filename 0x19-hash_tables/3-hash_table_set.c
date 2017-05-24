@@ -17,6 +17,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* declarations */
 	unsigned long int index;
 	hash_node_t *node, *tmp_node;
+	int r;
 
 	printf("---\n");
 
@@ -55,7 +56,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	printf("tmp_node: %p\n", (void *) (tmp_node));
 	printf("&tmp_node: %p\n", (void *) &(tmp_node));
 
-	return (ht_set_helper(&tmp_node, key, value));
+	r = ht_set_helper(&tmp_node, key, value);
+
+	printf("-----------------------\n\n");
+	printf("hash_table_set():\n");
+
+	
+
+	return (r);
 }
 
 /**
