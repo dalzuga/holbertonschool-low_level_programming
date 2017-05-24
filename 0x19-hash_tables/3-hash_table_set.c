@@ -51,7 +51,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 
 	printf("-----------------------\n\n");
-	printf("hash_table_set():\n");
+	printf("\thash_table_set():\n");
 
 	printf("--4--\n");
 	printf("(ht->array[i]): %p\n", (void *) (ht->array[index]));
@@ -61,7 +61,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	r = ht_set_helper(&tmp_node, key, value);
 
 	printf("-----------------------\n\n");
-	printf("hash_table_set():\n");
+	printf("\thash_table_set():\n");
 
 	printf("(ht->array[i]): %p\n", (void *) (ht->array[index]));
 	printf("tmp_node: %p\n", (void *) (tmp_node));
@@ -85,7 +85,7 @@ int ht_set_helper(hash_node_t **head_node, const char *key, const char *value)
 	hash_node_t *node, *tmp_node;
 
 	printf("-----------------------\n\n");
-	printf("ht_set_helper():\n");
+	printf("\tht_set_helper():\n");
 
 	tmp_node = *head_node;
 
@@ -127,6 +127,7 @@ int ht_set_helper(hash_node_t **head_node, const char *key, const char *value)
 	printf("node: %p\n", (void *) tmp_node);
 
 	head_node = &node;		/* set head to new node */
+	printf("after set head to new node:\n");
 	printf("*head_node: %p\n", (void *) *head_node);
 
 	(*head_node)->next = tmp_node; /* link new node to the old head */
