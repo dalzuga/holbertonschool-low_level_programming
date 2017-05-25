@@ -136,7 +136,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value);
 
 /*
  * sht_set_helper - traverses hash table linked list; updates if key is found,
- * appends a node at the end if key is not found.
+ * appends a node at the beginning if key is not found.
  */
 int sht_set_helper(shash_node_t *tmp_node, const char *key, const char *value);
 
