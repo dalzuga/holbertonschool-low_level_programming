@@ -68,7 +68,7 @@ int shash_table_set(shash_table_t *sht, const char *key, const char *value)
 	/* case 1: there is no node at this index */
 	if (tmp_node == NULL)
 	{
-		node = make_node(key, value);
+		node = make_sht_node(key, value);
 		if (node == NULL)
 		{
 			return (0);
@@ -115,7 +115,7 @@ int sht_set_helper(shash_node_t *tmp_node, const char *key, const char *value)
 	 * We are now at the last node.
 	 */
 
-	node = make_snode(key, value);
+	node = make_sht_node(key, value);
 	if (node == NULL)
 	{
 		return (0);
