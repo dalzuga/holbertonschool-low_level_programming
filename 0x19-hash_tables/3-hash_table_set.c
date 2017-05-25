@@ -45,7 +45,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (1);
 	}
 
-	return (ht_set_helper(tmp_node, key, value));
+	return (ht_set_helper(ht->array + index, key, value));
 }
 
 /**
@@ -58,9 +58,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  *
  * Return: 1 on success, 0 on failure.
  */
-int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
+int ht_set_helper(hash_node_t **head, const char *key, const char *value)
 {
-	hash_node_t *node;
+	hash_node_t *node, *tmp_node;
+
+	tmp_node = *head;
 
 	while (tmp_node != NULL)
 	{
@@ -78,10 +80,7 @@ int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
 		tmp_node = tmp_node->next;
 	}
 
-	/*
-	 * case 3: there were nodes at this index.
-	 * We are now at the last node.
-	 */
+	/* case 3: add new node at the beginning of the linked list */
 
 	node = make_node(key, value);
 	if (node == NULL)
@@ -89,7 +88,9 @@ int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
 		return (0);
 	}
 
-	tmp_node->next = node;
+	node->next = *head;
+	*head = node;
+
 	return (1);
 }
 
