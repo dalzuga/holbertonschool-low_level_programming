@@ -49,7 +49,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	head = ht->array + index;
 	printf("\thash_table_set():\n");
 
+	printf("(ht->array + index):\t%p\n", (void *) head);
 	printf("*(ht->array + index):\t%p\n", (void *) *head);
+	printf("ht->array[index]:\t%p\n", (void *) *head);
+	printf("(ht->array[index])->key:\t%s\n", (*head)->key);
+	printf("&((ht->array[index])->key):\t%p\n", (void *) &((*head)->key));
 
 	r = ht_set_helper(tmp_node, key, value);
 
