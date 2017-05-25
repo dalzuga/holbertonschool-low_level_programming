@@ -77,13 +77,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  *
  * Return: 1 on success, 0 on failure.
  */
-int ht_set_helper(hash_node_t *tmp_node, const char *key, const char *value)
+int ht_set_helper(hash_node_t *head, const char *key, const char *value)
 {
-	hash_node_t *node, *head;
+	hash_node_t *node, *tmp_node;
 
 	printf("----------------ht_set_helper():\n");
 
-	head = tmp_node;
+	tmp_node = head;
 
 	printf("head:\t\t\t%p\n", (void *) head);
 
