@@ -62,8 +62,6 @@ shash_table_t *shash_table_create(unsigned long int size)
 int shash_table_set(shash_table_t *sht, const char *key, const char *value)
 {
 	/* declarations */
-	unsigned long int index;
-	shash_node_t *node, *tmp_node;
 
 	if (invalid_sht(sht) || key == NULL)
 	{
@@ -75,26 +73,66 @@ int shash_table_set(shash_table_t *sht, const char *key, const char *value)
 		return (0);
 	}
 
+	return (sht_set_ordered(sht, key, value));
+}
+
+/**
+ * sht_set_ordered - set a key-value pair in a sorted hash table
+ *
+ * @sht: the sorted hash table
+ * @key: the key string
+ * @value: the value string
+ *
+ * Return: 1 on success, 0 on failure.
+ */
+int sht_set_ordered(shash_table_t *sht, const char *key, const char *value)
+{
+	/* declarations */
+	unsigned long int index = 0;
+	shash_node_t *node = NULL, **ll_head = NULL, **sll_head = NULL;
+
 	/* queries hash function for index and stores it in ~index~ */
 	index = key_index((const unsigned char *) key, sht->size);
 
-	tmp_node = *(sht->array + index);
+	ll_head = sht->array + index;
 
-	/* case 1a: there is no node at this index */
-	if (tmp_node == NULL)
+	/* case 1a: there are no nodes  */
+	while 
+
+	/* case 1b: there is no node at this index */
+	if (*ll_head == NULL)
 	{
-		node = make_sht_node(key, value);
-		if (node == NULL)
-		{
-			return (0);
-		}
-		*(sht->array + index) = node;
-		return (1);
+		return (put_node_index(ll_head, key, value));
 	}
 
-	/* if (sht_ordered_set() == ) */
+	if (sht_set_ordered(sht->shead, sht->stail, key, value) == 0)
+	{
+		return (0);
+	}
 
 	return (sht_set_helper(tmp_node, key, value));
+}
+
+/**
+ * put_node_index - simply places a new node in an empty linked list
+ *
+ * @head: the head of the linked list
+ * @key: the key string
+ * @value: the value string
+ *
+ */
+int put_node_index(shash_node_t **head, const char *key, const char *value)
+{
+	shash_node_t *node = make_sht_node(key, value);
+
+	if (node == NULL)
+	{
+		return (0);
+	}
+
+	*head = node;
+
+	return (1);
 }
 
 /**
@@ -173,6 +211,8 @@ shash_node_t *make_sht_node(const char *key, const char *value)
 		node->value = _strdup(value);
 	}
 	node->next = NULL;
+	node->sprev = NULL;
+	node->snext = NULL;
 
 	return (node);
 }
