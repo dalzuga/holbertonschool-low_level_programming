@@ -2,6 +2,12 @@
 #include "sht_functions.h"
 #include <stdlib.h>
 
+/**
+ * shash_table_create - creates a sorted hash table.
+ * @size: size of table.
+ *
+ * Return: pointer to sorted hash table created, NULL on error.
+ */
 shash_table_t *shash_table_create(unsigned long int size)
 {
 	shash_table_t *sht_ptr;
@@ -44,6 +50,15 @@ shash_table_t *shash_table_create(unsigned long int size)
 	return (sht_ptr);
 }
 
+/**
+ * shash_table_set - set a key-value pair in a sorted hash table
+ *
+ * @sht: the sorted hash table
+ * @key: the key string
+ * @value: the value string
+ *
+ * Return: 1 on success, 0 on failure.
+ */
 int shash_table_set(shash_table_t *sht, const char *key, const char *value)
 {
 	/* declarations */
@@ -65,7 +80,7 @@ int shash_table_set(shash_table_t *sht, const char *key, const char *value)
 
 	tmp_node = *(sht->array + index);
 
-	/* case 1: there is no node at this index */
+	/* case 1a: there is no node at this index */
 	if (tmp_node == NULL)
 	{
 		node = make_sht_node(key, value);
@@ -76,6 +91,8 @@ int shash_table_set(shash_table_t *sht, const char *key, const char *value)
 		*(sht->array + index) = node;
 		return (1);
 	}
+
+	/* if (sht_ordered_set() == ) */
 
 	return (sht_set_helper(tmp_node, key, value));
 }
