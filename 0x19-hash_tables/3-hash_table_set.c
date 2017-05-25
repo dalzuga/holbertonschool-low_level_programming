@@ -54,6 +54,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	printf("ht->array[index]:\t%p\n", (void *) *head);
 	printf("(ht->array[index])->key:\t%s\n", (*head)->key);
 	printf("&((ht->array[index])->key):\t%p\n", (void *) &((*head)->key));
+	printf("((ht->array[index])->value):\t%s\n", ((*head)->value));
+	printf("&((ht->array[index])->value):\t%p\n", (void *) &((*head)->value));
 
 	r = ht_set_helper(tmp_node, key, value);
 
