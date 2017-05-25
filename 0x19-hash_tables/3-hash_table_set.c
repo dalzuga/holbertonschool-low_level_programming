@@ -57,7 +57,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	printf("((ht->array[index])->value):\t\t%s\n", ((*head)->value));
 	printf("&((ht->array[index])->value):\t%p\n", (void *) &((*head)->value));
 
-	r = ht_set_helper(tmp_node, key, value);
+	r = ht_set_helper(head, key, value);
 
 	printf("----------------hash_table_set():\n");
 
@@ -77,13 +77,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  *
  * Return: 1 on success, 0 on failure.
  */
-int ht_set_helper(hash_node_t *head, const char *key, const char *value)
+int ht_set_helper(hash_node_t **head, const char *key, const char *value)
 {
 	hash_node_t *node, *tmp_node;
 
 	printf("----------------ht_set_helper():\n");
 
-	tmp_node = head;
+	tmp_node = *head;
 
 	printf("head:\t\t\t%p\n", (void *) head);
 
@@ -114,8 +114,9 @@ int ht_set_helper(hash_node_t *head, const char *key, const char *value)
 		return (0);
 	}
 
-	node->next = head;
-	head = node;
+	node->next = *head;
+
+	head = &node;
 
 	return (1);
 }
