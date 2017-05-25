@@ -80,9 +80,7 @@ int ht_set_helper(hash_node_t **head, const char *key, const char *value)
 		tmp_node = tmp_node->next;
 	}
 
-	/*
-	 * case 3: there were nodes at this index.
-	 */
+	/* case 3: add new node at the beginning of the linked list */
 
 	node = make_node(key, value);
 	if (node == NULL)
