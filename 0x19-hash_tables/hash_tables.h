@@ -131,25 +131,25 @@ int ht_node_update(hash_node_t *tmp_node, const char *value);
 /* shash_table_create - creates a sorted hash table */
 shash_table_t *shash_table_create(unsigned long int size);
 
-/* shash_table_set - set a key-value pair in a sorted hash table */
-int shash_table_set(shash_table_t *ht, const char *key, const char *value);
+/* /\* shash_table_set - set a key-value pair in a sorted hash table *\/ */
+/* int shash_table_set(shash_table_t *ht, const char *key, const char *value); */
 
-/* shash_table_get - gets a value from the key in a sorted hash table */
-char *shash_table_get(const shash_table_t *ht, const char *key);
+/* /\* shash_table_get - gets a value from the key in a sorted hash table *\/ */
+/* char *shash_table_get(const shash_table_t *ht, const char *key); */
 
-/*
- * shash_table_print - prints a sorted hash table. If the hash table is not
- * valid, it will not print anything.
- */
-void shash_table_print(const shash_table_t *ht);
+/* /\* */
+/*  * shash_table_print - prints a sorted hash table. If the hash table is not */
+/*  * valid, it will not print anything. */
+/*  *\/ */
+/* void shash_table_print(const shash_table_t *ht); */
 
-/*
- * hash_table_print - prints a sorted hash table in reverse order. If the hash
- * table is not valid, it will not print anything.
- */
-void shash_table_print_rev(const shash_table_t *ht);
+/* /\* */
+/*  * hash_table_print - prints a sorted hash table in reverse order. If the hash */
+/*  * table is not valid, it will not print anything. */
+/*  *\/ */
+/* void shash_table_print_rev(const shash_table_t *ht); */
 
-/* shash_table_delete - frees all memory allocated to a sorted hash table. */
-void shash_table_delete(shash_table_t *ht);
+/* /\* shash_table_delete - frees all memory allocated to a sorted hash table. *\/ */
+/* void shash_table_delete(shash_table_t *ht); */
 
 #endif
