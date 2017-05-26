@@ -158,7 +158,7 @@ int sht_set_1b(shash_table_t *sht, const char *key, const char *value)
 }
 
 /**
- * sht_insert_dll - insert a node at the end of the ordered linked list of a
+ * sht_insert_dll - insert a node at the end of the double linked list of a
  * sorted hash table.
  *
  * @sht: the sorted hash table
@@ -168,7 +168,7 @@ int sht_set_1b(shash_table_t *sht, const char *key, const char *value)
  */
 int sht_insert_dll(shash_table_t *sht, shash_node_t *node)
 {
-	shash_node_t tmp_node = sht->stail;
+	shash_node_t *tmp_node = sht->stail;
 
 	/* tail->next points to node */
 	tmp_node->snext = node;
@@ -192,9 +192,32 @@ int sht_insert_dll(shash_table_t *sht, shash_node_t *node)
 int sht_set_2(shash_table_t *sht, const char *key, const char *value)
 {
 	/* declarations */
-	
+	hash_node_t *tmp_node = NULL, node = NULL;
+	unsigned long int index = 0;
 
-	/* case 2: we have a collision; key update or new key */
+	/* queries hash function for index and stores it in ~index~ */
+	index = key_index((const unsigned char *) key, sht->size);
+
+	tmp_node = *(sht->array + index);
+
+	/* case 2: update or append */
+	while (tmp_node->next != NULL)
+	{
+		if (_strcmp(tmp_node->key, key) == 0)
+		{
+			/* case 2a: update */
+			if (update_sht_node(tmp_node, value) == 0)
+			{
+				return (0);
+			}
+			return (sht_push_dllnode(sht, tmp_node));
+		}
+	}
+
+	/* case 2b: append */
+	node = make_sht_node(key, value);
+	tmp_node->next = node;
+	return (sht_insert_dll(sht, node));
 }
 
 /**
@@ -220,5 +243,40 @@ int update_sht_node(shash_node_t *tmp_node, const char *value)
 	{
 		return (0);
 	}
+	return (1);
+}
+
+/**
+ * sht_push_node - move a node at the end of the ordered linked list of a
+ * sorted hash table.
+ *
+ * @sht: the sorted hash table
+ * @node: pointer to the node to push
+ *
+ * Return: 1 on success; this function always succeeds.
+ */
+int sht_carry_node(shash_table_t *sht, shash_node_t *node)
+{
+	/* case 1: we're already at the last node */
+	if (node->snext == NULL)
+	{
+		return (1);
+	}
+
+
+	/* case 2a: there is no node behind, we're not at the last node */
+	if (node->sprev == NULL)
+	{
+		sht->shead = node->snext;
+		node->snext = NULL;
+		node->sprev = sht->stail;
+		sht->stail = node;
+	}
+
+	/* case 2b: there is a node behind, we're not at the last node */
+	(node->sprev)->next = node->snext;
+	node->snext = NULL;
+	sht->stail = node;
+
 	return (1);
 }
