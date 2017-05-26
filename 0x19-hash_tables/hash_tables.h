@@ -128,23 +128,41 @@ int ht_set_helper(hash_node_t **head, const char *key, const char *value);
 /* ht_node_update - updates the value in a node */
 int ht_node_update(hash_node_t *tmp_node, const char *value);
 
+/* invalid_sht - checks if the sorted hash table is valid */
+int invalid_sht(const shash_table_t *sht);
+
+/* make_sht_node - makes a sorted hash table node */
+shash_node_t *make_sht_node(const char *key, const char *value);
+
 /* shash_table_create - creates a sorted hash table */
 shash_table_t *shash_table_create(unsigned long int size);
 
 /* shash_table_set - set a key-value pair in a sorted hash table */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value);
 
-/*
- * sht_set_helper - traverses hash table linked list; updates if key is found,
- * appends a node at the beginning if key is not found.
- */
-int sht_set_helper(shash_node_t *tmp_node, const char *key, const char *value);
+/* sht_set_1a - set a key-value pair in a sorted hash table */
+int sht_set_1a(shash_table_t *sht, const char *key, const char *value);
 
-/* make_sht_node - makes a sorted hash table node */
-shash_node_t *make_sht_node(const char *key, const char *value);
+/* sht_set_1b - set a key-value pair in a sorted hash table */
+int sht_set_1b(shash_table_t *sht, const char *key, const char *value);
+
+/*
+ * sht_insert_dll - insert a node at the end of the double linked list of a
+ * sorted hash table.
+ */
+int sht_insert_dll(shash_table_t *sht, shash_node_t *node);
+
+/* sht_set_2 - set a key-value pair in a sorted hash table */
+int sht_set_2(shash_table_t *sht, const char *key, const char *value);
 
 /* update_sht_node - updates the value in a node */
 int update_sht_node(shash_node_t *tmp_node, const char *value);
+
+/*
+ * sht_push_node - move a node to the end of the double linked list of a
+ * sorted hash table.
+ */
+int sht_push_node(shash_table_t *sht, shash_node_t *node);
 
 /* /\* shash_table_get - gets a value from the key in a sorted hash table *\/ */
 /* char *shash_table_get(const shash_table_t *ht, const char *key); */

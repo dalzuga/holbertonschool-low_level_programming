@@ -245,7 +245,7 @@ int update_sht_node(shash_node_t *tmp_node, const char *value)
 }
 
 /**
- * sht_push_node - move a node at the end of the ordered linked list of a
+ * sht_push_node - move a node to the end of the double linked list of a
  * sorted hash table.
  *
  * @sht: the sorted hash table

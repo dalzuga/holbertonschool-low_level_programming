@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 /**
- * invalid_sht - checks if the sorted hash table is valid.
+ * invalid_sht - checks if the sorted hash table is valid
  *
  * @sht: address of sorted hash table to check.
  *
