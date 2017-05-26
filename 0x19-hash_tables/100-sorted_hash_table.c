@@ -81,7 +81,7 @@ int shash_table_set(shash_table_t *sht, const char *key, const char *value)
 }
 
 /**
- * sht_set_ordered - set a key-value pair in a sorted hash table
+ * sht_set_1a - set a key-value pair in a sorted hash table
  *
  * @sht: the sorted hash table
  * @key: the key string
@@ -100,15 +100,17 @@ int sht_set_1a(shash_table_t *sht, const char *key, const char *value)
 
 	ll_head = sht->array + index;
 
-	/* case 1a: there are no nodes  */
+	/* case 1a: there are no nodes */
 	if ((sht->shead == NULL) && (sht->stail == NULL))
 	{
-		sht->shead = make_sht_node(key, value);
-		if (sht->shead == NULL)
+		*ll_head = make_sht_node(key, value);
+		if (*ll_head == NULL)
 		{
 			return (0);
 		}
-		sht->stail = sht->shead;
+
+		sht->shead = *ll_head;
+		sht->stail = *ll_head;
 	}
 
 	/* case 1b: there is no node at this index */
