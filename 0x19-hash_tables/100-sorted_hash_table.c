@@ -77,7 +77,7 @@ int shash_table_set(shash_table_t *sht, const char *key, const char *value)
 		return (0);
 	}
 
-	return (sht_set_ordered(sht, key, value));
+	return (sht_set_1a(sht, key, value));
 }
 
 /**
@@ -93,7 +93,7 @@ int sht_set_1a(shash_table_t *sht, const char *key, const char *value)
 {
 	/* declarations */
 	unsigned long int index = 0;
-	shash_node_t *node = NULL, **ll_head = NULL, **sll_head = NULL;
+	shash_node_t *node = NULL, **ll_head = NULL;
 
 	/* queries hash function for index and stores it in ~index~ */
 	index = key_index((const unsigned char *) key, sht->size);
@@ -109,89 +109,92 @@ int sht_set_1a(shash_table_t *sht, const char *key, const char *value)
 			return (0);
 		}
 
+		/* create sorted double linked list */
 		sht->shead = *ll_head;
 		sht->stail = *ll_head;
 	}
 
-	/* case 1b: there is no node at this index */
-	if (*ll_head == NULL)
-	{
-		return (put_node_index(ll_head, key, value));
-	}
-
-	if (sht_set_ordered(sht->shead, sht->stail, key, value) == 0)
-	{
-		return (0);
-	}
-
-	return (sht_set_helper(tmp_node, key, value));
+	return (sht_set_1b(sht, key, value));
 }
 
 /**
- * put_node_index - simply places a new node in an empty linked list
+ * sht_set_1b - set a key-value pair in a sorted hash table
  *
- * @head: the head of the linked list
+ * @sht: the sorted hash table
  * @key: the key string
  * @value: the value string
  *
+ * Return: 1 on success, 0 on failure.
  */
-int put_node_index(shash_node_t **head, const char *key, const char *value)
+int sht_set_1b(shash_table_t *sht, const char *key, const char *value)
 {
-	shash_node_t *node = make_sht_node(key, value);
+	/* declarations */
+	unsigned long int index = 0;
+	shash_node_t *node = NULL, **ll_head = NULL;
 
-	if (node == NULL)
+	/* queries hash function for index and stores it in ~index~ */
+	index = key_index((const unsigned char *) key, sht->size);
+
+	ll_head = sht->array + index;
+
+	/*
+	 * case 1b: there are nodes in the hash table, but there is no node at
+	 * this index
+	 */
+	if (*ll_head == NULL)
 	{
-		return (0);
+		node = make_sht_node(key, value);
+		if (node == NULL)
+		{
+			return (0);
+		}
+
+		*ll_head = node;
+
+		return (sht_insert_dll(sht, node));
 	}
 
-	*head = node;
+	return (sht_set_2(sht, key, value));
+}
+
+/**
+ * sht_insert_dll - insert a node at the end of the ordered linked list of a
+ * sorted hash table.
+ *
+ * @sht: the sorted hash table
+ * @node: pointer to the node to insert
+ *
+ * Return: 1 on success; this function always succeeds.
+ */
+int sht_insert_dll(shash_table_t *sht, shash_node_t *node)
+{
+	shash_node_t tmp_node = sht->stail;
+
+	/* tail->next points to node */
+	tmp_node->snext = node;
+	/* node->sprev points to tail */
+	node->sprev = tmp_node;
+	/* move tail forward */
+	sht->stail = node;
 
 	return (1);
 }
 
 /**
- * sht_set_helper - traverses hash table linked list; updates if key is found,
- * appends a node at the end if key is not found.
+ * sht_set_2 - set a key-value pair in a sorted hash table
  *
- * @tmp_node: pointer to first node of the linked list.
- * @key: key string to insert.
- * @value: value string to insert.
+ * @sht: the sorted hash table
+ * @key: the key string
+ * @value: the value string
  *
  * Return: 1 on success, 0 on failure.
  */
-int sht_set_helper(shash_node_t *tmp_node, const char *key, const char *value)
+int sht_set_2(shash_table_t *sht, const char *key, const char *value)
 {
-	shash_node_t *node;
+	/* declarations */
+	
 
-	while (tmp_node != NULL)
-	{
-		/* case 2: simple update */
-		if (_strcmp(key, tmp_node->key) == 0)
-		{
-			return (update_sht_node(tmp_node, value));
-		}
-
-		if (tmp_node->next == NULL)
-		{
-			break;
-		}
-
-		tmp_node = tmp_node->next;
-	}
-
-	/*
-	 * case 3: there were nodes at this index.
-	 * We are now at the last node.
-	 */
-
-	node = make_sht_node(key, value);
-	if (node == NULL)
-	{
-		return (0);
-	}
-
-	tmp_node->next = node;
-	return (1);
+	/* case 2: we have a collision; key update or new key */
 }
 
 /**

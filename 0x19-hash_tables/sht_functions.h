@@ -13,9 +13,25 @@
  */
 int invalid_sht(const shash_table_t *sht)
 {
-	if (sht == NULL || sht->size < 1 || sht->array == NULL)
+	if ((sht == NULL || sht->size < 1) || sht->array == NULL)
 	{
 		return (1);
+	}
+
+	if (sht->shead == NULL)
+	{
+		if (sht->stail != NULL)
+		{
+			return (1);
+		}
+	}
+
+	if (sht->stail == NULL)
+	{
+		if (sht->shead != NULL)
+		{
+			return (1);
+		}
 	}
 
 	return (0);
