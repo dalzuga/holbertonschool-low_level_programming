@@ -89,7 +89,7 @@ int shash_table_set(shash_table_t *sht, const char *key, const char *value)
  *
  * Return: 1 on success, 0 on failure.
  */
-int sht_set_ordered(shash_table_t *sht, const char *key, const char *value)
+int sht_set_1a(shash_table_t *sht, const char *key, const char *value)
 {
 	/* declarations */
 	unsigned long int index = 0;
@@ -101,7 +101,15 @@ int sht_set_ordered(shash_table_t *sht, const char *key, const char *value)
 	ll_head = sht->array + index;
 
 	/* case 1a: there are no nodes  */
-	while 
+	if ((sht->shead == NULL) && (sht->stail == NULL))
+	{
+		sht->shead = make_sht_node(key, value);
+		if (sht->shead == NULL)
+		{
+			return (0);
+		}
+		sht->stail = sht->shead;
+	}
 
 	/* case 1b: there is no node at this index */
 	if (*ll_head == NULL)
@@ -182,43 +190,6 @@ int sht_set_helper(shash_node_t *tmp_node, const char *key, const char *value)
 
 	tmp_node->next = node;
 	return (1);
-}
-
-/**
- * make_sht_node - makes a sorted hash table node
- *
- * @key: key string to put in node
- * @value: value string to put in node
- *
- * Return: the address of the node.
- */
-shash_node_t *make_sht_node(const char *key, const char *value)
-{
-	/* declarations */
-	shash_node_t *node;
-
-	/* allocs */
-	node = malloc(sizeof(shash_node_t));
-	if (node == NULL)
-	{
-		return (NULL);
-	}
-
-	/* inits */
-	node->key = _strdup(key);
-	if (value == NULL)
-	{
-		node->value = NULL;
-	}
-	else
-	{
-		node->value = _strdup(value);
-	}
-	node->next = NULL;
-	node->sprev = NULL;
-	node->snext = NULL;
-
-	return (node);
 }
 
 /**

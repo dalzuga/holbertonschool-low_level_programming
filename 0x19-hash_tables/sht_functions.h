@@ -22,6 +22,43 @@ int invalid_sht(const shash_table_t *sht)
 }
 
 /**
+ * make_sht_node - makes a sorted hash table node
+ *
+ * @key: key string to put in node
+ * @value: value string to put in node
+ *
+ * Return: the address of the node.
+ */
+shash_node_t *make_sht_node(const char *key, const char *value)
+{
+	/* declarations */
+	shash_node_t *node;
+
+	/* allocs */
+	node = malloc(sizeof(shash_node_t));
+	if (node == NULL)
+	{
+		return (NULL);
+	}
+
+	/* inits */
+	node->key = _strdup(key);
+	if (value == NULL)
+	{
+		node->value = NULL;
+	}
+	else
+	{
+		node->value = _strdup(value);
+	}
+	node->next = NULL;
+	node->sprev = NULL;
+	node->snext = NULL;
+
+	return (node);
+}
+
+/**
  * _strlen - gets the length of a string.
  *
  * @s: input string.
