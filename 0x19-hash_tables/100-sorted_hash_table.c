@@ -28,9 +28,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 
 	/* inits */
 	sht_ptr->size = 0;
-	sht_ptr->array = NULL;
-	sht_ptr->shead = NULL;
-	sht_ptr->stail = NULL;
+	sht_ptr->array = sht_ptr->shead = sht_ptr->stail = NULL;
 
 	/* allocate nodes */
 	sht_ptr->array = malloc(sizeof(shash_node_t *) * size);
@@ -255,7 +253,7 @@ int update_sht_node(shash_node_t *tmp_node, const char *value)
  *
  * Return: 1 on success; this function always succeeds.
  */
-int sht_carry_node(shash_table_t *sht, shash_node_t *node)
+int sht_push_node(shash_table_t *sht, shash_node_t *node)
 {
 	/* case 1: we're already at the last node */
 	if (node->snext == NULL)
