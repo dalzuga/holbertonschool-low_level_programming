@@ -167,11 +167,11 @@ int sht_push_dllnode(shash_table_t *sht, shash_node_t *node);
 /* /\* shash_table_get - gets a value from the key in a sorted hash table *\/ */
 /* char *shash_table_get(const shash_table_t *ht, const char *key); */
 
-/* /\* */
-/*  * shash_table_print - prints a sorted hash table. If the hash table is not */
-/*  * valid, it will not print anything. */
-/*  *\/ */
-/* void shash_table_print(const shash_table_t *ht); */
+/*
+ * shash_table_print - prints a sorted hash table. If the hash table is not
+ * valid, it will not print anything.
+ */
+void shash_table_print(const shash_table_t *ht);
 
 /* /\* */
 /*  * hash_table_print - prints a sorted hash table in reverse order. If the hash */

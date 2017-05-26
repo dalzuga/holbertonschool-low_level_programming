@@ -279,3 +279,26 @@ int sht_push_dllnode(shash_table_t *sht, shash_node_t *node)
 
 	return (1);
 }
+
+/**
+ * shash_table_print - prints a sorted hash table. If the hash table is not
+ * valid, it will not print anything.
+ *
+ * @ht: the sorted hash table to print
+ */
+void shash_table_print(const shash_table_t *ht)
+{
+	/* declarations */
+	shash_node_t *tmp_node;
+
+	tmp_node = ht->shead;
+
+	printf("{");
+	while (tmp_node != NULL)
+	{
+		printf("\'%s\' : \'%s\'", tmp_node->key, tmp_node->value);
+		tmp_node = tmp_node->snext;
+	}
+
+	printf("}\n");
+}
