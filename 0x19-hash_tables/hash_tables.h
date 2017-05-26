@@ -159,10 +159,10 @@ int sht_set_2(shash_table_t *sht, const char *key, const char *value);
 int update_sht_node(shash_node_t *tmp_node, const char *value);
 
 /*
- * sht_push_node - move a node to the end of the double linked list of a
+ * sht_push_dllnode - move a node to the end of the double linked list of a
  * sorted hash table.
  */
-int sht_push_node(shash_table_t *sht, shash_node_t *node);
+int sht_push_dllnode(shash_table_t *sht, shash_node_t *node);
 
 /* /\* shash_table_get - gets a value from the key in a sorted hash table *\/ */
 /* char *shash_table_get(const shash_table_t *ht, const char *key); */
