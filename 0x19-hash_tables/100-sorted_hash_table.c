@@ -19,16 +19,20 @@ shash_table_t *shash_table_create(unsigned long int size)
 		return (NULL);
 	}
 
+	/* allocate shash table */
 	sht_ptr = malloc(sizeof(shash_table_t));
 	if (sht_ptr == NULL)
 	{
 		return (NULL);
 	}
+
+	/* inits */
 	sht_ptr->size = 0;
 	sht_ptr->array = NULL;
 	sht_ptr->shead = NULL;
 	sht_ptr->stail = NULL;
 
+	/* allocate nodes */
 	sht_ptr->array = malloc(sizeof(shash_node_t *) * size);
 	if (sht_ptr->array == NULL)
 	{
