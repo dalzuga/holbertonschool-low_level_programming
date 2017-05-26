@@ -111,6 +111,8 @@ int sht_set_1a(shash_table_t *sht, const char *key, const char *value)
 		/* create sorted double linked list */
 		sht->shead = *ll_head;
 		sht->stail = *ll_head;
+
+		return (1);
 	}
 
 	return (sht_set_1b(sht, key, value));
@@ -298,6 +300,10 @@ void shash_table_print(const shash_table_t *ht)
 	{
 		printf("\'%s\' : \'%s\'", tmp_node->key, tmp_node->value);
 		tmp_node = tmp_node->snext;
+		if (tmp_node != NULL)
+		{
+			printf(",");
+		}
 	}
 
 	printf("}\n");
