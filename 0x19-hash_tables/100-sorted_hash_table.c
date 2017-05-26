@@ -302,7 +302,7 @@ void shash_table_print(const shash_table_t *ht)
 		tmp_node = tmp_node->snext;
 		if (tmp_node != NULL)
 		{
-			printf(",");
+			printf(", ");
 		}
 	}
 
