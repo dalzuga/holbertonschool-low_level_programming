@@ -173,6 +173,12 @@ int sht_push_dllnode(shash_table_t *sht, shash_node_t *node);
  */
 void shash_table_print(const shash_table_t *ht);
 
+/*
+ * shash_table_print_rev - prints a sorted hash table in reverse order. If the
+ * hash table is not valid, it will not print anything.
+ */
+void shash_table_print_rev(const shash_table_t *ht);
+
 /* /\* */
 /*  * hash_table_print - prints a sorted hash table in reverse order. If the hash */
 /*  * table is not valid, it will not print anything. */
