@@ -52,7 +52,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  * ht_set_helper - traverses hash table linked list; updates if key is found,
  * appends a node at the end if key is not found.
  *
- * @tmp_node: pointer to first node of the linked list.
+ * @head: pointer to first node of the linked list.
  * @key: key string to insert.
  * @value: value string to insert.
  *
@@ -116,6 +116,11 @@ hash_node_t *make_node(const char *key, const char *value)
 
 	/* inits */
 	node->key = _strdup(key);
+	if (key == NULL)
+	{
+		return (NULL);
+	}
+
 	if (value == NULL)
 	{
 		node->value = NULL;
@@ -123,6 +128,11 @@ hash_node_t *make_node(const char *key, const char *value)
 	else
 	{
 		node->value = _strdup(value);
+		if (key == NULL)
+		{
+			return (NULL);
+		}
+
 	}
 	node->next = NULL;
 
