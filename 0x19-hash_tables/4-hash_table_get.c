@@ -19,7 +19,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	}
 
 	/* initializations */
-	tmp_node = (NULL);
+	tmp_node = NULL;
 	index = 0;
 
 	/* retrieve location */
