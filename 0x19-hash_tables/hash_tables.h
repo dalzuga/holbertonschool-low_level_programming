@@ -182,4 +182,7 @@ void shash_table_print_rev(const shash_table_t *ht);
 /* /\* shash_table_delete - frees all memory allocated to a sorted hash table. *\/ */
 /* void shash_table_delete(shash_table_t *ht); */
 
+/* shash_table_delete - frees all memory allocated to a sorted hash table. */
+void shash_table_delete(shash_table_t *ht);
+
 #endif
