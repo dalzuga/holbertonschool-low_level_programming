@@ -345,3 +345,23 @@ void shash_table_print_rev(const shash_table_t *ht)
 
 	printf("}\n");
 }
+
+/**
+ * shash_table_delete - frees all memory allocated to a sorted hash table.
+ *
+ * @ht: the sorted hash table to delete
+ */
+void shash_table_delete(shash_table_t *ht)
+{
+	shash_node_t *ptr1 = NULL, *ptr2 = NULL;
+
+	ptr1 = (ht->shead);
+
+	while (ptr1 != NULL)
+	{
+		ptr2 = ptr1;
+		ptr1 = ptr1->snext;
+		/* free previous node */
+		free(ptr2);
+	}
+}
