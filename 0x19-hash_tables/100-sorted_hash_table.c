@@ -362,6 +362,9 @@ void shash_table_delete(shash_table_t *ht)
 		ptr2 = ptr1;
 		ptr1 = ptr1->snext;
 		/* free previous node */
+		free(ptr2->key);
+		free(ptr2->value);
 		free(ptr2);
 	}
+
 }
