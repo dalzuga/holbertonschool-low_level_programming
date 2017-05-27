@@ -293,6 +293,11 @@ void shash_table_print(const shash_table_t *ht)
 	/* declarations */
 	shash_node_t *tmp_node;
 
+	if (invalid_sht(ht))
+	{
+		return;
+	}
+
 	tmp_node = ht->shead;
 
 	printf("{");
