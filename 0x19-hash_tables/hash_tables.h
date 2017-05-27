@@ -164,7 +164,10 @@ int update_sht_node(shash_node_t *tmp_node, const char *value);
  */
 int sht_push_dllnode(shash_table_t *sht, shash_node_t *node);
 
-/* /\* shash_table_get - gets a value from the key in a sorted hash table *\/ */
+/* /\* */
+/*  * shash_table_get - gets a value from the key in a */
+/*  * sorted hash table */
+/*  *\/ */
 /* char *shash_table_get(const shash_table_t *ht, const char *key); */
 
 /*
