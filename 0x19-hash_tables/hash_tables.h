@@ -188,4 +188,10 @@ void shash_table_print_rev(const shash_table_t *ht);
 /*  *\/ */
 /* void shash_table_delete(shash_table_t *ht); */
 
+/* sht_memset - zeroes out a sorted hash table's array. */
+shash_table_t *sht_memset(shash_table_t *sht_ptr);
+
+/* shash_table_delete - frees all memory allocated to a sorted hash table. */
+void shash_table_delete(shash_table_t *ht);
+
 #endif

@@ -11,7 +11,6 @@
 shash_table_t *shash_table_create(unsigned long int size)
 {
 	shash_table_t *sht_ptr;
-	unsigned long int i;
 
 	/* check for valid size */
 	if (size < 1)
@@ -40,8 +39,23 @@ shash_table_t *shash_table_create(unsigned long int size)
 	}
 	sht_ptr->size = size;
 
+	sht_memset(sht_ptr);
+
+	return (sht_ptr);
+}
+
+/**
+ * sht_memset - zeroes out a sorted hash table's array.
+ * @sht_ptr: pointer to sorted hash table.
+ *
+ * Return: pointer to sorted hash table created, NULL on error.
+ */
+shash_table_t *sht_memset(shash_table_t *sht_ptr)
+{
+	unsigned long int i;
+
 	/* zero out the array */
-	for (i = 0; i < size; i++)
+	for (i = 0; i < sht_ptr->size; i++)
 	{
 		*(sht_ptr->array) = NULL;
 		(sht_ptr->array)++;
