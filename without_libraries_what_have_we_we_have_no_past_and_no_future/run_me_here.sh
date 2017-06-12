@@ -1,3 +1,2 @@
 #!/bin/bash
-
-./FindTheLibraryFiles/findthelibraryfiles .. results/
+./FindTheLibraryFiles/findthelibraryfiles .. results
