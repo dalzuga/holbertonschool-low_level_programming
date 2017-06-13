@@ -1,4 +1,4 @@
-#include "my_functions.h"
+#include "holbertonschool.h"
 
 void positive_or_not(int n)
 {
