@@ -19,7 +19,8 @@ $(LIBRARY): $(OBJECTS)
 
 $(OBJECTS): $(SOURCES)
 
+re: $(OJBECTS)
+
+.PHONY: clean
 clean:
 	rm $(OBJECTS) $(LIBRARY)
-
-re: $(OJBECTS)
