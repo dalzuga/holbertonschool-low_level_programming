@@ -9,7 +9,7 @@ LIBRARY=libholberton.a
 all: $(SOURCES) $(LIBRARY)
 
 $(LIBRARY): $(OBJECTS)
-	ar rc libholberton.a $(OBJECTS)
+	ar rc libholbertonschool.a $(OBJECTS)
 
 $(OBJECTS): $(SOURCES)
 
