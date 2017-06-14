@@ -1,5 +1,5 @@
-int print_char(char c);
-int count_digits(int n);
+#include "holbertonschool.h"
+
 void print_number(int n)
 {
   int aux1, i, count, x;	/* declaring variables */
@@ -34,22 +34,4 @@ int count_digits(int n)
       x=x*10;
     }
   return i;
-}
-
-
-void print_array(int *a, int n)
-{
-  int i; 			/* declare i */
-
-  print_number(*a);		/* print first number */
-
-  for (i = 1; i < n; i++) 	/* start i at 1 because we printed the first # already */
-    {
-      a++;			/* add first because we printed the first # already */
-      print_char(','); 		/* add a comma */
-      print_char(' ');		/* add a space */
-      print_number(*a);		/* print the number */
-    }
-
-  print_char('\n');
 }

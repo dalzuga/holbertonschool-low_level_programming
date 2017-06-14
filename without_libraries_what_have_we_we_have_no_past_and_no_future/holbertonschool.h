@@ -1,5 +1,8 @@
+int print_char(char c);
+
 void positive_or_not(int n);
 void print_number(int n);
+int count_digits(int n);
 int absolute(int);
 char uppercase(char);
 char lowercase(char);
