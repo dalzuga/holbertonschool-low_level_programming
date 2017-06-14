@@ -18,6 +18,7 @@ $(LIBRARY): $(OBJECTS)
 	ar rc $(LIBRARY) $(OBJECTS)
 
 $(OBJECTS): $(SOURCES)
+	$(CC) -c $(CFLAGS) $< -o $@
 
 re: $(OJBECTS)
 
