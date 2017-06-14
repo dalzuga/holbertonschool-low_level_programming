@@ -23,4 +23,4 @@ re: $(OJBECTS)
 
 .PHONY: clean
 clean:
-	rm $(OBJECTS) $(LIBRARY)
+	-rm $(OBJECTS) $(LIBRARY)
