@@ -20,8 +20,9 @@ $(LIBRARY): $(OBJECTS)
 $(OBJECTS): $(SOURCES)
 	$(CC) -c $(CFLAGS) $< -o $@
 
-re: $(OJBECTS)
-
 .PHONY: clean
+re:
+	make clean
+	make
 clean:
 	-rm $(OBJECTS) $(LIBRARY)
