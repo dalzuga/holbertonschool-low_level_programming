@@ -4,16 +4,16 @@ FILES=0-absolute.c 0-contact_strings.c 0-first_digit.c 0-lowercase.c 0-uppercase
 SRCDIR = src
 SOURCES = $(addprefix $(SRCDIR)/, $(FILES))
 OBJECTS = $(SOURCES:.c=.o)
-LIBRARY=libholberton.a
+LIBRARY=libholbertonschool.a
 
 all: $(SOURCES) $(LIBRARY)
 
 $(LIBRARY): $(OBJECTS)
-	ar rc libholbertonschool.a $(OBJECTS)
+	ar rc $(LIBRARY) $(OBJECTS)
 
 $(OBJECTS): $(SOURCES)
 
 clean:
-	rm $(OBJECTS)
+	rm $(OBJECTS) $(LIBRARY)
 
 re: $(OJBECTS)
