@@ -1,4 +1,4 @@
-#include "holbertonschool.h"
+#include "../inc/holbertonschool.h"
 
 void positive_or_not(int n)
 {

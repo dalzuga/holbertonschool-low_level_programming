@@ -1,4 +1,4 @@
-#include "holbertonschool.h"
+#include "../inc/holbertonschool.h"
 
 void print_number(int n)
 {
